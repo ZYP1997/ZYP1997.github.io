@@ -37,9 +37,16 @@
     <link href="https://zypsola.com/2018/05/03/CSharpDay1/"/>
     <id>https://zypsola.com/2018/05/03/CSharpDay1/</id>
     <published>2018-05-03T14:57:06.000Z</published>
-    <updated>2018-05-03T15:20:30.398Z</updated>
+    <updated>2018-05-03T15:56:58.481Z</updated>
+    
+    <content type="html"><![CDATA[<p>从用<strong>WPF</strong>做界面开始，到现在用<strong>Unity</strong>做游戏，使用<strong>C#</strong>已经有好一段时间了，但一直没有系统地学习C#。<br>是时候学习一下了，这里我使用的是<strong>《C#图解教程》</strong>。</p><h1 id="第一章-C-和-NET框架"><a href="#第一章-C-和-NET框架" class="headerlink" title="第一章 C#和.NET框架"></a>第一章 C#和.NET框架</h1><p><strong>C#</strong>是为在微软的<strong>.NET Framework</strong>上开发程序设计的。</p><p>.NET框架由三部分组成</p><ol><li><p>执行环境称为<strong>CLR</strong>(Common Language Runtime, 公共语言运行库)<br>CLR在运行时管理程序的执行，包括：<br>内存管理和垃圾收集<br>代码安全验证<br>代码执行、线程管理及异常处理</p></li><li><p><strong>编程工具</strong>涵盖了编码和调试需要的一切，包括：<br>Visual Studio集成开发环境(IDE)<br>.NET兼容的编译器<br>调试器<br>网站开发服务器端技术，如ASP.NET或WCF</p></li><li><p><strong>BCL</strong>(Base Class Library,基类库)是.NET框架使用的一个大的类库，而且可以在自己的程序中使用</p></li></ol>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;p&gt;从用&lt;strong&gt;WPF&lt;/strong&gt;做界面开始，到现在用&lt;strong&gt;Unity&lt;/strong&gt;做游戏，使用&lt;strong&gt;C#&lt;/strong&gt;已经有好一段时间了，但一直没有系统地学习C#。&lt;br&gt;是时候学习一下了，这里我使用的是&lt;strong&gt;《C#图解教程
+      
     
     </summary>
     
