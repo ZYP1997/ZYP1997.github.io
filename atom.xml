@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zypsola.com/"/>
-  <updated>2018-05-04T17:44:33.006Z</updated>
+  <updated>2018-05-25T11:39:19.464Z</updated>
   <id>https://zypsola.com/</id>
   
   <author>
@@ -17,13 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MyNovel1</title>
+    <title>Blender</title>
+    <link href="https://zypsola.com/2018/05/25/Blender/"/>
+    <id>https://zypsola.com/2018/05/25/Blender/</id>
+    <published>2018-05-25T11:39:19.000Z</published>
+    <updated>2018-05-25T11:39:19.464Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Z720（一）</title>
     <link href="https://zypsola.com/2018/05/05/MyNovel1/"/>
     <id>https://zypsola.com/2018/05/05/MyNovel1/</id>
     <published>2018-05-04T17:43:32.000Z</published>
-    <updated>2018-05-04T17:44:33.006Z</updated>
+    <updated>2018-05-05T05:17:24.907Z</updated>
+    
+    <content type="html"><![CDATA[<p>Z720是一台垃圾回收机器人，但请不要误会，它的工作并不是在脏乱的城市街道之中到处回收生活垃圾，而是回收哪些</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;p&gt;Z720是一台垃圾回收机器人，但请不要误会，它的工作并不是在脏乱的城市街道之中到处回收生活垃圾，而是回收哪些&lt;/p&gt;
+
+      
     
     </summary>
     
