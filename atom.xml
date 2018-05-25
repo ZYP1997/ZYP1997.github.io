@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zypsola.com/"/>
-  <updated>2018-05-25T11:39:19.464Z</updated>
+  <updated>2018-05-25T15:46:39.497Z</updated>
   <id>https://zypsola.com/</id>
   
   <author>
@@ -17,16 +17,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Blender</title>
+    <title>Blender(一)</title>
     <link href="https://zypsola.com/2018/05/25/Blender/"/>
     <id>https://zypsola.com/2018/05/25/Blender/</id>
     <published>2018-05-25T11:39:19.000Z</published>
-    <updated>2018-05-25T11:39:19.464Z</updated>
+    <updated>2018-05-25T15:46:39.497Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>开启建模大业！Blender的学习！</strong></p><h2 id="必须熟悉的Blender基础操作"><a href="#必须熟悉的Blender基础操作" class="headerlink" title="必须熟悉的Blender基础操作"></a>必须熟悉的Blender基础操作</h2><h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ol><li>右键：选择</li><li>A键：全选或取消选择</li><li>B键+左键：矩形选择</li><li>C键+左键：笔刷选择</li><li>C键+中键：笔刷取选</li><li>滚轮调节笔刷大小</li><li>Ctrl+左键：套索选择</li><li>Ctrl+shift+左键：套索取选</li><li>alt+右键：选择边循环</li><li>Ctrl+alt+右键：环边选择</li><li>Ctrl+tab：切换点/线/面选择模式</li><li>Ctrl+小键盘+/-：放大收缩选择范围</li><li>L键：选择鼠标所在元素的有关联元素</li></ol><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ol start="14"><li>中键：旋转视图</li><li>shift+中键：移动视图</li><li>ctrl+中键 / 滚轮：缩放视图</li><li>小键盘0：进入/退出摄像机视图</li><li>小键盘5：切换透视/正交视图</li><li>小键盘1/3/7：切换前/右/顶视图</li><li>ctrl+小键盘1/3/7：反向对应视图</li><li>Home：全窗口显示所有物体</li><li>小键盘.：全窗口显示所选物体</li><li>左键：移动3D游标</li><li>shift+C键：重置视图</li><li>小键盘/：所选物体满框并隔离未选择物体</li><li>Z键：线框/实体切换</li><li>alt+Z键：贴图/实体切换</li><li>Shift+Z键：渲染预览/实体切换</li></ol><h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3><ol start="29"><li>ctrl+R键：增加循环线;滚轮确定更多细分;右键确定循环线在切分中心</li><li>K键：使用切割工具,Enter完成切割</li><li>I键：插入工具</li><li>E键：挤出工具</li><li>ctrl+B键：倒角工具;滚轮确定更多细分</li><li>G键+G键：在边上滑动</li><li>V键：撕开选择边</li></ol><h3 id="物体"><a href="#物体" class="headerlink" title="物体"></a>物体</h3><ol start="36"><li>shift+A键：添加物体</li><li>G键：移动物体</li><li>S键：缩放</li><li>R键：旋转</li><li>XYZ键：固定在某个方向上操作</li><li>空格键：搜索菜单</li><li>Ctrl+shift+alt+C键：设置物体源心</li><li>shift+S键：吸附</li><li>shift+D键：复制</li><li>alt+D键：关联复制</li><li>P键：将选择的元素独立成新物体</li><li>Ctrl+J键：加入到目标物体</li></ol><h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><ol start="48"><li>alt+A键：播放/暂停</li><li>shift+alt+A键：倒放的播放/暂停</li><li>左右箭头：前后帧</li><li>shift+上下箭头：前后10帧</li><li>shift+左右箭头：到开始/结束位置</li></ol>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;&lt;strong&gt;开启建模大业！Blender的学习！&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;必须熟悉的Blender基础操作&quot;&gt;&lt;a href=&quot;#必须熟悉的Blender基础操作&quot; class=&quot;headerlink&quot; title=&quot;必须熟悉的Blender基础操作&quot;
+      
+    
     </summary>
     
+    
+      <category term="Others" scheme="https://zypsola.com/tags/Others/"/>
     
   </entry>
   
