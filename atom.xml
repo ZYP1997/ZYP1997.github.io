@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zypsola.com/"/>
-  <updated>2018-07-11T12:11:22.177Z</updated>
+  <updated>2018-07-11T12:13:00.259Z</updated>
   <id>https://zypsola.com/</id>
   
   <author>
@@ -21,12 +21,14 @@
     <link href="https://zypsola.com/2018/07/11/C-Lesson2/"/>
     <id>https://zypsola.com/2018/07/11/C-Lesson2/</id>
     <published>2018-07-11T12:11:22.000Z</published>
-    <updated>2018-07-11T12:11:22.177Z</updated>
+    <updated>2018-07-11T12:13:00.259Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="C#" scheme="https://zypsola.com/tags/C/"/>
     
   </entry>
   
@@ -101,8 +103,8 @@
   
   <entry>
     <title>C# Lesson1</title>
-    <link href="https://zypsola.com/2018/05/03/CSharp1/"/>
-    <id>https://zypsola.com/2018/05/03/CSharp1/</id>
+    <link href="https://zypsola.com/2018/05/03/C-Lesson1/"/>
+    <id>https://zypsola.com/2018/05/03/C-Lesson1/</id>
     <published>2018-05-03T14:57:06.000Z</published>
     <updated>2018-05-04T14:47:49.000Z</updated>
     
