@@ -21,7 +21,7 @@
 <meta property="og:description" content="第二章 C#编程概述1.一个简单的C#程序">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p87c5zr6b.bkt.clouddn.com/pic2-1.png">
-<meta property="og:updated_time" content="2018-07-11T14:38:21.290Z">
+<meta property="og:updated_time" content="2018-07-11T15:03:16.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C# Lesson2">
 <meta name="twitter:description" content="第二章 C#编程概述1.一个简单的C#程序">
@@ -106,7 +106,13 @@
 <li><strong>块</strong>一个由成对大括号包围的0条或多条语句序列，它在语法上相当于一条语句。</li>
 </ol>
 <h2 id="7-从程序中输出文本"><a href="#7-从程序中输出文本" class="headerlink" title="7.从程序中输出文本"></a>7.从程序中输出文本</h2><h3 id="7-1-Write"><a href="#7-1-Write" class="headerlink" title="7.1 Write"></a>7.1 Write</h3><p>Write是Console类的成员，它把一个文本字符串发送到程序的控制台窗口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Console.Write(&quot;This is trivial text&quot;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="7-2-WriteLine"><a href="#7-2-WriteLine" class="headerlink" title="7.2 WriteLine"></a>7.2 WriteLine</h3>
+<h3 id="7-2-WriteLine"><a href="#7-2-WriteLine" class="headerlink" title="7.2 WriteLine"></a>7.2 WriteLine</h3><p>WriteLine是Console的另一个成员，与Write功能相同，但会在结尾添加一个换行符</p>
+<h3 id="7-3-格式字符串"><a href="#7-3-格式字符串" class="headerlink" title="7.3 格式字符串"></a>7.3 格式字符串</h3><ol>
+<li>Write语句和WriteLine语句的常规形式中可以有一个以上的参数，参数间用逗号分隔</li>
+<li>第一个参数必须总为字符串，称为<strong>格式字符串</strong>，格式字符串可以包含替代标记</li>
+<li>跟着格式字符串的参数称为<strong>替换值</strong>，替换值从0开始编号<br> Console.WriteLine(“Two sample intergers are {0} and {1}.”,3,6);</li>
+</ol>
+<h3 id="7-4-多重标记和值"><a href="#7-4-多重标记和值" class="headerlink" title="7.4 多重标记和值"></a>7.4 多重标记和值</h3>
     
   </div>
   <footer>
