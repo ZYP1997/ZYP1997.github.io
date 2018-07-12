@@ -21,7 +21,7 @@
 <meta property="og:description" content="第二章 C#编程概述1.一个简单的C#程序">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p87c5zr6b.bkt.clouddn.com/pic2-1.png">
-<meta property="og:updated_time" content="2018-07-11T15:03:16.762Z">
+<meta property="og:updated_time" content="2018-07-12T07:46:10.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C# Lesson2">
 <meta name="twitter:description" content="第二章 C#编程概述1.一个简单的C#程序">
@@ -110,9 +110,24 @@
 <h3 id="7-3-格式字符串"><a href="#7-3-格式字符串" class="headerlink" title="7.3 格式字符串"></a>7.3 格式字符串</h3><ol>
 <li>Write语句和WriteLine语句的常规形式中可以有一个以上的参数，参数间用逗号分隔</li>
 <li>第一个参数必须总为字符串，称为<strong>格式字符串</strong>，格式字符串可以包含替代标记</li>
-<li>跟着格式字符串的参数称为<strong>替换值</strong>，替换值从0开始编号<br> Console.WriteLine(“Two sample intergers are {0} and {1}.”,3,6);</li>
+<li><p>跟着格式字符串的参数称为<strong>替换值</strong>，替换值从0开始编号</p>
+<p> Console.WriteLine(“Two sample intergers are {0} and {1}.”, 3, 6};</p>
+</li>
 </ol>
-<h3 id="7-4-多重标记和值"><a href="#7-4-多重标记和值" class="headerlink" title="7.4 多重标记和值"></a>7.4 多重标记和值</h3>
+<h3 id="7-4-多重标记和值"><a href="#7-4-多重标记和值" class="headerlink" title="7.4 多重标记和值"></a>7.4 多重标记和值</h3><pre><code>Console.WriteLine(&quot;Three intergers are {1}, {0} and {1}.&quot;, 3, 6);
+</code></pre><h3 id="7-5-格式化数字字符串"><a href="#7-5-格式化数字字符串" class="headerlink" title="7.5 格式化数字字符串"></a>7.5 格式化数字字符串</h3><pre><code>Console.WriteLine(&quot;The value: {0}.&quot;, 500);    //输出数字
+Console.WriteLine(&quot;The value: {0:C}.&quot;, 500);  //格式为货币
+int myInt = 500；
+Console.WriteLine(&quot;|{0, 10}|&quot;, myInt);        //右对齐
+Console.WriteLine(&quot;|{0,-10}|&quot;, myInt);        //左对齐
+double myDouble = 12.345678;
+Console.WriteLine(&quot;{0,-10:G} -- General                           &quot;, myDouble);
+Console.WriteLine(&quot;{0,-10} -- Default, same as General            &quot;, myDouble);
+Console.WriteLine(&quot;{0,-10:F4} -- Fixed Point, 4 dec places        &quot;, myDouble);
+Console.WriteLine(&quot;{0,-10:C} -- Currency                          &quot;, myDouble);
+Console.WriteLine(&quot;{0,-10:E3} -- Sci. Notation, 3 dec places      &quot;, myDouble);
+Console.WriteLine(&quot;{0,-10:x} -- Hexadecimal integer               &quot;, 25);
+</code></pre>
     
   </div>
   <footer>
