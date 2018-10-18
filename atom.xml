@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zypsola.com/"/>
-  <updated>2018-08-18T08:09:02.348Z</updated>
+  <updated>2018-10-18T13:18:29.055Z</updated>
   <id>https://zypsola.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ Lesson1</title>
+    <link href="https://zypsola.com/2018/10/18/C++Primer1/"/>
+    <id>https://zypsola.com/2018/10/18/C++Primer1/</id>
+    <published>2018-10-18T13:03:10.000Z</published>
+    <updated>2018-10-18T13:18:29.055Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iostream"><a href="#iostream" class="headerlink" title="iostream"></a>iostream</h1><a id="more"></a><p>标准库定义了 4 个 IO 对象。处理输入时使用命名为 cin（读作 see-in）的 istream 类型对象。这个对象也称为<strong>标准输入</strong>。处理输出时使用命名为<br>cout（读作 see-out）的 ostream 类型对象，这个对象也称为<strong>标准输出</strong>。标准库还定义了另外两个 ostream 对象，分别命名为 cerr 和 clog<br>（分别读作“see-err”和“see-log”）。cerr 对象又叫作<strong>标准错误</strong>，通常用来输出警告和错误信息给程序的使用者。而 clog 对象用于产生程序执行的一般信息。<br>一般情况下，系统将这些对象与执行程序的窗口联系起来。这样，当我们从 cin 读入时，数据从执行程序的窗口读入，当写到 cin、cerr 或 clog 时，<br>输出写至同一窗口。运行程序时，大部分操作系统都提供了重定向输入或输出流的方法。利用重定向可以将这些流与所选择的文件联系起来。 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iostream&quot;&gt;&lt;a href=&quot;#iostream&quot; class=&quot;headerlink&quot; title=&quot;iostream&quot;&gt;&lt;/a&gt;iostream&lt;/h1&gt;
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://zypsola.com/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity Lesson1</title>
@@ -49,22 +69,6 @@
     
     
       <category term="C#" scheme="https://zypsola.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Lesson1</title>
-    <link href="https://zypsola.com/2018/07/12/C++Primer1/"/>
-    <id>https://zypsola.com/2018/07/12/C++Primer1/</id>
-    <published>2018-07-12T09:53:10.000Z</published>
-    <updated>2018-10-18T13:00:34.469Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="https://zypsola.com/tags/C/"/>
     
   </entry>
   
