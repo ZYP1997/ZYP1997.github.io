@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zypsola.com/"/>
-  <updated>2018-10-18T13:18:29.055Z</updated>
+  <updated>2018-10-18T13:23:42.278Z</updated>
   <id>https://zypsola.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://zypsola.com/2018/10/18/C++Primer1/"/>
     <id>https://zypsola.com/2018/10/18/C++Primer1/</id>
     <published>2018-10-18T13:03:10.000Z</published>
-    <updated>2018-10-18T13:18:29.055Z</updated>
+    <updated>2018-10-18T13:23:42.278Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="iostream"><a href="#iostream" class="headerlink" title="iostream"></a>iostream</h1><a id="more"></a><p>标准库定义了 4 个 IO 对象。处理输入时使用命名为 cin（读作 see-in）的 istream 类型对象。这个对象也称为<strong>标准输入</strong>。处理输出时使用命名为<br>cout（读作 see-out）的 ostream 类型对象，这个对象也称为<strong>标准输出</strong>。标准库还定义了另外两个 ostream 对象，分别命名为 cerr 和 clog<br>（分别读作“see-err”和“see-log”）。cerr 对象又叫作<strong>标准错误</strong>，通常用来输出警告和错误信息给程序的使用者。而 clog 对象用于产生程序执行的一般信息。<br>一般情况下，系统将这些对象与执行程序的窗口联系起来。这样，当我们从 cin 读入时，数据从执行程序的窗口读入，当写到 cin、cerr 或 clog 时，<br>输出写至同一窗口。运行程序时，大部分操作系统都提供了重定向输入或输出流的方法。利用重定向可以将这些流与所选择的文件联系起来。 </p>]]></content>
+    <content type="html"><![CDATA[<h1 id="iostream"><a href="#iostream" class="headerlink" title="iostream"></a>iostream</h1><a id="more"></a><ol><li><p>标准库定义了 4 个 IO 对象。<br>处理输入时使用命名为 cin（读作 see-in）的 istream 类型对象。这个对象也称为<strong>标准输入</strong>。处理输出时使用命名为 cout（读作 see-out）的 ostream 类型对象，这个对象也称为<strong>标准输出</strong>。标准库还定义了另外两个 ostream 对象，分别命名为 cerr 和 clog（分别读作“see-err”和“see-log”）。cerr 对象又叫作<strong>标准错误</strong>，通常用来输出警告和错误信息给程序的使用者。而 clog 对象用于产生程序执行的一般信息。 一般情况下，系统将这些对象与执行程序的窗口联系起来。这样，当我们从 cin 读入时，数据从执行程序的窗口读入，当写到 cin、cerr 或 clog 时，输出写至同一窗口。运行程序时，大部分操作系统都提供了重定向输入或输出流的方法。利用重定向可以将这些流与所选择的文件联系起来。 </p></li><li><p><strong>输出操作符</strong>（&lt;&lt; 操作符）<br>每个输出操作符实例都接受两个操作数：左操作数必须是 ostream 对象；右操作数是要输出的值。操作符将其右操作数写到作为其左操作数的 ostream 对象。C++ 中，每个表达式都会产生一个结果，通常是将操作符作用到其操作数所产生的值。当操作符是输出操作符时，结果是左操作数的值。也就是说，输出操作返回的值是输出流本身。 </p></li></ol>]]></content>
     
     <summary type="html">
     
