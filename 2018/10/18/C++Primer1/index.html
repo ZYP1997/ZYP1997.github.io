@@ -1,17 +1,12 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+
   
   <title>C++ Lesson1 | 空之境界</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  
-    <meta name="author" content="ZYP">
-  
-  
-    <meta name="description" content="第一章 快速入门">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="第一章 快速入门">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
@@ -25,60 +20,78 @@
 <meta name="twitter:title" content="C++ Lesson1">
 <meta name="twitter:description" content="第一章 快速入门">
   
+    <link rel="alternate" href="/atom.xml" title="空之境界" type="application/atom+xml">
   
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  
 </head>
 
 <body>
-  <div class="wrapper">
-    <header id="header">
-  <div class="title">
-    <h1><a href="/">空之境界</a></h1>
-    <p><a href="/">ZYP&#39;s BLOG</a></p>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">空之境界</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">ZYP&#39;s BLOG</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zypsola.com"></form>
+      </div>
+    </div>
   </div>
-  <nav class="nav">
-    <ul>
-      
-        <li><a href="/archives">Archives</a></li>
-      
-        <li><a href="/tags/C#">C#</a></li>
-      
-        <li><a href="/tags/Unity">Unity</a></li>
-      
-        <li><a href="/tags/Z720">Z720</a></li>
-      
-        <li><a href="/tags/Others">Others</a></li>
-      
-      
-    </ul>
-    <div class="clearfix"></div>
-  </nav>
-  <div class="clearfix"></div>
 </header>
-    <div class="content"><article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/10/18/C++Primer1/">
-  <time datetime="2018-10-18T13:03:10.000Z">
-    2018-10-18
-  </time>
+      <div class="outer">
+        <section id="main"><article id="post-C++Primer1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/18/C++Primer1/" class="article-date">
+  <time datetime="2018-10-18T13:03:10.000Z" itemprop="datePublished">2018-10-18</time>
 </a>
     
+  </div>
+  <div class="article-inner">
     
+    
+      <header class="article-header">
+        
   
-    <h1 class="title">C++ Lesson1</h1>
+    <h1 class="article-title" itemprop="name">
+      C++ Lesson1
+    </h1>
   
 
-  </header>
-  
-  <div class="entry">
+      </header>
     
-      <h1 id="第一章-快速入门"><a href="#第一章-快速入门" class="headerlink" title="第一章 快速入门"></a>第一章 快速入门</h1><a id="more"></a>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一章-快速入门"><a href="#第一章-快速入门" class="headerlink" title="第一章 快速入门"></a>第一章 快速入门</h1><a id="more"></a>
 <ol>
 <li><p>标准库定义了 4 个 IO 对象。<br>处理输入时使用命名为 cin（读作 see-in）的 istream 类型对象。这个对象也称为<strong>标准输入</strong>。处理输出时使用命名为 cout（读作 see-out）的 ostream 类型对象，这个对象也称为<strong>标准输出</strong>。标准库还定义了另外两个 ostream 对象，分别命名为 cerr 和 clog（分别读作“see-err”和“see-log”）。cerr 对象又叫作<strong>标准错误</strong>，通常用来输出警告和错误信息给程序的使用者。而 clog 对象用于产生程序执行的一般信息。 一般情况下，系统将这些对象与执行程序的窗口联系起来。这样，当我们从 cin 读入时，数据从执行程序的窗口读入，当写到 cin、cerr 或 clog 时，输出写至同一窗口。运行程序时，大部分操作系统都提供了重定向输入或输出流的方法。利用重定向可以将这些流与所选择的文件联系起来。 </p>
 </li>
@@ -94,49 +107,131 @@
 </li>
 </ol>
 
-    
-  </div>
-  <footer>
-    
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zypsola.com/2018/10/18/C++Primer1/" data-id="cjnelh5b30000iwv0iodqj7q2" class="article-share-link">Share</a>
       
       
-  <div class="tags">
-    <a class="tags-link" href="/tags/C/">C++</a>
-  </div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
+    </footer>
+  </div>
+  
     
-    <div class="clearfix"></div>
-  </footer>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/18/Unity1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Unity Lesson1</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
-</div>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Z720/">Z720</a></li></ul>
+    </div>
   </div>
-  <footer id="footer"><div class="copyright">
+
+
   
-  &copy; 2018 <a href="/">ZYP</a>
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Others/" style="font-size: 20px;">Others</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/Z720/" style="font-size: 10px;">Z720</a>
+    </div>
+  </div>
+
   
-</div>
-<div class="theme-copyright">
-  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
-   | 
-  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
-</div>
-<div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script src="/js/scale.fix.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/18/C++Primer1/">C++ Lesson1</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/18/Unity1/">Unity Lesson1</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/12/C-Lesson3/">C# Lesson3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/11/C-Lesson2/">C# Lesson2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/25/Blender1/">Blender(一)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ZYP<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
 
 
 
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-  (function($){
-    $('.fancybox').fancybox();
-  })(jQuery);
-</script>
-
+  </div>
 </body>
 </html>
