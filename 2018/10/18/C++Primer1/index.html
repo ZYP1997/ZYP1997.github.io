@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第一章 快速入门">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-19T17:05:29.957Z">
+<meta property="og:updated_time" content="2018-10-20T05:36:34.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson1">
 <meta name="twitter:description" content="第一章 快速入门">
@@ -93,6 +93,8 @@
 <li><p><strong>关于注释</strong><br>C++ 中有单行注释和成对注释两种类型的注释。单行注释以双斜线（//）开头，行中处于双斜线右边的内容是注释，被编译器忽略。 另一种定界符，注释对（/* */），是从 C 语言继承过来的。这种注释以“/*”开头，以“*/”结尾。编译器把落入注释对“/**/”之间的内容作为注释。</p>
 </li>
 <li><p><strong>注释对不可嵌套</strong><br>当注释掉程序的一大部分时，似乎最简单的办法就是在要临时忽略的区域前后放一个注释对。问题是如果那段代码已经有了注释对，那么新插入的注释对将提前终止。临时忽略一段代码更好的方法，是用编辑器在要忽略的每一行代码前面插入单行注释。这样，你就无需担心要注释的代码是否已包含注释对。 </p>
+</li>
+<li><p><strong>术语</strong><br><strong>argument（实参）:</strong>传递给被调用函数的值。<br><strong>block（块）:</strong>花括号括起来的语句序列。<br><strong>buffer（缓冲区）:</strong>一段用来存放数据的存储区域。IO 设备常存储输入（或输出）到缓冲区，并独立于程序动作对缓冲区进行读写。输出缓冲区通常必须显式刷新以强制输出缓冲区内容。默认情况下，读 cin 会刷新 cout；当程序正常结束时，cout 也被刷新。<br><strong>built-in type（内置类型）:</strong>C++ 语言本身定义的类型，如 int。<br><strong>cerr:</strong>绑定到标准错误的 ostream 对象，这通常是与标准输出相同的流。默认情况下，输出 cerr 不缓冲，通常用于不是程序正常逻辑部分的错误信息或其他输出。<br><strong>clog:</strong>绑定到标准错误的 ostream 对象。默认情况下，写到 clog 时是带缓冲的。通常用于将程序执行信息写入到日志文件中。<br><strong>namespace（命名空间）:</strong>将库所定义的名字放至单独一个地方的机制。命名空间有助于避免无意的命名冲突。C++ 标准库所定义的名字在命名空间 std 中。<br><strong>preprocessor directive（预处理指示）:</strong>C++ 预处理器的指示。#include 是一个预处理器指示。预处理器指示必须出现在单独的行中。</p>
 </li>
 </ol>
 
