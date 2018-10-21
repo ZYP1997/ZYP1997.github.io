@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson3 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第二章 变量和基本类型2.3 变量">
+  
+  <meta name="description" content="第二章 变量和基本类型2.3 变量">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson3">
+<meta property="og:url" content="https://zypsola.com/2018/10/20/C++Primer3/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第二章 变量和基本类型2.3 变量">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-21T09:03:34.880Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson3">
+<meta name="twitter:description" content="第二章 变量和基本类型2.3 变量">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s BLOG</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/10/20/C++Primer3/">
+  <time datetime="2018-10-20T12:27:10.000Z">
+    2018-10-20
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson3</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第二章-变量和基本类型"><a href="#第二章-变量和基本类型" class="headerlink" title="第二章 变量和基本类型"></a>第二章 变量和基本类型</h1><h2 id="2-3-变量"><a href="#2-3-变量" class="headerlink" title="2.3 变量"></a>2.3 变量</h2><a id="more"></a>
+<p>C++ 是一门静态类型语言，在编译时会作类型检查。 </p>
+<p>在大多数语言中，对象的类型限制了对象可以执行的操作。如果某种类型不支持某种操作，那么这种类型的对象也就不能执行该操作。 </p>
+<p>在 C++ 中，操作是否合法是在编译时检查的。当编写表达式时，编译器检查表达式中的对象是否按该对象的类型定义的使用方式使用。如果不是的话，那么编译器会提示错误，而不产生可执行文件。 </p>
+<p>随着程序和使用的类型变得越来越复杂，我们将看到静态类型检查能帮助我们更早地发现错误。静态类型检查使得编译器必须能识别程序中的每个实体的类型。因此，程序中使用变量前必须先定义变量的类型 </p>
+<h3 id="2-3-1-什么是变量"><a href="#2-3-1-什么是变量" class="headerlink" title="2.3.1 什么是变量"></a>2.3.1 什么是变量</h3><p>变量提供了程序可以操作的有名字的存储区。C++ 中的每一个变量都有特定的类型，该类型决定了变量的内存大小和布局、能够存储于该内存中的值的取值范围以及可应用在该变量上的操作集。C++ 程序员常常把变量称为“变量”或“对象（object）”。 </p>
+<h3 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a><strong>左值和右值</strong></h3><p><strong>左值（lvalue）</strong>：指向内存位置的表达式被称为左值（lvalue）表达式。左值可以出现在赋值号的左边或右边。<br><strong>右值（rvalue）</strong>：术语右值（rvalue）指的是存储在内存中某些地址的数值。右值是不能对其进行赋值的表达式，也就是说，右值可以出现在赋值号的右边，但不能出现在赋值号的左边。</p>
+<p><strong>什么是对象？</strong></p>
+<p>C++ 程序员经常随意地使用术语对象。一般而言，对象就是内存中具有类型的区域。说得更具体一些，计算左值表达式就会产生对象。 </p>
+<p>严格地说，有些人只把术语对象用于描述变量或类类型的值。有些人还区别有名字的对象和没名字的对象，当谈到有名字的对象时一般指变量。还有一些人区分对象和值，用术语对象描述可被程序改变的数据，用术语值描述只读数据。 </p>
+<p>在本书中，我们遵循更为通用的用法，即对象是内存中具有类型的区域。我们可以自由地使用对象描述程序中可操作的大部分数据，而不管这些数据是内置类型还是类类型，是有名字的还是没名字的，是可读的还是可写的。 </p>
+<h3 id="2-3-2-变量名"><a href="#2-3-2-变量名" class="headerlink" title="2.3.2 变量名"></a>2.3.2 变量名</h3><p>变量名，即变量的<strong>标识符</strong>，可以由字母、数字和下划线组成。变量名必须以字母或下划线开头，并且区分大小写字母：C++ 中的标识符都是大小写敏感的。</p>
+<p>C++ 保留了一组词用作该语言的关键字。关键字不能用作程序的标识符。</p>
+<p>C++ 还保留了一些词用作各种操作符的替代名。这些替代名用于支持某些不支持标准 C++操作符号集的字符集。它们也不能用作标识符。</p>
+<h3 id="2-3-3-定义对象"><a href="#2-3-3-定义对象" class="headerlink" title="2.3.3 定义对象"></a>2.3.3 定义对象</h3><p><strong>初始化</strong><br>变量定义指定了变量的类型和标识符，也可以为对象提供初始值。定义时指定了初始值的对象被称为是<strong>已初始化的</strong>。C++ 支持两种初始化变量的形式：<strong>复制初始化</strong>和<strong>直接初始化</strong>。复制初始化语法用等号（=），直接初始化则是把初始化式放在括号中： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int ival(1024);     // direct-initialization </span><br><span class="line">int ival = 1024;    // copy-initialization</span><br></pre></td></tr></table></figure>
+<p>在 C++ 中理解“初始化不是赋值”是必要的。初始化指创建变量并给它赋初始值，而赋值则是擦除对象的当前值并用新值代替。 </p>
+<p>当初始化类类型对象时，复制初始化和直接初始化之间的差别是很微妙的，直接初始化语法更灵活且效率更高。 </p>
+<h3 id="2-3-4-变量初始化规则"><a href="#2-3-4-变量初始化规则" class="headerlink" title="2.3.4 变量初始化规则"></a>2.3.4 变量初始化规则</h3><p>内置类型变量是否自动初始化取决于变量定义的位置。在函数体外定义的变量都初始化成 0，在函数体里定义的内置类型变量不进行自动初始化。除了用作赋值操作符的左操作数，<strong>未初始化</strong>变量用作任何其他用途都是没有定义的。</p>
+<h3 id="2-3-4-声明和定义"><a href="#2-3-4-声明和定义" class="headerlink" title="2.3.4 声明和定义"></a>2.3.4 声明和定义</h3><p>C++ 程序通常由许多文件组成。为了让多个文件访问相同的变量，C++ 区分了声明和定义。 </p>
+<p>变量的<strong>定义</strong>用于为变量分配存储空间，还可以为变量指定初始值。在一个程序中，变量有且仅有一个定义。 </p>
+<p><strong>声明</strong>用于向程序表明变量的类型和名字。定义也是声明：当定义变量时我们声明了它的类型和名字。可以通过使用 extern 关键字声明变量名而不定义它。不定义变量的声明包括对象名、对象类型和对象类型前的关键字 extern：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extern int i;   // declares but does not define i </span><br><span class="line">int i;          //  declares and defines i</span><br></pre></td></tr></table></figure>
+<p>extern 声明不是定义，也不分配存储空间。事实上，它只是说明变量定义在程序的其他地方。程序中变量可以声明多次，但只能定义一次。 </p>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2018 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
