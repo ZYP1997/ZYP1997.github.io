@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第二章 变量和基本类型2.3 变量">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-21T09:03:34.880Z">
+<meta property="og:updated_time" content="2018-10-21T10:13:31.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson3">
 <meta name="twitter:description" content="第二章 变量和基本类型2.3 变量">
@@ -103,7 +103,12 @@
 <p>变量的<strong>定义</strong>用于为变量分配存储空间，还可以为变量指定初始值。在一个程序中，变量有且仅有一个定义。 </p>
 <p><strong>声明</strong>用于向程序表明变量的类型和名字。定义也是声明：当定义变量时我们声明了它的类型和名字。可以通过使用 extern 关键字声明变量名而不定义它。不定义变量的声明包括对象名、对象类型和对象类型前的关键字 extern：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">extern int i;   // declares but does not define i </span><br><span class="line">int i;          //  declares and defines i</span><br></pre></td></tr></table></figure>
-<p>extern 声明不是定义，也不分配存储空间。事实上，它只是说明变量定义在程序的其他地方。程序中变量可以声明多次，但只能定义一次。 </p>
+<p>extern 声明不是定义，也不分配存储空间。事实上，它只是说明变量定义在程序的其他地方。<strong>程序中变量可以声明多次，但只能定义一次。</strong></p>
+<p>只有当声明也是定义时，声明才可以有初始化式，因为只有定义才分配存储空间。初始化式必须要有存储空间来进行初始化。如果声明有初始化式，那么它可被当作是定义，即使声明标记为 extern：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extern double pi = 3.1416; // definition</span><br></pre></td></tr></table></figure>
+<p>虽然使用了 extern ，但是这条语句还是定义了 pi，分配并初始化了存储空间。只有当 extern 声明位于函数外部时，才可以含有初始化式。 </p>
+<p>任何在多个文件中使用的变量都需要有与定义分离的声明。在这种情况下，一个文件含有变量的定义，使用该变量的其他文件则包含该变量的声明（而不是定义）。 </p>
+<h3 id="2-3-6-名字的作用域"><a href="#2-3-6-名字的作用域" class="headerlink" title="2.3.6 名字的作用域"></a>2.3.6 名字的作用域</h3><p><strong>C++ 中作用域可嵌套</strong></p>
 
     
   </div>
