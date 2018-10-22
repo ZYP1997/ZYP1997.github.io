@@ -10,20 +10,21 @@
     <meta name="author" content="ZYP">
   
   
-    <meta name="description" content="第二章 变量和基本类型2.8 类类型">
+    <meta name="description" content="第二章 变量和基本类型2.8 类类型C++ 中，通过定义类来自定义数据类型。类定义了该类型的对象包含的数据和该类型的对象可以执行的操作。
+每个类都定义了一个接口和一个实现。接口由使用该类的代码需要执行的操作组成。实现一般包括该类所需要的数据。实现还包括定义该类需要的但又不供一般性使用的函数。">
   
-  <meta name="description" content="第二章 变量和基本类型2.8 类类型">
+  <meta name="description" content="第二章 变量和基本类型2.8 类类型C++ 中，通过定义类来自定义数据类型。类定义了该类型的对象包含的数据和该类型的对象可以执行的操作。 每个类都定义了一个接口和一个实现。接口由使用该类的代码需要执行的操作组成。实现一般包括该类所需要的数据。实现还包括定义该类需要的但又不供一般性使用的函数。">
 <meta name="keywords" content="C++ Primer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ Lesson4">
 <meta property="og:url" content="https://zypsola.com/2018/10/21/C++Primer4/index.html">
 <meta property="og:site_name" content="空之境界">
-<meta property="og:description" content="第二章 变量和基本类型2.8 类类型">
+<meta property="og:description" content="第二章 变量和基本类型2.8 类类型C++ 中，通过定义类来自定义数据类型。类定义了该类型的对象包含的数据和该类型的对象可以执行的操作。 每个类都定义了一个接口和一个实现。接口由使用该类的代码需要执行的操作组成。实现一般包括该类所需要的数据。实现还包括定义该类需要的但又不供一般性使用的函数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-21T15:29:39.788Z">
+<meta property="og:updated_time" content="2018-10-22T07:36:48.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson4">
-<meta name="twitter:description" content="第二章 变量和基本类型2.8 类类型">
+<meta name="twitter:description" content="第二章 变量和基本类型2.8 类类型C++ 中，通过定义类来自定义数据类型。类定义了该类型的对象包含的数据和该类型的对象可以执行的操作。 每个类都定义了一个接口和一个实现。接口由使用该类的代码需要执行的操作组成。实现一般包括该类所需要的数据。实现还包括定义该类需要的但又不供一般性使用的函数。">
   
   
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -80,9 +81,9 @@
   
   <div class="entry">
     
-      <h1 id="第二章-变量和基本类型"><a href="#第二章-变量和基本类型" class="headerlink" title="第二章 变量和基本类型"></a>第二章 变量和基本类型</h1><h2 id="2-8-类类型"><a href="#2-8-类类型" class="headerlink" title="2.8 类类型"></a>2.8 类类型</h2><a id="more"></a>
-<p>C++ 中，通过定义类来自定义数据类型。类定义了该类型的对象包含的数据和该类型的对象可以执行的操作。</p>
+      <h1 id="第二章-变量和基本类型"><a href="#第二章-变量和基本类型" class="headerlink" title="第二章 变量和基本类型"></a>第二章 变量和基本类型</h1><h2 id="2-8-类类型"><a href="#2-8-类类型" class="headerlink" title="2.8 类类型"></a>2.8 类类型</h2><p>C++ 中，通过定义类来自定义数据类型。类定义了该类型的对象包含的数据和该类型的对象可以执行的操作。</p>
 <p>每个类都定义了一个<strong>接口</strong>和一个<strong>实现</strong>。接口由使用该类的代码需要执行的操作组成。实现一般包括该类所需要的数据。实现还包括定义该类需要的但又不供一般性使用的函数。 </p>
+<a id="more"></a>
 <p>类体可以为空。类体定义了组成该类型的数据和操作。这些操作和数据是类的一部分，也称为类的成员。操作称为成员函数，而数据则称为<strong>数据成员</strong>。 </p>
 <p>定义变量和定义数据成员存在非常重要的区别：一般不能把类成员的初始化作为其定义的一部分。当定义数据成员时，只能指定该数据成员的名字和类型。类不是在类定义里定义数据成员时初始化数据成员，而是通过称为构造函数的特殊成员函数控制初始化。</p>
 <p><strong>使用struct关键字</strong></p>
