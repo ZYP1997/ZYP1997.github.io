@@ -10,21 +10,20 @@
     <meta name="author" content="ZYP">
   
   
-    <meta name="description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。 
-现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在">
+    <meta name="description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。">
   
-  <meta name="description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。  现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在">
-<meta name="keywords" content="C++ Primer">
+  <meta name="description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。">
+<meta name="keywords" content="C++ Primer,数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ Lesson8">
 <meta property="og:url" content="https://zypsola.com/2018/10/23/C++Primer8/index.html">
 <meta property="og:site_name" content="空之境界">
-<meta property="og:description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。  现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在">
+<meta property="og:description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-23T08:01:17.384Z">
+<meta property="og:updated_time" content="2018-10-23T10:09:26.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson8">
-<meta name="twitter:description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。  现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在">
+<meta name="twitter:description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。">
   
   
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -81,10 +80,25 @@
   
   <div class="entry">
     
-      <h1 id="第四章-数组和指针"><a href="#第四章-数组和指针" class="headerlink" title="第四章 数组和指针"></a>第四章 数组和指针</h1><p>C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。 </p>
-<p>现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在强调速度时才在类实现的内部使用数组和指针。</p>
+      <h1 id="第四章-数组和指针"><a href="#第四章-数组和指针" class="headerlink" title="第四章 数组和指针"></a>第四章 数组和指针</h1><p>C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——<strong>数组</strong>和<strong>指针</strong>。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。 </p>
 <a id="more"></a>
-
+<p>现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在强调速度时才在类实现的内部使用数组和指针。</p>
+<h2 id="4-1-数组"><a href="#4-1-数组" class="headerlink" title="4.1 数组"></a>4.1 数组</h2><p>数组是由类型名、标识符和维数组成的复合数据类型，类型名规定了存放在数组中的元素的类型，而维数则指定数组中包含的元素个数。 </p>
+<h3 id="4-1-1-数组的定义和初始化"><a href="#4-1-1-数组的定义和初始化" class="headerlink" title="4.1.1 数组的定义和初始化"></a>4.1.1 数组的定义和初始化</h3><p>数组的维数必须用值大于等于 1 的常量表达式定义。此常量表达式只能包含整型字面值常量、枚举常量或者用常量表达式初始化的整型 const 对象。非 const 变量以及要到运行阶段才知道其值的 const 变量都不能用于定义数组的维数。 </p>
+<p><strong>显式初始化数组元素</strong></p>
+<p>显式初始化的数组不需要指定数组的维数值，编译器会根据列出的元素个数来确定数组的长度： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[5] = &#123; 1,2,3 &#125;;</span><br><span class="line">cout &lt;&lt; a[0] &lt;&lt; &quot; &quot; &lt;&lt; a[1] &lt;&lt; &quot; &quot; &lt;&lt; a[2] &lt;&lt; &quot; &quot;</span><br><span class="line"> &lt;&lt; a[3] &lt;&lt; &quot; &quot; &lt;&lt; a[4] &lt;&lt; endl;    //输出结果： 1 2 3 0 0</span><br><span class="line">int b[] = &#123; 1,2,3 &#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>特殊的字符数组</strong></p>
+<p>字符数组既可以用一组由花括号括起来、逗号隔开的字符字面值进行初始化，也可以用一个字符串字面值进行初始化。然而，要注意这两种初始化形式并不完全相同，字符串字面值包含一个额外的空字符（null）用于结束字符串。当使用字符串字面值来初始化创建的新数组时，将在新数组中加入空字符： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char a1[] = &#123; &apos;1&apos;,&apos;2&apos;,&apos;3&apos; &#125;;</span><br><span class="line">char a2[] = &#123; &apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;\0&apos; &#125;;</span><br><span class="line">char a3[] = &quot;123&quot;;</span><br><span class="line">cout &lt;&lt; a1 &lt;&lt; endl &lt;&lt; a2 &lt;&lt; endl &lt;&lt; a3 &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">123烫烫烃蚉鉎</span><br><span class="line">123</span><br><span class="line">123</span><br></pre></td></tr></table></figure>
+<p>使用一组字符字面值初始化字符数组时，一定要记得添加结束字符串的空字符。</p>
+<p><strong>不允许数组直接复制和赋值</strong></p>
+<p>与 vector 不同，一个数组不能用另外一个数组初始化，也不能将一个数组赋值给另一个数组，这些操作都是非法的。</p>
+<h3 id="4-1-2-数组操作"><a href="#4-1-2-数组操作" class="headerlink" title="4.1.2 数组操作"></a>4.1.2 数组操作</h3><p>与 vector 元素一样，数组元素可用下标操作符来访问，数组元素也是从 0 开始计数。</p>
+<p>使用数组时，必须保证其下标值在正确范围之内，即数组在该下标位置应对应一个元素。 </p>
+<h2 id="4-2-指针的引入"><a href="#4-2-指针的引入" class="headerlink" title="4.2 指针的引入"></a>4.2 指针的引入</h2><h3 id="4-2-1-什么是指针"><a href="#4-2-1-什么是指针" class="headerlink" title="4.2.1 什么是指针"></a>4.2.1 什么是指针</h3>
     
   </div>
   <footer>
@@ -92,7 +106,7 @@
       
       
   <div class="tags">
-    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>, <a class="tags-link" href="/tags/数组/">数组</a>
   </div>
 
     
