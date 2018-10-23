@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson7 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第三章 标准库类型3.5 标准库 bitset有些程序要处理二进制位的有序集，每个位可能包含 0（关）1（开）值。位是用来保存一组项或条件的 yes/no 信息（有时也称标志）的简洁方法。标准库提供的 bitset 类简化了位集的处理。">
+  
+  <meta name="description" content="第三章 标准库类型3.5 标准库 bitset有些程序要处理二进制位的有序集，每个位可能包含 0（关）1（开）值。位是用来保存一组项或条件的 yes/no 信息（有时也称标志）的简洁方法。标准库提供的 bitset 类简化了位集的处理。">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson7">
+<meta property="og:url" content="https://zypsola.com/2018/10/23/C++Primer7/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第三章 标准库类型3.5 标准库 bitset有些程序要处理二进制位的有序集，每个位可能包含 0（关）1（开）值。位是用来保存一组项或条件的 yes/no 信息（有时也称标志）的简洁方法。标准库提供的 bitset 类简化了位集的处理。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T07:57:23.296Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson7">
+<meta name="twitter:description" content="第三章 标准库类型3.5 标准库 bitset有些程序要处理二进制位的有序集，每个位可能包含 0（关）1（开）值。位是用来保存一组项或条件的 yes/no 信息（有时也称标志）的简洁方法。标准库提供的 bitset 类简化了位集的处理。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/10/23/C++Primer7/">
+  <time datetime="2018-10-23T02:50:46.000Z">
+    2018-10-23
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson7</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第三章-标准库类型"><a href="#第三章-标准库类型" class="headerlink" title="第三章 标准库类型"></a>第三章 标准库类型</h1><h2 id="3-5-标准库-bitset"><a href="#3-5-标准库-bitset" class="headerlink" title="3.5 标准库 bitset"></a>3.5 标准库 bitset</h2><p>有些程序要处理二进制位的有序集，每个位可能包含 0（关）1（开）值。位是用来保存一组项或条件的 yes/no 信息（有时也称标志）的简洁方法。标准库提供的 bitset 类简化了位集的处理。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include &lt;bitset&gt; </span><br><span class="line">using std::bitset</span><br></pre></td></tr></table></figure>
+<h3 id="3-5-1-bitset对象的定义和初始化"><a href="#3-5-1-bitset对象的定义和初始化" class="headerlink" title="3.5.1 bitset对象的定义和初始化"></a>3.5.1 bitset对象的定义和初始化</h3><p>似于 vector，bitset 类是一种类模板；而与 vector 不一样的是 bitset 类型对象的区别仅在其长度而不在其类型。在定义 bitset 时，要明确 bitset 含有多少位，须在尖括号内给出它的长度值： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bitset&lt;n&gt; b;             //b 有 n 位，每位都 0 </span><br><span class="line">bitset&lt;n&gt; b(u);          //b 是 unsigned long 型 u 的一个副本 </span><br><span class="line">bitset&lt;n&gt; b(s);          //b 是 string 对象 s 中含有的位串的副本 </span><br><span class="line">bitset&lt;n&gt; b(s, pos, n);  //b 是 s 中从位置 pos 开始的&amp;nbps;n 个位的副本。</span><br><span class="line">bitset&lt;32&gt; bitvec;       //32bits, all 0</span><br></pre></td></tr></table></figure>
+<p>给出的长度值必须是常量表达式。长度值值必须定义为整型字面值常量或是已用常量值初始化的整型的 const 对象。 </p>
+<p>bitset 中的位是没有命名的，只能按位置来访问。位集合的位置编号从 0 开始，因此，bitvec 的位序是从 0 到 31。以 0 位开始的位串是低阶位（low-order），以 31 位结束的位串是高阶位（high-order）。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bitset&lt;4&gt; a(4);</span><br><span class="line">cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">for (int i = 0; i &lt; 4; i++)</span><br><span class="line">	cout &lt;&lt; a[i];</span><br><span class="line">cout &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0100</span><br><span class="line">0010</span><br></pre></td></tr></table></figure>
+<h3 id="用unsigned值初始化bitset对象"><a href="#用unsigned值初始化bitset对象" class="headerlink" title="用unsigned值初始化bitset对象"></a><strong>用unsigned值初始化bitset对象</strong></h3><p>当用 unsigned long 值作为 bitset 对象的初始值时，该值将转化为二进制的位模式。而 bitset 对象中的位集作为这种位模式的副本。如果 bitset 类型长度大于 unsigned long 值的二进制位数，则其余的高阶位将置为 0；如果 bitset 类型长度小于 unsigned long 值的二进制位数，则只使用 unsigned 值中的低阶位，超过 bistset 类型长度的高阶位将被丢弃。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bitset&lt;4&gt; a(19);</span><br><span class="line">bitset&lt;6&gt; b(19);</span><br><span class="line">cout &lt;&lt; a &lt;&lt; endl &lt;&lt; b &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0011</span><br><span class="line">010011</span><br></pre></td></tr></table></figure>
+<h3 id="用string对象初始化bitset对象"><a href="#用string对象初始化bitset对象" class="headerlink" title="用string对象初始化bitset对象"></a><strong>用string对象初始化bitset对象</strong></h3><p>当用 string 对象初始化 bitset 对象时，string 对象直接表示为位模式。从 string 对象读入位集的顺序是从右向左： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str(&quot;1100&quot;);</span><br><span class="line">bitset&lt;8&gt; bita(str);</span><br><span class="line">bitset&lt;8&gt; bitb(&quot;0111&quot;);</span><br><span class="line">cout &lt;&lt; bita &lt;&lt; endl &lt;&lt; bitb &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">00001100</span><br><span class="line">00000111</span><br></pre></td></tr></table></figure>
+<p>不一定要把整个 string 对象都作为 bitset 对象的初始值。相反，可以只用某个子串作为初始值： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str(&quot;010110111011010&quot;);</span><br><span class="line">bitset&lt;16&gt; bita(str, 1, 8);</span><br><span class="line">bitset&lt;16&gt; bitb(str, str.size() - 9);</span><br><span class="line">cout &lt;&lt; bita &lt;&lt; endl &lt;&lt; bitb &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0000000010110111</span><br><span class="line">0000000111011010</span><br></pre></td></tr></table></figure></p>
+<p>如果省略第三个参数则意味着取从开始位置一直到 string 末尾的所有字符。</p>
+<h3 id="3-5-2-bitset对象上的操作"><a href="#3-5-2-bitset对象上的操作" class="headerlink" title="3.5.2 bitset对象上的操作"></a>3.5.2 bitset对象上的操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">b.any()      b 中是否存在置为 1 的二进制位？ </span><br><span class="line">b.none()     b 中不存在置为 1 的二进制位吗？ </span><br><span class="line">b.count()    b 中置为 1 的二进制位的个数 </span><br><span class="line">b.size()     b 中二进制位的个数 </span><br><span class="line">b[pos]       访问 b 中在 pos 处二进制位 </span><br><span class="line">b.test(pos)  b 中在 pos 处的二进制位置为 1 么？ </span><br><span class="line">b.set()      把 b 中所有二进制位都置为 1  </span><br><span class="line">b.set(pos)   把 b 中在 pos 处的二进制位置为 1</span><br><span class="line">b.reset()    把 b 中所有二进制位都置为 0 </span><br><span class="line">b.reset(pos) 把 b 中在 pos 处的二进制位置为 0 </span><br><span class="line">b.flip()     把 b 中所有二进制位逐位取反 </span><br><span class="line">b.flip(pos)  把 b 中在 pos 处的二进制位取反 </span><br><span class="line">b.to_ulong() 用 b 中同样的二进制位返回一个 unsigned long 值 </span><br><span class="line">os &lt;&lt; b      把 b 中的位集输出到 os 流</span><br></pre></td></tr></table></figure>
+<p>count 操作的返回类型是标准库中命名为 size_t 类型。它是一个与机器相关的 unsigned 类型。</p>
+<p><strong>访问bitset对象中的位</strong></p>
+<p>可以用下标操作符来读或写某个索引位置的二进制位。</p>
+<p>bitset 类也支持内置的位操作符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bita = bita &amp; bitb;</span><br><span class="line">cout &lt;&lt; bita &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0000000010010010</span><br></pre></td></tr></table></figure>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ol>
+<li><p><strong>abstract data type（抽象数据类型）:</strong>隐藏其实现的数据类型。使用抽象数据类型时，只需要了解该类型所支持的操作。</p>
+</li>
+<li><p><strong>class template（类模板）:</strong>一个可创建许多潜在类类型的蓝图。使用类模板时，必须给出实际的类型和值。例如，vector 类型是保存给定类型对象的模板。创建一个 vector 对象时，必须指出这个 vector 对象所保存的元素的类型。</p>
+</li>
+</ol>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2018 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

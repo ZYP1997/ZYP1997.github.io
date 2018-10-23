@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson8 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。 
+现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在">
+  
+  <meta name="description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。  现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson8">
+<meta property="og:url" content="https://zypsola.com/2018/10/23/C++Primer8/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。  现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T08:01:17.384Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson8">
+<meta name="twitter:description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。  现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/10/23/C++Primer8/">
+  <time datetime="2018-10-23T07:58:31.000Z">
+    2018-10-23
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson8</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第四章-数组和指针"><a href="#第四章-数组和指针" class="headerlink" title="第四章 数组和指针"></a>第四章 数组和指针</h1><p>C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。 </p>
+<p>现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在强调速度时才在类实现的内部使用数组和指针。</p>
+<a id="more"></a>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2018 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

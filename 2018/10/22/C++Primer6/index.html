@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第三章 标准库类型3.3 标准库 vector 类型vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-22T15:40:14.031Z">
+<meta property="og:updated_time" content="2018-10-23T03:11:18.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson6">
 <meta name="twitter:description" content="第三章 标准库类型3.3 标准库 vector 类型vector 是同一种类型的对象的集合，每个对象都有一个对应的整数索引值。和 string 对象一样，标准库将负责管理与存储元素相关的内存。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。">
@@ -111,8 +111,8 @@
 <p><strong>vector迭代器的自增和解引用运算</strong></p>
 <p>迭代器类型可使用<strong>解引用操作符</strong>（dereference operator）（*）来访问迭代器所指向的元素：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">*iter = 0;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">由于 end 操作返回的迭代器不指向任何元素，因此不能对它进行解引用或自增操作。 </span><br><span class="line"></span><br><span class="line">另一对可执行于迭代器的操作就是比较：用 == 或 != , &gt; , &lt; , &lt;= , &gt;= 操作符来比较两个迭代器，如果两个迭代器对象指向同一个元素，则它们相等，否则就不相等。 </span><br><span class="line"></span><br><span class="line">**const_iterator**</span><br><span class="line"></span><br><span class="line">前面的程序用 vector::iterator 改变 vector 中的元素值。每种容器类型还定义了一种名为 const_iterator 的类型，该类型只能用于读取容器内元素，但不能改变其值。 </span><br><span class="line"></span><br><span class="line">不要把 const_iterator 对象与 const 的 iterator 对象混淆起来。声明一个 const 迭代器时，必须初始化迭代器。一旦被初始化后，就不能改变它的值。</span><br><span class="line"></span><br><span class="line">const_iterator 对象可以用于 const vector 或非 const vector，因为不能改写元素值。const 迭代器这种类型几乎没什么用处：一旦它被初始化后，只能用它来改写其指向的元素，但不能使它指向任何其他元素。 </span><br><span class="line"></span><br><span class="line">### 3.4.1 迭代器的算术操作</span><br><span class="line"></span><br><span class="line">除了一次移动迭代器的一个元素的增量操作符外，vector 迭代器（其他标准库容器迭代器很少）也支持其他的算术操作。这些操作称为迭代器算术操作（iterator arithmetic）。</span><br></pre></td></tr></table></figure>
-<p>iter + n;<br>iter - n;<br>iter1 - iter2;<br><code>`</code></p>
-<p>该表达式用来计算两个迭代器对象的距离，该距离是名为 difference_type 的 signed 类型 size_type 的值，这里的 difference_type 是 signed 类型，因为减法运算可能产生负数的结果。该类型可以保证足够大以存储任何两个迭代器对象间的距离。</p>
+<p>iter + n;<br>iter - n;<br>iter1 - iter2;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">该表达式用来计算两个迭代器对象的距离，该距离是名为 difference_type 的 signed 类型 size_type 的值，这里的 difference_type 是 signed 类型，因为减法运算可能产生负数的结果。该类型可以保证足够大以存储任何两个迭代器对象间的距离。两个迭代器相加的操作是未定义的。</span><br></pre></td></tr></table></figure></p>
+<p>vector<int>::difference_type dis;<br><code>`</code></int></p>
 <p>任何改变 vector 长度的操作都会使已存在的迭代器失效。例如，在调用 push_back 之后，就不能再信赖指向 vector 的迭代器的值了。 </p>
 
     
