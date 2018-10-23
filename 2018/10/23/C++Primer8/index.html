@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-23T15:28:10.447Z">
+<meta property="og:updated_time" content="2018-10-23T15:52:57.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson8">
 <meta name="twitter:description" content="第四章 数组和指针C++ 语言提供了两种类似于 vector 和迭代器类型的低级复合类型——数组和指针。与 vector 类型相似，数组也可以保存某种类型的一组对象；而它们的区别在于，数组的长度是固定的。数组一经创建，就不允许添加新的元素。指针则可以像迭代器一样用于遍历和检查数组中的元素。">
@@ -109,30 +109,56 @@
 <p><strong>另一种声明指针的风格</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string* ps; // legal but can be misleading</span><br></pre></td></tr></table></figure>
 <p>也就是说，该语句把 ps 定义为一个指向 string 类型对象的指针。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string* ps1, ps2; </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">实际上只把 ps1 定义为指针，而 ps2 并非指针，只是一个普通的 string 对象而已。如果需要在一个声明语句中定义两个指针，必须在每个变量标识符前再加符号 \* 声明：</span><br></pre></td></tr></table></figure>
-<p>ing<em> ps1, </em>ps2;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**指针可能的取值**</span><br><span class="line"></span><br><span class="line">一个有效的指针必然是以下三种状态之一：保存一个特定对象的地址；指向某个对象后面的另一对象；或者是 0 值。若指针保存 0 值，表明它不指向任何对象。未初始化的指针是无效的，直到给该指针赋值后，才可使用它。</span><br><span class="line"></span><br><span class="line">**指针初始化和赋值操作的约束**</span><br><span class="line"></span><br><span class="line">对指针进行初始化或赋值只能使用以下四种类型的值： </span><br><span class="line"></span><br><span class="line">1. 0 值常量表达式。</span><br><span class="line">2. 类型匹配的对象的地址。</span><br><span class="line">3. 另一对象末的下一地址。</span><br><span class="line">4. 同类型的另一个有效指针。</span><br><span class="line"></span><br><span class="line">除了使用数值 0 或在编译时值为 0 的 const 量外，还可以使用 C++ 语言从 C 语言中继承下来的预处理器变量 NULL，其值为 0。如果在代码中使用了这个预处理器变量，则编译时会自动被数值 0 替换。因此，把指针初始化为 NULL 等效于初始化为 0 值。</span><br><span class="line"></span><br><span class="line">**void\*指针**</span><br><span class="line"></span><br><span class="line">C++ 提供了一种特殊的指针类型 void\*，它可以保存任何类型对象的地址： 表明该指针与一地址值相关，但不清楚存储在此地址上的对象的类型。 </span><br><span class="line"></span><br><span class="line">void\* 指针只支持几种有限的操作：与另一个指针进行比较；向函数传递 void\* 指针或从函数返回 void\* 指针；给另一个 void\* 指针赋值。不允许使用 void\* 指针操纵它所指向的对象。</span><br><span class="line"></span><br><span class="line">### 4.2.3 指针操作</span><br><span class="line"></span><br><span class="line">指针提供间接操纵其所指对象的功能。与对迭代器进行解引用操作一样，对指针进行解引用可访问它所指的对象，\* 操作符（解引用操作符）将获取指针所指的对象：</span><br></pre></td></tr></table></figure></p>
-<pre><code>string s(&quot;hello world&quot;); 
-string *sp = &amp;s;
-cout  &lt;&lt;*sp; 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">解引用操作符返回指定对象的左值，利用这个功能可修改指针所指对象的值：</span><br></pre></td></tr></table></figure>
-<p>*sp = “goodbye”;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**指向指针的指针**</span><br></pre></td></tr></table></figure></p>
-<pre><code>int ival = 1024; 
-int *pi = &amp;ival; // pi points to an int 
-int **ppi = &amp;pi; // ppi points to a pointer to int 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 4.2.4 使用指针访问数组元素</span><br><span class="line"></span><br><span class="line">C++ 语言中，指针和数组密切相关。特别是在表达式中使用数组名时，该名字会自动转换为指向数组第一个元素的指针：</span><br></pre></td></tr></table></figure>
-<p>int ia[] = {0,2,4,6,8};<br>int *ip = ia; // ip points to ia[0]<br>ip = &amp;ia[4]; // ip points to last element in ia<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">指针的算术操作只有在原指针和计算出来的新指针都指向同一个数组的元素，或指向该数组存储空间的下一单元时才是合法的。</span><br><span class="line"></span><br><span class="line">两个指针减法操作的结果是标准库类型（library type）ptrdiff_t 的数据。</span><br><span class="line"></span><br><span class="line">在指针上加一个整型数值，其结果仍然是指针。允许在这个结果上直接进行解引用操作，而不必先把它赋给一个新指针：</span><br></pre></td></tr></table></figure></p>
-<pre><code>int a[] = { 2,3,4,5,6 };
-cout &lt;&lt; *(a + 4) &lt;&lt; endl;   //result: 6
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**下标和指针**</span><br><span class="line"></span><br><span class="line">使用下标访问数组时，实际上是使用下标访问指针,在使用下标访问数组时，实际上是对指向数组元素的指针做下标操作。只要指针指向数组元素，就可以对它进行下标操作：</span><br></pre></td></tr></table></figure>
-<pre><code>int a[] = { 2,3,4,5,6 };
-int *p = &amp;a[2];
-cout &lt;&lt; p[-2] &lt;&lt; endl;   //result: 2
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 4.2.5 指针和const限定符</span><br><span class="line"></span><br><span class="line">**指向const对象的指针**</span><br><span class="line"></span><br><span class="line">如果指针指向 const 对象，则不允许用指针来改变其所指的 const 值。为了保证这个特性，C++ 语言强制要求指向 const 对象的指针也必须具有 const 特性。</span><br></pre></td></tr></table></figure>
-<p>const double *cptr;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这里的 cptr 是一个指向 double 类型 const 对象的指针，const 限定了 cptr 指针所指向的对象类型，而并非 cptr 本身。也就是说，cptr 本身并不是const。在定义时不需要对它进行初始化，如果需要的话，允许给 cptr 重新赋值，使其指向另一个 const 对象。但不能通过 cptr 修改其所指对象的值。</span><br><span class="line"></span><br><span class="line">把一个 const 对象的地址赋给一个普通的、非 const 对象的指针也会导致编译时的错误。</span><br><span class="line"></span><br><span class="line">允许把非 const 对象的地址赋给指向 const 对象的指针。</span><br><span class="line"></span><br><span class="line">在实际的程序中，指向 const 的指针常用作函数的形参。将形参定义为指向 const 的指针，以此确保传递给函数的实际对象在函数中不因为形参而被修改。 </span><br><span class="line"></span><br><span class="line">**const指针**</span><br></pre></td></tr></table></figure></p>
-<p>int errNumb = 0;<br>int *const curErr = &errNumb;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">与其他 const 量一样，const 指针的值不能修改，const 指针也必须在定义时初始化。</span><br><span class="line"></span><br><span class="line">**指向const对象的const指针**</span><br></pre></td></tr></table></figure></p>
-<p>const double pi = 3.14159;<br>const double *const pi_ptr = &pi;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">既不能修改所指向对象的值，也不允许修改该指针的指向。</span><br><span class="line"></span><br><span class="line">**指针和typedef**</span><br><span class="line"></span><br><span class="line">在 typedef中使用指针往往会带来意外的结果。假设给出以下语句：</span><br></pre></td></tr></table></figure></p>
-<p>typedef string *pstring;<br>const pstring cstr;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这个定义等价于：</span><br></pre></td></tr></table></figure></p>
-<p>string *const cstr;<br><code>`</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string* ps1, ps2;</span><br></pre></td></tr></table></figure>
+<p>实际上只把 ps1 定义为指针，而 ps2 并非指针，只是一个普通的 string 对象而已。如果需要在一个声明语句中定义两个指针，必须在每个变量标识符前再加符号 * 声明： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ing* ps1, *ps2;</span><br></pre></td></tr></table></figure>
+<p><strong>指针可能的取值</strong></p>
+<p>一个有效的指针必然是以下三种状态之一：保存一个特定对象的地址；指向某个对象后面的另一对象；或者是 0 值。若指针保存 0 值，表明它不指向任何对象。未初始化的指针是无效的，直到给该指针赋值后，才可使用它。</p>
+<p><strong>指针初始化和赋值操作的约束</strong></p>
+<p>对指针进行初始化或赋值只能使用以下四种类型的值： </p>
+<ol>
+<li>0 值常量表达式。</li>
+<li>类型匹配的对象的地址。</li>
+<li>另一对象末的下一地址。</li>
+<li>同类型的另一个有效指针。</li>
+</ol>
+<p>除了使用数值 0 或在编译时值为 0 的 const 量外，还可以使用 C++ 语言从 C 语言中继承下来的预处理器变量 NULL，其值为 0。如果在代码中使用了这个预处理器变量，则编译时会自动被数值 0 替换。因此，把指针初始化为 NULL 等效于初始化为 0 值。</p>
+<p><strong>void*指针</strong></p>
+<p>C++ 提供了一种特殊的指针类型 void*，它可以保存任何类型对象的地址： 表明该指针与一地址值相关，但不清楚存储在此地址上的对象的类型。 </p>
+<p>void* 指针只支持几种有限的操作：与另一个指针进行比较；向函数传递 void* 指针或从函数返回 void* 指针；给另一个 void* 指针赋值。不允许使用 void* 指针操纵它所指向的对象。</p>
+<h3 id="4-2-3-指针操作"><a href="#4-2-3-指针操作" class="headerlink" title="4.2.3 指针操作"></a>4.2.3 指针操作</h3><p>指针提供间接操纵其所指对象的功能。与对迭代器进行解引用操作一样，对指针进行解引用可访问它所指的对象，* 操作符（解引用操作符）将获取指针所指的对象： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string s(&quot;hello world&quot;); </span><br><span class="line">string *sp = &amp;s;</span><br><span class="line">cout  &lt;&lt;*sp;</span><br></pre></td></tr></table></figure>
+<p>解引用操作符返回指定对象的左值，利用这个功能可修改指针所指对象的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*sp = &quot;goodbye&quot;;</span><br></pre></td></tr></table></figure>
+<p><strong>指向指针的指针</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int ival = 1024; </span><br><span class="line">int *pi = &amp;ival; // pi points to an int </span><br><span class="line">int **ppi = &amp;pi; // ppi points to a pointer to int</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-4-使用指针访问数组元素"><a href="#4-2-4-使用指针访问数组元素" class="headerlink" title="4.2.4 使用指针访问数组元素"></a>4.2.4 使用指针访问数组元素</h3><p>C++ 语言中，指针和数组密切相关。特别是在表达式中使用数组名时，该名字会自动转换为指向数组第一个元素的指针： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int ia[] = &#123;0,2,4,6,8&#125;; </span><br><span class="line">int *ip = ia; // ip points to ia[0] </span><br><span class="line">ip = &amp;ia[4]; // ip points to last element in ia</span><br></pre></td></tr></table></figure>
+<p>指针的算术操作只有在原指针和计算出来的新指针都指向同一个数组的元素，或指向该数组存储空间的下一单元时才是合法的。</p>
+<p>两个指针减法操作的结果是标准库类型（library type）ptrdiff_t 的数据。</p>
+<p>在指针上加一个整型数值，其结果仍然是指针。允许在这个结果上直接进行解引用操作，而不必先把它赋给一个新指针： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a[] = &#123; 2,3,4,5,6 &#125;;</span><br><span class="line">cout &lt;&lt; *(a + 4) &lt;&lt; endl;   //result: 6</span><br></pre></td></tr></table></figure>
+<p><strong>下标和指针</strong></p>
+<p>使用下标访问数组时，实际上是使用下标访问指针,在使用下标访问数组时，实际上是对指向数组元素的指针做下标操作。只要指针指向数组元素，就可以对它进行下标操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a[] = &#123; 2,3,4,5,6 &#125;;</span><br><span class="line">int *p = &amp;a[2];</span><br><span class="line">cout &lt;&lt; p[-2] &lt;&lt; endl;   //result: 2</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-5-指针和const限定符"><a href="#4-2-5-指针和const限定符" class="headerlink" title="4.2.5 指针和const限定符"></a>4.2.5 指针和const限定符</h3><p><strong>指向const对象的指针</strong></p>
+<p>如果指针指向 const 对象，则不允许用指针来改变其所指的 const 值。为了保证这个特性，C++ 语言强制要求指向 const 对象的指针也必须具有 const 特性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const double *cptr;</span><br></pre></td></tr></table></figure>
+<p>这里的 cptr 是一个指向 double 类型 const 对象的指针，const 限定了 cptr 指针所指向的对象类型，而并非 cptr 本身。也就是说，cptr 本身并不是const。在定义时不需要对它进行初始化，如果需要的话，允许给 cptr 重新赋值，使其指向另一个 const 对象。但不能通过 cptr 修改其所指对象的值。</p>
+<p>把一个 const 对象的地址赋给一个普通的、非 const 对象的指针也会导致编译时的错误。</p>
+<p>允许把非 const 对象的地址赋给指向 const 对象的指针。</p>
+<p>在实际的程序中，指向 const 的指针常用作函数的形参。将形参定义为指向 const 的指针，以此确保传递给函数的实际对象在函数中不因为形参而被修改。 </p>
+<p><strong>const指针</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int errNumb = 0; </span><br><span class="line">int *const curErr = &amp;errNumb;</span><br></pre></td></tr></table></figure>
+<p>与其他 const 量一样，const 指针的值不能修改，const 指针也必须在定义时初始化。</p>
+<p><strong>指向const对象的const指针</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const double pi = 3.14159; </span><br><span class="line">const double *const pi_ptr = &amp;pi;</span><br></pre></td></tr></table></figure>
+<p>既不能修改所指向对象的值，也不允许修改该指针的指向。</p>
+<p><strong>指针和typedef</strong></p>
+<p>在 typedef中使用指针往往会带来意外的结果。假设给出以下语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typedef string *pstring; </span><br><span class="line">const pstring cstr;</span><br></pre></td></tr></table></figure>
+<p>这个定义等价于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string *const cstr;</span><br></pre></td></tr></table></figure>
 
     
   </div>
