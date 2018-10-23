@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson9 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第四章 数组和指针4.3 C风格字符串字符串字面值的类型就是const char 类型的数组。实际上，C 风格字符串既不能确切地归结为 C 语言的类型，也不能归结为 C++ 语言的类型，而是以空字符 null 结束的字符数组。">
+  
+  <meta name="description" content="第四章 数组和指针4.3 C风格字符串字符串字面值的类型就是const char 类型的数组。实际上，C 风格字符串既不能确切地归结为 C 语言的类型，也不能归结为 C++ 语言的类型，而是以空字符 null 结束的字符数组。">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson9">
+<meta property="og:url" content="https://zypsola.com/2018/10/23/C++Primer9/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第四章 数组和指针4.3 C风格字符串字符串字面值的类型就是const char 类型的数组。实际上，C 风格字符串既不能确切地归结为 C 语言的类型，也不能归结为 C++ 语言的类型，而是以空字符 null 结束的字符数组。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-23T15:40:45.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson9">
+<meta name="twitter:description" content="第四章 数组和指针4.3 C风格字符串字符串字面值的类型就是const char 类型的数组。实际上，C 风格字符串既不能确切地归结为 C 语言的类型，也不能归结为 C++ 语言的类型，而是以空字符 null 结束的字符数组。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/10/23/C++Primer9/">
+  <time datetime="2018-10-23T15:29:47.000Z">
+    2018-10-23
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson9</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第四章-数组和指针"><a href="#第四章-数组和指针" class="headerlink" title="第四章 数组和指针"></a>第四章 数组和指针</h1><h2 id="4-3-C风格字符串"><a href="#4-3-C风格字符串" class="headerlink" title="4.3 C风格字符串"></a>4.3 C风格字符串</h2><p>字符串字面值的类型就是const char 类型的数组。实际上，C 风格字符串既不能确切地归结为 C 语言的类型，也不能归结为 C++ 语言的类型，而是以空字符 null 结束的字符数组。</p>
+<a id="more"></a>
+<p>C++ 语言通过(const)char*类型的指针来操纵 C 风格字符串。一般来说，我们使用指针的算术操作来遍历 C 风格字符串，每次对指针进行测试并递增 1，直到到达结束符 null 为止： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const char *cp = &quot;12345&quot;;</span><br><span class="line">while (*cp) &#123;    //真值表明这是除 null 外的任意字符</span><br><span class="line">	cout &lt;&lt; *cp++;</span><br><span class="line">&#125;</span><br><span class="line">//result: 12345</span><br></pre></td></tr></table></figure>
+<p><strong>C 风格字符串的标准库函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">strlen(s)       返回 s 的长度，不包括字符串结束符 null </span><br><span class="line">strcmp(s1, s2)  比较两个字符串 s1 和 s2 是否相同。若 s1 与 s2 相等，返回 0；若 s1 大于 s2，返回正数；若 s1 小于 s2，则返回负数 </span><br><span class="line">strcat(s1, s2)  将字符串 s2 连接到 s1 后，并返回 s1 </span><br><span class="line">strcpy(s1, s2)     将 s2 复制给 s1，并返回 s1 </span><br><span class="line">strncat(s1, s2, n) 将 s2 的前 n 个字符连接到 s1 后面，并返回 s1 </span><br><span class="line">strncpy(s1, s2, n) 将 s2 的前 n 个字符复制给 s1，并返回 s1</span><br></pre></td></tr></table></figure>
+<p>C++ 语言提供普通的关系操作符实现标准库类型 string 的对象的比较。这些操作符也可用于比较指向 C 风格字符串的指针，但效果却很不相同：实际上，此时比较的是指针上存放的地址值，而并非它们所指向的字符串。</p>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2018 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
