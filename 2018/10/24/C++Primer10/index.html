@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson10 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第五章 表达式表达式由一个或多个操作数通过操作符组合而成。最简单的表达式仅包含一个字面值常量或变量。较复杂的表达式则由操作符以及一个或多个操作数构成。每个表达式都会产生一个结果。如果表达式中没有操作符，则其结果就是操作数本身（例如，字面值常量或变量）的值。">
+  
+  <meta name="description" content="第五章 表达式表达式由一个或多个操作数通过操作符组合而成。最简单的表达式仅包含一个字面值常量或变量。较复杂的表达式则由操作符以及一个或多个操作数构成。每个表达式都会产生一个结果。如果表达式中没有操作符，则其结果就是操作数本身（例如，字面值常量或变量）的值。">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson10">
+<meta property="og:url" content="https://zypsola.com/2018/10/24/C++Primer10/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第五章 表达式表达式由一个或多个操作数通过操作符组合而成。最简单的表达式仅包含一个字面值常量或变量。较复杂的表达式则由操作符以及一个或多个操作数构成。每个表达式都会产生一个结果。如果表达式中没有操作符，则其结果就是操作数本身（例如，字面值常量或变量）的值。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-24T08:23:31.727Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson10">
+<meta name="twitter:description" content="第五章 表达式表达式由一个或多个操作数通过操作符组合而成。最简单的表达式仅包含一个字面值常量或变量。较复杂的表达式则由操作符以及一个或多个操作数构成。每个表达式都会产生一个结果。如果表达式中没有操作符，则其结果就是操作数本身（例如，字面值常量或变量）的值。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/10/24/C++Primer10/">
+  <time datetime="2018-10-24T07:07:09.000Z">
+    2018-10-24
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson10</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第五章-表达式"><a href="#第五章-表达式" class="headerlink" title="第五章 表达式"></a>第五章 表达式</h1><p>表达式由一个或多个<strong>操作数</strong>通过<strong>操作符</strong>组合而成。最简单的表达式仅包含一个字面值常量或变量。较复杂的表达式则由操作符以及一个或多个操作数构成。每个表达式都会产生一个结果。如果表达式中没有操作符，则其结果就是操作数本身（例如，字面值常量或变量）的值。</p>
+<a id="more"></a>
+<p>除了特殊用法外，表达式的结果是右值，可以读取该结果值，但是不允许对它进行赋值。 </p>
+<p>C++提供了一元操作符和二元操作符两种操作符。作用在一个操作数上的操作符称为一元操作符,如取地址操作符（&amp;）和解引用操作符（*）；而二元操作符则作用于两个操作数上。除此之外，C++ 还提供了一个使用三个操作数的三元操作符。</p>
+<p>对于操作数为内置或复合类型的二元操作符，通常要求它的两个操作数具有相同的数据类型，或者其类型可以转换为同一种数据类型。</p>
+<p>要理解由多个操作符组成的表达式，必须先理解操作符的<strong>优先级</strong>、<strong>结合性</strong>和操作数的<strong>求值顺序</strong>。</p>
+<h2 id="5-1-算术操作符"><a href="#5-1-算术操作符" class="headerlink" title="5.1 算术操作符"></a>5.1 算术操作符</h2><p>按优先级来对操作符进行分组——一元操作符优先级最高，其次是乘、除操作，接着是二元的加、减法操作。高优先级的操作符要比低优先级的结合得更紧密。这些算术操作符都是左结合，这就意味着当操作符的优先级相同时，这些操作符从左向右依次与操作数结合。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+      一元正号    + expr </span><br><span class="line">-      一元负号    - expr </span><br><span class="line">*      乘法      expr * expr</span><br><span class="line">/      除法      expr / expr</span><br><span class="line">%      求余      expr % expr</span><br><span class="line">+      加法      expr + expr</span><br><span class="line">-      减法      expr - expr</span><br></pre></td></tr></table></figure>
+<p>如果两个操作数为正，除法（/）和求模（%）操作的结果也是正数（或零）；如果两个操作数都是负数，除法操作的结果为正数（或零），而求模操作的结果则为负数（或零）；如果只有一个操作数为负数，这两种操作的结果取决于机器；求模结果的符号也取决于机器，而除法操作的值则是负数（或零）： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-21 % -8; //  ok: result is -5 </span><br><span class="line">21 % -5;  //  machine-dependent: result is 1 or -4 </span><br><span class="line">-21 / -8; //  ok: result is 2 </span><br><span class="line">21 / -5;  //  machine-dependent: result is -4 or -5</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-关系操作符和逻辑操作符"><a href="#5-2-关系操作符和逻辑操作符" class="headerlink" title="5.2 关系操作符和逻辑操作符"></a>5.2 关系操作符和逻辑操作符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">!        逻辑非     !expr </span><br><span class="line">&lt;        小于       expr &lt; expr</span><br><span class="line">&lt;=       小于等于   expr &lt;= expr</span><br><span class="line">&gt;        大于       expr &gt; expr</span><br><span class="line">&gt;=       大于等于   expr &gt;= expr</span><br><span class="line">==       相等       expr == expr</span><br><span class="line">!=       不等       expr != expr</span><br><span class="line">&amp;&amp;       逻辑与     expr &amp;&amp; expr</span><br><span class="line">||       逻辑或     expr || expr</span><br></pre></td></tr></table></figure>
+<p>逻辑与和逻辑或操作符总是先计算其左操作数，然后再计算其右操作数。只有在仅靠左操作数的值无法确定该逻辑表达式的结果时，才会求解其右操作数。我们常常称这种求值策略为“短路求值（short-circuit evaluation）”。 </p>
+<h2 id="5-3-位操作符"><a href="#5-3-位操作符" class="headerlink" title="5.3 位操作符"></a>5.3 位操作符</h2><p>位操作符使用整型的操作数。位操作符将其整型操作数视为二进制位的集合，为每一位提供检验和设置的功能。另外，这类操作符还可用于 bitset 类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~    bitwise NOT（位求反）  ~expr </span><br><span class="line">&lt;&lt;    left shift（左移）    expr1 &lt;&lt; expr2</span><br><span class="line">&gt;&gt;    right shift（右移）   expr1 &gt;&gt; expr2</span><br><span class="line">&amp;    bitwise AND（位与）    expr1 &amp; expr2</span><br><span class="line">^    bitwise XOR（位异或）  expr1 ^ expr2</span><br><span class="line">|    bitwise OR（位或）     expr1 | expr2</span><br></pre></td></tr></table></figure>
+<p>位操作符操纵的整数的类型可以是有符号的也可以是无符号的。如果操作数为负数，则位操作符如何处理其操作数的符号位依赖于机器。</p>
+<p>移位操作的右操作数不可以是负数，而且必须是严格小于左操作数位数的值。否则，操作的效果未定义。 </p>
+<h2 id="5-4-赋值操作符"><a href="#5-4-赋值操作符" class="headerlink" title="5.4 赋值操作符"></a>5.4 赋值操作符</h2><p>赋值操作符的左操作数必须是非 const 的左值。</p>
+<h3 id="5-4-1-赋值操作的右结合性"><a href="#5-4-1-赋值操作的右结合性" class="headerlink" title="5.4.1 赋值操作的右结合性"></a>5.4.1 赋值操作的右结合性</h3><p>C++语言允许将这多个赋值操作写在一个表达式中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a;</span><br><span class="line">float b;</span><br><span class="line">a = b = 4.345;</span><br><span class="line">cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; endl;     //result: 4 4.345</span><br></pre></td></tr></table></figure>
+<h3 id="5-4-2-赋值操作具有低优先级"><a href="#5-4-2-赋值操作具有低优先级" class="headerlink" title="5.4.2 赋值操作具有低优先级"></a>5.4.2 赋值操作具有低优先级</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int i; </span><br><span class="line">while ((i = get_value()) != 42) &#123; </span><br><span class="line">    // do something ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在赋值操作上加圆括号是必需的，因为赋值操作符的优先级低于不等操作符。 </p>
+<h3 id="5-4-3-复合赋值操作符"><a href="#5-4-3-复合赋值操作符" class="headerlink" title="5.4.3 复合赋值操作符"></a>5.4.3 复合赋值操作符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+=   -=   *=   /=   %=   // arithmetic operators </span><br><span class="line">&lt;&lt;= &gt;&gt;=   &amp;=   ^=   |=   // bitwise operators</span><br></pre></td></tr></table></figure>
+<h2 id="5-5-增和自减操作符"><a href="#5-5-增和自减操作符" class="headerlink" title="5.5 增和自减操作符"></a>5.5 增和自减操作符</h2><p>自增（++）和自减（–）操作符为对象加 1 或减 1 操作提供了方便简短的实现方式。它们有前置和后置两种使用形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int i = 0, j; </span><br><span class="line">j = ++i; // j = 1, i = 1</span><br><span class="line">j = i++; // j = 1, i = 2</span><br></pre></td></tr></table></figure>
+<p>前置操作返回加 1 后的值，所以返回对象本身，这是左值。而后置操作返回的则是右值。 </p>
+<p><strong>在单个表达式中组合使用解引用和自增操作</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int a[2][3] = &#123; &#123; 10,20,30 &#125;,&#123; 40,50,60 &#125; &#125;;</span><br><span class="line">int(*p)[3] = a;</span><br><span class="line">cout &lt;&lt; **p &lt;&lt; endl;    //result: 10</span><br><span class="line">cout &lt;&lt; *((*p) + 1) &lt;&lt; endl;    //result: 20</span><br><span class="line">cout &lt;&lt; *((*++p) + 1) &lt;&lt; endl;  //result: 50</span><br></pre></td></tr></table></figure>
+<h2 id="5-6-箭头操作符"><a href="#5-6-箭头操作符" class="headerlink" title="5.6 箭头操作符"></a>5.6 箭头操作符</h2>
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2018 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第四章 数组和指针4.3 C风格字符串字符串字面值的类型就是const char 类型的数组。实际上，C 风格字符串既不能确切地归结为 C 语言的类型，也不能归结为 C++ 语言的类型，而是以空字符 null 结束的字符数组。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-23T15:40:45.805Z">
+<meta property="og:updated_time" content="2018-10-24T06:55:58.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson9">
 <meta name="twitter:description" content="第四章 数组和指针4.3 C风格字符串字符串字面值的类型就是const char 类型的数组。实际上，C 风格字符串既不能确切地归结为 C 语言的类型，也不能归结为 C++ 语言的类型，而是以空字符 null 结束的字符数组。">
@@ -87,6 +87,47 @@
 <p><strong>C 风格字符串的标准库函数</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">strlen(s)       返回 s 的长度，不包括字符串结束符 null </span><br><span class="line">strcmp(s1, s2)  比较两个字符串 s1 和 s2 是否相同。若 s1 与 s2 相等，返回 0；若 s1 大于 s2，返回正数；若 s1 小于 s2，则返回负数 </span><br><span class="line">strcat(s1, s2)  将字符串 s2 连接到 s1 后，并返回 s1 </span><br><span class="line">strcpy(s1, s2)     将 s2 复制给 s1，并返回 s1 </span><br><span class="line">strncat(s1, s2, n) 将 s2 的前 n 个字符连接到 s1 后面，并返回 s1 </span><br><span class="line">strncpy(s1, s2, n) 将 s2 的前 n 个字符复制给 s1，并返回 s1</span><br></pre></td></tr></table></figure>
 <p>C++ 语言提供普通的关系操作符实现标准库类型 string 的对象的比较。这些操作符也可用于比较指向 C 风格字符串的指针，但效果却很不相同：实际上，此时比较的是指针上存放的地址值，而并非它们所指向的字符串。</p>
+<h3 id="4-3-1-创建动态数组"><a href="#4-3-1-创建动态数组" class="headerlink" title="4.3.1 创建动态数组"></a>4.3.1 创建动态数组</h3><p>数组类型的变量有三个重要的限制：数组长度固定不变，在编译时必须知道其长度，数组只在定义它的块语句内存在。实际的程序往往不能忍受这样的限制——它们需要在运行时动态地分配数组。虽然数组长度是固定的，但动态分配的数组不必在编译时知道其长度，可以（通常也是）在运行时才确定数组长度。与数组变量不同，动态分配的数组将一直存在，直到程序显式释放它为止。 </p>
+<p>每一个程序在执行时都占用一块可用的内存空间，用于存放动态分配的对象，此内存空间称为程序的<strong>自由存储区</strong>或<strong>堆</strong>。</p>
+<p>C 语言程序使用一对标准库函数 <strong>malloc</strong> 和 <strong>free</strong> 在自由存储区中分配存储空间，而 C++ 语言则使用 <strong>new</strong> 和 <strong>delete</strong> 表达式实现相同的功能。 </p>
+<p><strong>动态数组的定义</strong></p>
+<p>数组变量通过指定类型、数组名和维数来定义。而动态分配数组时，只需指定类型和数组长度，不必为数组对象命名，new 表达式返回指向新分配数组的第一个元素的指针： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int size</span><br><span class="line">cin &gt;&gt; size;</span><br><span class="line">int *p = new int[size];</span><br></pre></td></tr></table></figure>
+<p><strong>初始化动态分配的数组</strong></p>
+<p>动态分配数组时，如果数组元素具有类类型，将使用该类的默认构造函数实现初始化；如果数组元素是内置类型，则无初始化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string *psa = new string[10]; // array of 10 empty strings </span><br><span class="line">int *pia = new int[10];       // array of 10 uninitialized ints</span><br></pre></td></tr></table></figure>
+<p>也可使用跟在数组长度后面的一对空圆括号，对数组元素做值初始化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int *p = new int[10] (); // array of 10 zero</span><br></pre></td></tr></table></figure>
+<p>圆括号要求编译器对数组做值初始化。对于动态分配的数组，其元素只能初始化为元素类型的默认值，而不能像数组变量一样，用初始化列表为数组元素提供各不相同的初值。 </p>
+<p><strong>const 对象的动态数组</strong></p>
+<p>如果我们在自由存储区中创建的数组存储了内置类型的 const 对象，则必须为这个数组提供初始化：因为数组元素都是 const 对象，无法赋值。实现这个要求的唯一方法是对数组做值初始化： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int *pci = new const int[100]();</span><br><span class="line">const string *pcs = new const string[100];    //将使用 string 类的默认构造函数初始化数组元素</span><br></pre></td></tr></table></figure>
+<p>已创建的常量元素不允许修改——因此这样的数组实际上用处不大。</p>
+<p><strong>允许动态分配空数组</strong></p>
+<p>C++ 虽然不允许定义长度为 0 的数组变量，但明确指出，调用 new 动态创建长度为 0 的数组是合法的： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char arr[0];            // error: cannot define zero-length array </span><br><span class="line">char *cp = new char[0]; // ok: but cp can&apos;t be dereferenced</span><br></pre></td></tr></table></figure>
+<p>用 new 动态创建长度为 0 的数组时，new 返回有效的非零指针。该指针与 new 返回的其他指针不同，不能进行解引用操作，因为它毕竟没有指向任何元素。</p>
+<p><strong>动态空间的释放</strong></p>
+<p>动态分配的内存最后必须进行释放，否则，内存最终将会逐渐耗尽。如果不再需要使用动态创建的数组，程序员必须显式地将其占用的存储空间返还给程序的自由存储区。C++ 语言为指针提供 delete [] 表达式释放指针所指向的数组空间： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete [] pia;</span><br></pre></td></tr></table></figure>
+<p>在关键字 delete 和指针之间的空方括号对是必不可少的：它告诉编译器该指针指向的是自由存储区中的数组，而并非单个对象。 </p>
+<h3 id="4-3-2-新旧代码的兼容"><a href="#4-3-2-新旧代码的兼容" class="headerlink" title="4.3.2 新旧代码的兼容"></a>4.3.2 新旧代码的兼容</h3><p><strong>混合使用标准库类string和C风格字符串</strong></p>
+<p>可用字符串字面值初始化 string 类对象： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string s(&quot;hello&quot;);</span><br><span class="line">char s1[10] = &quot;123456&quot;;</span><br><span class="line">string s2(s1);</span><br></pre></td></tr></table></figure>
+<p>无法使用 string 对象初始化字符指针,但是，string 类提供了一个名为 c_str 的成员函数，以实现我们的要求： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string s(&quot;123456&quot;);</span><br><span class="line">const char *const ps = s.c_str();</span><br></pre></td></tr></table></figure>
+<p><strong>使用数组初始化vector对象</strong></p>
+<p>使用数组初始化 vector 对象，必须指出用于初始化式的第一个元素以及数组最后一个元素的下一位置的地址： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a[5] = &#123; 1,2,3,4,5 &#125;;</span><br><span class="line">vector&lt;int&gt; b(a + 1, a + 4);    //size of b:3;b:2,3,4</span><br></pre></td></tr></table></figure>
+<h2 id="4-4-多维数组"><a href="#4-4-多维数组" class="headerlink" title="4.4 多维数组"></a>4.4 多维数组</h2><p><strong>多维数组的初始化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[2][3] = &#123;</span><br><span class="line">	&#123;1,2,3&#125;,</span><br><span class="line">	&#123;4,5,6&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a[2][3] = &#123; 1,2,3,4,5,6 &#125;;</span><br></pre></td></tr></table></figure>
+<p>下面的声明只初始化了每行的第一个元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a[2][3] = &#123; &#123;1&#125;,&#123;4&#125; &#125;;</span><br><span class="line">//1 0 0</span><br><span class="line">//4 0 0</span><br></pre></td></tr></table></figure>
+<h3 id="4-4-1-指针和多维数组"><a href="#4-4-1-指针和多维数组" class="headerlink" title="4.4.1 指针和多维数组"></a>4.4.1 指针和多维数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int a[2][3] = &#123; &#123;10,20,30&#125;,&#123;40,50,60&#125; &#125;;</span><br><span class="line">int(*p)[3] = a;</span><br><span class="line">cout &lt;&lt; **p &lt;&lt; endl;    //result: 10</span><br><span class="line">p = &amp;a[1];</span><br><span class="line">cout &lt;&lt; *((*p) + 1) &lt;&lt; endl;    //result: 50</span><br></pre></td></tr></table></figure>
+<p><strong>用 typedef 简化指向多维数组的指针</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typedef int int_array[3];</span><br><span class="line">int a[2][3] = &#123; &#123;10,20,30&#125;,&#123;40,50,60&#125; &#125;;</span><br><span class="line">int_array *p = a;</span><br></pre></td></tr></table></figure>
 
     
   </div>
