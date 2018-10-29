@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第六章 语句语句类似于自然语言中的句子。C++ 语言既有只完成单一任务的简单语句，也有作为一个单元执行的由一组语句组成的复合语句。和大多数语言一样，C++ 也提供了实现条件分支结构的语句以及重复地执行同一段代码的循环结构。本章将详细讨论 C++ 所支持的语句。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-29T12:54:01.410Z">
+<meta property="og:updated_time" content="2018-10-29T17:00:17.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson11">
 <meta name="twitter:description" content="第六章 语句语句类似于自然语言中的句子。C++ 语言既有只完成单一任务的简单语句，也有作为一个单元执行的由一组语句组成的复合语句。和大多数语言一样，C++ 也提供了实现条件分支结构的语句以及重复地执行同一段代码的循环结构。本章将详细讨论 C++ 所支持的语句。">
@@ -83,7 +83,23 @@
       <h1 id="第六章-语句"><a href="#第六章-语句" class="headerlink" title="第六章 语句"></a>第六章 语句</h1><p>语句类似于自然语言中的句子。C++ 语言既有只完成单一任务的简单语句，也有作为一个单元执行的由一组语句组成的复合语句。和大多数语言一样，C++ 也提供了实现条件分支结构的语句以及重复地执行同一段代码的循环结构。本章将详细讨论 C++ 所支持的语句。</p>
 <a id="more"></a>
 <p>通常情况下，语句是顺序执行的。但是，除了最简单的程序外，只有顺序执行往往并不足够。为此，C++ 定义了一组控制流语句，允许有条件地执行或者重复地执行某部分功能。if 和 switch 语句提供了条件分支结构，而 for、while 和 do while 语句则支持重复执行的功能。后几种语句常称为循环或者迭代语句。 </p>
-<h2 id="6-1-简单语句"><a href="#6-1-简单语句" class="headerlink" title="6.1 简单语句"></a>6.1 简单语句</h2>
+<h2 id="6-1-简单语句"><a href="#6-1-简单语句" class="headerlink" title="6.1 简单语句"></a>6.1 简单语句</h2><p><strong>空语句</strong></p>
+<p>程序语句最简单的形式是空语句，它使用以下的形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-声明语句"><a href="#6-2-声明语句" class="headerlink" title="6.2 声明语句"></a>6.2 声明语句</h2><p>在 C++ 中，对象或类的定义或声明也是语句。尽管定义语句这种说法也许更准确些，但定义语句经常被称为声明语句。</p>
+<h2 id="6-3-复合语句"><a href="#6-3-复合语句" class="headerlink" title="6.3 复合语句"></a>6.3 复合语句</h2><p><strong>复合语句</strong>，通常被称为<strong>块</strong>，是用一对花括号括起来的语句序列（也可能是空的）。块标识了一个作用域，在块中引入的名字只能在该块内部或嵌套在块中的子块里访问。</p>
+<h2 id="6-4-语句作用域"><a href="#6-4-语句作用域" class="headerlink" title="6.4 语句作用域"></a>6.4 语句作用域</h2><p>在语句的控制结构中定义的变量，仅在定义它们的块语句结束前有效。这种变量的作用域限制在语句体内。通常，语句体本身就是一个块语句，其中也可能包含了其他的块。一个在控制结构里引入的名字是该语句的局部变量，其作用域局限在语句内部。 </p>
+<h2 id="6-5-if语句"><a href="#6-5-if语句" class="headerlink" title="6.5 if语句"></a>6.5 if语句</h2><p><strong>if语句</strong>根据特定表达式是否为真来有条件地执行另一个语句。if 语句有两种形式：其中一种带 else 分支而另一种则没有。</p>
+<p><strong>悬垂else</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (a)</span><br><span class="line">	if (b);</span><br><span class="line">	else &#123;</span><br><span class="line">		;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>所有语言的 if 语句都普通存在着潜在的二义性。这种情况往往称为悬垂 else 问题，产生于一个语句包含的 if 子句多于 else 子句时：对于每一个 else，究竟它们归属哪个 if 语句？ </p>
+<p>C++ 中悬垂 else 问题带来的二义性，通过将 else 匹配给最后出现的尚未匹配的 if 子句来解决。</p>
+<h2 id="6-6-switch语句"><a href="#6-6-switch语句" class="headerlink" title="6.6 switch语句"></a>6.6 switch语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char a;</span><br><span class="line">switch (a)</span><br><span class="line">&#123;</span><br><span class="line">case &apos;a&apos;:break;</span><br><span class="line">case &apos;b&apos;:break;</span><br><span class="line">default:</span><br><span class="line">	break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果表达式与其中一个 case 标号的值匹配，则程序将从该标号后面的第一个语句开始依次执行各个语句，直到 switch 结束或遇到 break 语句为止。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">switch (ch)</span><br><span class="line">&#123;</span><br><span class="line">case &apos;a&apos;: case &apos;e&apos;: case &apos;i&apos;: case &apos;o&apos;: case &apos;u&apos;: &#123;</span><br><span class="line">	++vowelCnt;</span><br><span class="line">	break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>case 标号必须是整型常量表达式,如果两个 case 标号具有相同的值，同样也会导致编译时的错误。</p>
+<h2 id="6-7-while-语句"><a href="#6-7-while-语句" class="headerlink" title="6.7 while 语句"></a>6.7 while 语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">whlie(cond)&#123;</span><br><span class="line">	;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     
   </div>
   <footer>
