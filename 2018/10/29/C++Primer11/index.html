@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第六章 语句语句类似于自然语言中的句子。C++ 语言既有只完成单一任务的简单语句，也有作为一个单元执行的由一组语句组成的复合语句。和大多数语言一样，C++ 也提供了实现条件分支结构的语句以及重复地执行同一段代码的循环结构。本章将详细讨论 C++ 所支持的语句。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-31T08:55:32.605Z">
+<meta property="og:updated_time" content="2018-10-31T09:17:42.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson11">
 <meta name="twitter:description" content="第六章 语句语句类似于自然语言中的句子。C++ 语言既有只完成单一任务的简单语句，也有作为一个单元执行的由一组语句组成的复合语句。和大多数语言一样，C++ 也提供了实现条件分支结构的语句以及重复地执行同一段代码的循环结构。本章将详细讨论 C++ 所支持的语句。">
@@ -142,12 +142,12 @@
 <li><p>type_info 头文件定义了 bad_cast 异常类型。</p>
 </li>
 </ol>
-<h2 id="6-14-使用预处理器进行调试"><a href="#6-14-使用预处理器进行调试" class="headerlink" title="6.14 使用预处理器进行调试"></a>6.14 使用预处理器进行调试</h2><p>程序所包含的调试代码仅在开发过程中执行。当应用程序已经完成，并且准备提交时，就会将调试代码关闭。可使用 NDEBUG 预处理变量实现有条件的调试代码： </p>
+<h2 id="6-14-使用预处理器进行调试"><a href="#6-14-使用预处理器进行调试" class="headerlink" title="6.14 使用预处理器进行调试"></a>6.14 使用预处理器进行调试</h2><p>程序所包含的调试代码仅在开发过程中执行。当应用程序已经完成，并且准备提交时，就会将调试代码关闭。可使用 <strong>NDEBUG</strong> 预处理变量实现有条件的调试代码： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#ifndef NDEBUG </span><br><span class="line">cerr &lt;&lt; &quot;err&quot; &lt;&lt; endl; </span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
 <p>如果 NDEBUG 已经定义了，那么程序执行时将会跳过 #ifndef 和 #endif 之间的代码。 </p>
 <p>预处理器还定义了其余四种在调试时非常有用的常量：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__FILE__ 文件名 </span><br><span class="line">__LINE__ 当前行号 </span><br><span class="line">__TIME__ 文件被编译的时间 </span><br><span class="line">__DATE__ 文件被编译的日期</span><br></pre></td></tr></table></figure>
-<p>另一个常见的调试技术是使用 NDEBUG 预处理变量以及 assert 预处理宏。</p>
+<p>另一个常见的调试技术是使用 NDEBUG 预处理变量以及 <strong>assert</strong> 预处理宏。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert(expr)</span><br></pre></td></tr></table></figure>
 <p>只要 NDEBUG 未定义，assert 宏就求解条件表达式 expr，如果结果为 false，assert 输出信息并且终止程序的执行。如果该表达式有一个非零（true），则 assert 不做任何操作。 </p>
 <p>与异常不同（异常用于处理程序执行时预期要发生的错误），使用 assert 来测试“不可能发生”的条件。</p>
