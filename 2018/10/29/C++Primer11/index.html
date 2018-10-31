@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第六章 语句语句类似于自然语言中的句子。C++ 语言既有只完成单一任务的简单语句，也有作为一个单元执行的由一组语句组成的复合语句。和大多数语言一样，C++ 也提供了实现条件分支结构的语句以及重复地执行同一段代码的循环结构。本章将详细讨论 C++ 所支持的语句。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-29T17:00:17.487Z">
+<meta property="og:updated_time" content="2018-10-31T08:55:32.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson11">
 <meta name="twitter:description" content="第六章 语句语句类似于自然语言中的句子。C++ 语言既有只完成单一任务的简单语句，也有作为一个单元执行的由一组语句组成的复合语句。和大多数语言一样，C++ 也提供了实现条件分支结构的语句以及重复地执行同一段代码的循环结构。本章将详细讨论 C++ 所支持的语句。">
@@ -99,6 +99,58 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">switch (ch)</span><br><span class="line">&#123;</span><br><span class="line">case &apos;a&apos;: case &apos;e&apos;: case &apos;i&apos;: case &apos;o&apos;: case &apos;u&apos;: &#123;</span><br><span class="line">	++vowelCnt;</span><br><span class="line">	break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>case 标号必须是整型常量表达式,如果两个 case 标号具有相同的值，同样也会导致编译时的错误。</p>
 <h2 id="6-7-while-语句"><a href="#6-7-while-语句" class="headerlink" title="6.7 while 语句"></a>6.7 while 语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">whlie(cond)&#123;</span><br><span class="line">	;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-8-for-循环语句"><a href="#6-8-for-循环语句" class="headerlink" title="6.8 for 循环语句"></a>6.8 for 循环语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(;;)&#123;</span><br><span class="line">	//...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以在 for 语句的 init-statement 中定义多个对象；但是不管怎么样，该处只能出现一个语句，因此所有的对象必须具有相同的一般类型。</p>
+<h2 id="6-9-do-while"><a href="#6-9-do-while" class="headerlink" title="6.9 do while"></a>6.9 do while</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do &#123;</span><br><span class="line">	//...</span><br><span class="line">&#125; while (cond);</span><br></pre></td></tr></table></figure>
+<p>不可以在循环条件cond中定义变量。</p>
+<h2 id="6-10-break-语句"><a href="#6-10-break-语句" class="headerlink" title="6.10 break 语句"></a>6.10 break 语句</h2><p>用于结束最近的 while、do while、for 或 switch 语句，并将程序的执行权传递给紧接在被终止语句之后的语句。</p>
+<h2 id="6-11-continue-语句"><a href="#6-11-continue-语句" class="headerlink" title="6.11 continue 语句"></a>6.11 continue 语句</h2><p>导致最近的循环语句的当次迭代提前结束。</p>
+<h2 id="6-12-goto-语句"><a href="#6-12-goto-语句" class="headerlink" title="6.12 goto 语句"></a>6.12 goto 语句</h2><p>goto 语句提供了函数内部的无条件跳转，实现从 goto 语句跳转到同一函数内某个带标号的语句。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">goto lable;</span><br><span class="line">lable:;</span><br></pre></td></tr></table></figure>
+<p>goto 语句不能跨越变量的定义语句向前跳转。向前跳过未执行的变量定义语句，意味着变量可能在没有定义的情况下使用。</p>
+<p>向后跳过已经执行的变量定义语句则是合法的。向后跳回到一个变量定义之前，则会使系统撤销这个变量，然后再重新创建它。</p>
+<h2 id="6-13-try-块和异常处理"><a href="#6-13-try-块和异常处理" class="headerlink" title="6.13 try 块和异常处理"></a>6.13 try 块和异常处理</h2><p>异常机制提供程序中错误检测与错误处理部分之间的通信。C++ 的异常处理中包括： </p>
+<ol>
+<li><p><strong>throw 表达式</strong>，错误检测部分使用这种表达式来说明遇到了不可处理的错误。可以说，throw <strong>引发</strong>了异常条件。 </p>
+</li>
+<li><p><strong>try 块</strong>，错误处理部分使用它来处理异常。try 语句块以 try 关键字开始，并以一个或多个 catch 子句结束。在 try 块中执行的代码所抛出（throw）的异常，通常会被其中一个 catch 子句处理。由于它们“处理”异常，catch 子句也称为处理代码。 </p>
+</li>
+<li><p>由标准库定义的一组<strong>异常类</strong>，用来在 throw 和相应的 catch 之间传递有关的错误信息。 </p>
+</li>
+</ol>
+<h3 id="6-13-1-throw-表达式"><a href="#6-13-1-throw-表达式" class="headerlink" title="6.13.1 throw 表达式"></a>6.13.1 throw 表达式</h3><p>系统通过 throw 表达式抛出异常。throw 表达式由关键字 throw 以及尾随的表达式组成，通常以分号结束，这样它就成为了表达式语句。throw 表达式的类型决定了所抛出异常的类型。 </p>
+<h3 id="6-13-2-try-块"><a href="#6-13-2-try-块" class="headerlink" title="6.13.2 try 块"></a>6.13.2 try 块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int a = 1;</span><br><span class="line">try &#123;</span><br><span class="line">	if (a) &#123;</span><br><span class="line">		throw runtime_error(&quot;aaaaaaaa!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">catch (runtime_error err) &#123;</span><br><span class="line">	cout &lt;&lt; err.what();         //aaaaaaaa!</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>函数在寻找处理代码的过程中退出</strong></p>
+<p>在复杂的系统中，程序的执行路径也许在遇到抛出异常的代码之前，就已经经过了多个 try 块。例如，一个 try 块可能调用了包含另一 try 块的函数，它的 try 块又调用了含有 try 块的另一个函数，如此类推。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">int aa()</span><br><span class="line">&#123;</span><br><span class="line">	int a = 1;</span><br><span class="line">	try &#123;</span><br><span class="line">		if (a) &#123;</span><br><span class="line">			throw runtime_error(&quot;aaaa!&quot;);</span><br><span class="line">			return a;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	catch (logic_error err) &#123;</span><br><span class="line">		cout &lt;&lt; err.what() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;a:&quot; &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">	return !a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	try &#123;</span><br><span class="line">		if (int b = aa()) &#123;</span><br><span class="line">			cout &lt;&lt; &quot;b:&quot; &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">			throw runtime_error(&quot;bbbb!&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	catch (runtime_error err) &#123;</span><br><span class="line">		cout &lt;&lt; err.what() &lt;&lt; err.what() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>aa()中a=1时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aaaa!aaaa!</span><br></pre></td></tr></table></figure>
+<p>aa()中a=0时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a:0</span><br><span class="line">b:1</span><br><span class="line">bbbb!bbbb!</span><br></pre></td></tr></table></figure>
+<p>抛出一个异常时，首先要搜索的是抛出异常的函数。如果没有找到匹配的 catch，则终止这个函数的执行，并在调用这个函数的函数中寻找相配的 catch。如果仍然没有找到相应的处理代码，该函数同样要终止，搜索调用它的函数。如此类推，继续按执行路径回退，直到找到适当类型的 catch 为止。 </p>
+<p>如果不存在处理该异常的 catch 子句，程序的运行就要跳转到名为 terminate 的标准库函数，该函数在 exception 头文件中定义。这个标准库函数的行为依赖于系统，通常情况下，它的执行将导致程序非正常退出。 </p>
+<h3 id="6-13-3-标准异常"><a href="#6-13-3-标准异常" class="headerlink" title="6.13.3 标准异常"></a>6.13.3 标准异常</h3><ol>
+<li><p>exception 头文件定义了最常见的异常类，它的类名是 exception。这个类只通知异常的产生，但不会提供更多的信息。 </p>
+</li>
+<li><p>stdexcept 头文件定义了几种常见的异常类。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">runtime_error     运行时错误：仅在运行时才能检测到问题 </span><br><span class="line">range_error       运行时错误：生成的结果超出了有意义的值域范围 </span><br><span class="line">overflow_error    运行时错误：计算上溢 </span><br><span class="line">underflow_error   运行时错误：计算下溢 </span><br><span class="line">logic_error       逻辑错误：可在运行前检测到问题 </span><br><span class="line">domain_error      逻辑错误：参数的结果值不存在 </span><br><span class="line">invalid_argument  逻辑错误：不合适的参数 </span><br><span class="line">length_error      逻辑错误：试图生成一个超出该类型最大长度的对象</span><br><span class="line">out_of_range      逻辑错误：使用一个超出有效范围的值</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>new 头文件定义了 bad_alloc 异常类型，提供因无法分配内在而由 new 抛出的异常。 </p>
+</li>
+<li><p>type_info 头文件定义了 bad_cast 异常类型。</p>
+</li>
+</ol>
+<h2 id="6-14-使用预处理器进行调试"><a href="#6-14-使用预处理器进行调试" class="headerlink" title="6.14 使用预处理器进行调试"></a>6.14 使用预处理器进行调试</h2><p>程序所包含的调试代码仅在开发过程中执行。当应用程序已经完成，并且准备提交时，就会将调试代码关闭。可使用 NDEBUG 预处理变量实现有条件的调试代码： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#ifndef NDEBUG </span><br><span class="line">cerr &lt;&lt; &quot;err&quot; &lt;&lt; endl; </span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<p>如果 NDEBUG 已经定义了，那么程序执行时将会跳过 #ifndef 和 #endif 之间的代码。 </p>
+<p>预处理器还定义了其余四种在调试时非常有用的常量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__FILE__ 文件名 </span><br><span class="line">__LINE__ 当前行号 </span><br><span class="line">__TIME__ 文件被编译的时间 </span><br><span class="line">__DATE__ 文件被编译的日期</span><br></pre></td></tr></table></figure>
+<p>另一个常见的调试技术是使用 NDEBUG 预处理变量以及 assert 预处理宏。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert(expr)</span><br></pre></td></tr></table></figure>
+<p>只要 NDEBUG 未定义，assert 宏就求解条件表达式 expr，如果结果为 false，assert 输出信息并且终止程序的执行。如果该表达式有一个非零（true），则 assert 不做任何操作。 </p>
+<p>与异常不同（异常用于处理程序执行时预期要发生的错误），使用 assert 来测试“不可能发生”的条件。</p>
 
     
   </div>
