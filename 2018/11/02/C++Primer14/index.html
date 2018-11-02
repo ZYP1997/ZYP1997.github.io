@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson14 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第八章 标准IO库C++ 的输入／输出由标准库提供。标准库定义了一族类型，支持对文件和控制窗口等设备的读写（IO）。还定义了其他一些类型，使 string 对象能够像文件一样操作，从而使我们无须 IO 就能实现数据与字符之间的转换。这些 IO 类型都定义了如何读写内置数据类型的值。">
+  
+  <meta name="description" content="第八章 标准IO库C++ 的输入／输出由标准库提供。标准库定义了一族类型，支持对文件和控制窗口等设备的读写（IO）。还定义了其他一些类型，使 string 对象能够像文件一样操作，从而使我们无须 IO 就能实现数据与字符之间的转换。这些 IO 类型都定义了如何读写内置数据类型的值。">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson14">
+<meta property="og:url" content="https://zypsola.com/2018/11/02/C++Primer14/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第八章 标准IO库C++ 的输入／输出由标准库提供。标准库定义了一族类型，支持对文件和控制窗口等设备的读写（IO）。还定义了其他一些类型，使 string 对象能够像文件一样操作，从而使我们无须 IO 就能实现数据与字符之间的转换。这些 IO 类型都定义了如何读写内置数据类型的值。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-02T17:01:42.885Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson14">
+<meta name="twitter:description" content="第八章 标准IO库C++ 的输入／输出由标准库提供。标准库定义了一族类型，支持对文件和控制窗口等设备的读写（IO）。还定义了其他一些类型，使 string 对象能够像文件一样操作，从而使我们无须 IO 就能实现数据与字符之间的转换。这些 IO 类型都定义了如何读写内置数据类型的值。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/11/02/C++Primer14/">
+  <time datetime="2018-11-02T12:54:55.000Z">
+    2018-11-02
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson14</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第八章-标准IO库"><a href="#第八章-标准IO库" class="headerlink" title="第八章 标准IO库"></a>第八章 标准IO库</h1><p>C++ 的输入／输出由标准库提供。标准库定义了一族类型，支持对文件和控制窗口等设备的读写（IO）。还定义了其他一些类型，使 string 对象能够像文件一样操作，从而使我们无须 IO 就能实现数据与字符之间的转换。这些 IO 类型都定义了如何读写内置数据类型的值。</p>
+<a id="more"></a>
+<h2 id="8-1-面向对象的标准库"><a href="#8-1-面向对象的标准库" class="headerlink" title="8.1 面向对象的标准库"></a>8.1 面向对象的标准库</h2><p>IO 类型在三个独立的头文件中定义：iostream 定义读写控制窗口的类型，fstream 定义读写已命名文件的类型，而 sstream 所定义的类型则用于读写存储在内存中的 string 对象。在 fstream 和 sstream 里定义的每种类型都是从 iostream 头文件中定义的相关类型派生而来。</p>
+<p><strong>国际字符的支持</strong></p>
+<p>标准库还定义了一组相关的类型，支持 wchar_t 类型。每个类都加上“w”前缀，以此与 char 类型的版本区分开来。</p>
+<p><strong>IO 对象不可复制或赋值</strong></p>
+<p>形参或返回类型也不能为流类型。如果需要传递或返回 IO 对象，则必须传递或返回指向该对象的指针或引用。</p>
+<p>一般情况下，如果要传递IO对象以便对它进行读写，可用非const引用的方式传递这个流对象。对IO对象的读写会改变它的状态，因此引用必须是非const的。 </p>
+<h2 id="8-2-条件状态"><a href="#8-2-条件状态" class="headerlink" title="8.2 条件状态"></a>8.2 条件状态</h2><p>IO 标准库管理一系列<strong>条件状态</strong>（condition state）成员，用来标记给定的 IO 对象是否处于可用状态，或者碰到了哪种特定的错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">strm::iostate     机器相关的整型名，由各个 iostream 类定义，用于定义条件状态 </span><br><span class="line">strm::badbit      strm::iostate 类型的值，用于指出被破坏的流 </span><br><span class="line">strm::failbit     strm::iostate 类型的值，用于指出失败的 IO 操作 </span><br><span class="line">strm::eofbit      strm::iostate 类型的值，用于指出流已经到达文件结束符</span><br><span class="line">strm::goodbit     strm::iostate 类型的值，用于指出流未处于错误状态</span><br><span class="line">s.eof()           如果设置了流 s 的 eofbit 值，则该函数返回 true </span><br><span class="line">s.fail()          如果设置了流 s 的 failbit 值，则该函数返回 true </span><br><span class="line">s.bad()           如果设置了流 s 的 badbit 值，则该函数返回 true </span><br><span class="line">s.good()          如果流 s 处于有效状态，则该函数返回 true </span><br><span class="line">s.clear()         将流 s 中的所有状态值都重设为有效状态/复位，返回void</span><br><span class="line">s.clear(flag)     将流 s 中的某个指定条件状态设置为有效/复位。flag 的类型是strm::iostate，返回void</span><br><span class="line">s.setstate(flag)  将流 s 中对应条件状态位置位。flag 的类型是 strm::iostate，返回void</span><br><span class="line">s.rdstate()       返回流 s 的当前条件，返回值类型为 strm::iostate</span><br></pre></td></tr></table></figure>
+<p>IO库定义了一个与机器无关的iostate类型，它提供了表达流状态的完整功能，这个类型应作为一个位集合来使用。</p>
+<p>badbit表示系统级错误，如不可恢复的读写错误，通常，一旦badbit被置位，流就无法使用了。发生可恢复错误后，failbit被置位，如期望读数值却读出一个字符等错误。如果到达文件结束位置，eofbit与failbit都会被置位。goodbit的值为0表示流未发生错误。若badbit、failbit和eofbit任何一个被置位，则检测流状态的条件会失败。</p>
+<h2 id="8-3-输出缓冲区的管理"><a href="#8-3-输出缓冲区的管理" class="headerlink" title="8.3 输出缓冲区的管理"></a>8.3 输出缓冲区的管理</h2><p>每个 IO 对象管理一个缓冲区，用于存储程序读写的数据。</p>
+<p>下面几种情况将导致缓冲区的内容被刷新，即写入到真实的输出设备或者文件： </p>
+<ol>
+<li><p>程序正常结束。作为main函数的return操作的一部分，将清空所有输出缓冲区。</p>
+</li>
+<li><p>缓冲区满时，缓冲区将会在写下一个值之前刷新。 </p>
+</li>
+<li><p>用操纵符显式地刷新缓冲区，例如行结束符endl。</p>
+</li>
+<li><p>在每次输出操作执行完后，用unitbuf操作符设置流的内部状态，从而清空缓冲区。默认cerr是设置unitbuf的，因此写到cerr的内容都是立即刷新的。</p>
+</li>
+<li><p>一个输出流可能被关联到另一个流。此时，当读写被关联的流时，关联到的流的缓冲区会被刷新，如默认cin与cerr都关联到cout。</p>
+</li>
+</ol>
+<p>我们的程序已经使用过endl操纵符，用于输出一个换行符并刷新缓冲区。除此之外，C++语言还提供了另外两个类似的操纵符。第一个经常使用的flush，用于刷新流，但不在输出中添加任何字符。第二个则是比较少用的ends，这个操纵符在缓冲区中插入空字符null，然后后刷新它。</p>
+<p><strong>unitbuf操纵符</strong></p>
+<p>若需要每次输出操作后都刷新缓冲区，可使用unitbuf操作符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; unitbuf &lt;&lt; &quot;first&quot; &lt;&lt; &quot; second&quot; &lt;&lt; nounitbuf; </span><br><span class="line">//等价于：</span><br><span class="line">cout &lt;&lt; &quot;first&quot; &lt;&lt; flush &lt;&lt; &quot; second&quot; &lt;&lt; flush</span><br></pre></td></tr></table></figure>
+<p>nounitbuf 操纵符将流恢复为使用正常的、由系统管理的缓冲区刷新方式。</p>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2018 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

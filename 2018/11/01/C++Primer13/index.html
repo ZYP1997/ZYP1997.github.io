@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第七章 函数7.8 重载函数出现在相同作用域中的两个函数，如果具有相同的名字而形参表不同，则称为重载函数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T16:51:04.005Z">
+<meta property="og:updated_time" content="2018-11-02T12:53:42.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson13">
 <meta name="twitter:description" content="第七章 函数7.8 重载函数出现在相同作用域中的两个函数，如果具有相同的名字而形参表不同，则称为重载函数。">
@@ -137,7 +137,17 @@
 <p>不能基于指针本身是否为 const 来实现函数的重载： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int fun(int *a)</span><br><span class="line">int fun(int *const a)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int fun(int *a)&#123;return ++*a;&#125;</span><br><span class="line">int fun(const int *a) &#123;return *a;&#125;</span><br><span class="line"></span><br><span class="line">const int a(5);</span><br><span class="line">int b(5);</span><br><span class="line">cout &lt;&lt; fun(&amp;a) &lt;&lt; endl;   //5</span><br><span class="line">cout &lt;&lt; fun(&amp;b) &lt;&lt; endl;   //6</span><br></pre></td></tr></table></figure>
-<h2 id="7-9-指向函数的指针"><a href="#7-9-指向函数的指针" class="headerlink" title="7.9 指向函数的指针"></a>7.9 指向函数的指针</h2>
+<h2 id="7-9-指向函数的指针"><a href="#7-9-指向函数的指针" class="headerlink" title="7.9 指向函数的指针"></a>7.9 指向函数的指针</h2><p>函数指针是指指向函数而非指向对象的指针。像其他指针一样，函数指针也指向某个特定的类型。函数类型由其返回类型以及形参表确定，而与函数名无关。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int(*pf)(int, int);</span><br><span class="line"></span><br><span class="line">int sum(int a, int b)&#123;</span><br><span class="line">	return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pf = &amp;sum;      //or pf = sum;</span><br><span class="line">cout &lt;&lt; pf(3, 4) &lt;&lt; endl;   //7</span><br><span class="line">cout &lt;&lt; (*pf)(3, 4) &lt;&lt; endl;  //7</span><br></pre></td></tr></table></figure>
+<p><strong>用 typedef 简化函数指针的定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typedef int(*pf)(int, int);</span><br><span class="line"></span><br><span class="line">int sum(int a, int b) &#123;</span><br><span class="line">	return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pf p = &amp;sum;    //or pf p = sum;</span><br><span class="line">cout &lt;&lt; p(3, 4) &lt;&lt; endl;    //7</span><br><span class="line">cout &lt;&lt; (*p)(3, 4) &lt;&lt; endl;   //7</span><br></pre></td></tr></table></figure>
+<p><strong>函数指针形参</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int sum2(int v1, int v2, int a(int, int)) &#123;     //or int (*a)(int, int) or pf a</span><br><span class="line">	return a(v1, v2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pf p = sum;</span><br><span class="line">cout &lt;&lt; sum2(3, 4, p) &lt;&lt; endl;   //7</span><br></pre></td></tr></table></figure>
+<p><strong>返回指向函数的指针</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int(*sum3())(int, int) &#123;     //or pf sum3() &#123;...&#125;</span><br><span class="line">	pf p = sum;</span><br><span class="line">	return p;</span><br><span class="line">&#125;</span><br><span class="line">pf p = sum;</span><br><span class="line">cout &lt;&lt; sum2(3, 4, sum3()) &lt;&lt; endl;   //7</span><br></pre></td></tr></table></figure>
+<p><strong>指向重载函数的指针</strong></p>
+<p>C++ 语言允许使用函数指针指向重载的函数。指针的类型必须与重载函数的一个版本精确匹配。如果没有精确匹配的函数，则对该指针的初始化或赋值都将导致编译错误。</p>
+
     
   </div>
   <footer>
