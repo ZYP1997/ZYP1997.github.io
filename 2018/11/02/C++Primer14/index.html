@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第八章 标准IO库C++ 的输入／输出由标准库提供。标准库定义了一族类型，支持对文件和控制窗口等设备的读写（IO）。还定义了其他一些类型，使 string 对象能够像文件一样操作，从而使我们无须 IO 就能实现数据与字符之间的转换。这些 IO 类型都定义了如何读写内置数据类型的值。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-03T05:05:24.304Z">
+<meta property="og:updated_time" content="2018-11-05T15:42:29.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson14">
 <meta name="twitter:description" content="第八章 标准IO库C++ 的输入／输出由标准库提供。标准库定义了一族类型，支持对文件和控制窗口等设备的读写（IO）。还定义了其他一些类型，使 string 对象能够像文件一样操作，从而使我们无须 IO 就能实现数据与字符之间的转换。这些 IO 类型都定义了如何读写内置数据类型的值。">
@@ -112,6 +112,20 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; unitbuf &lt;&lt; &quot;first&quot; &lt;&lt; &quot; second&quot; &lt;&lt; nounitbuf; </span><br><span class="line">//等价于：</span><br><span class="line">cout &lt;&lt; &quot;first&quot; &lt;&lt; flush &lt;&lt; &quot; second&quot; &lt;&lt; flush</span><br></pre></td></tr></table></figure>
 <p>nounitbuf 操纵符将流恢复为使用正常的、由系统管理的缓冲区刷新方式。</p>
 <p><strong>关联输入输出流</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ostream *old_tie = cin.tie();  //返回指向原关联流的指针</span><br><span class="line">cin.tie(&amp;cerr);</span><br></pre></td></tr></table></figure>
+<h2 id="8-4-文件输入输出"><a href="#8-4-文件输入输出" class="headerlink" title="8.4 文件输入输出"></a>8.4 文件输入输出</h2><p>fstream 头文件定义了三种支持文件 IO 的类型： </p>
+<ol>
+<li>ifstream，由 istream 派生而来，提供读文件的功能。 </li>
+<li>ofstream，由 ostream 派生而来，提供写文件的功能。 </li>
+<li>fstream，由 iostream 派生而来，提供读写同一个文件的功能。 </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fstream file(&quot;123.txt&quot;);</span><br><span class="line">file.close();</span><br><span class="line">file.open(&quot;123.txt&quot;);</span><br><span class="line">file &lt;&lt; 12345;      //写入12345</span><br></pre></td></tr></table></figure>
+<p>当一个fstream对象被销毁时，close会自动被调用。</p>
+<p><strong>文件模式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">in        以读方式打开</span><br><span class="line">out       以写方式打开</span><br><span class="line">app       每次写操作前定位到文件末尾</span><br><span class="line">ate       打开文件后立即定位到文件末尾</span><br><span class="line">trunc     打开文件时清空已存在的文件流</span><br><span class="line">binary    以二进制模式进行 IO 操作</span><br></pre></td></tr></table></figure>
+<p>如果需要重用文件流读写多个文件，必须在读另一个文件之前调用 clear 清除该流的状态。 </p>
+<h2 id="8-5-字符串流"><a href="#8-5-字符串流" class="headerlink" title="8.5 字符串流"></a>8.5 字符串流</h2><p>stringstream strm;    创建自由的 stringstream 对象<br>stringstream strm(s); 创建存储 s 的副本的 stringstream 对象，其中 s 是 string 类型的对象<br>strm.str()  返回 strm 中存储的 string 类型对象<br>strm.str(s) 将 string 类型的 s 复制给 strm，返回 void </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ostringstream ostr;</span><br><span class="line">ostr &lt;&lt; 123;</span><br><span class="line">string line, word;</span><br><span class="line">while (getline(cin, line)) &#123;            //输入：ad fes</span><br><span class="line">	istringstream strstream(line);</span><br><span class="line">	while (strstream &gt;&gt; word) &#123;</span><br><span class="line">		ostr &lt;&lt; word;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; ostr.str();           //123adfes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     
   </div>
