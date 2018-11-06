@@ -10,20 +10,20 @@
     <meta name="author" content="ZYP">
   
   
-    <meta name="description" content="第十章 关联容器">
+    <meta name="description" content="第十章 关联容器关联容器和顺序容器的本质差别在于：关联容器通过键（key）存储和读取元素，而顺序容器则通过元素在容器中的位置顺序存储和访问元素。">
   
-  <meta name="description" content="第十章 关联容器">
+  <meta name="description" content="第十章 关联容器关联容器和顺序容器的本质差别在于：关联容器通过键（key）存储和读取元素，而顺序容器则通过元素在容器中的位置顺序存储和访问元素。">
 <meta name="keywords" content="C++ Primer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ Lesson16">
 <meta property="og:url" content="https://zypsola.com/2018/11/06/C++Primer16/index.html">
 <meta property="og:site_name" content="空之境界">
-<meta property="og:description" content="第十章 关联容器">
+<meta property="og:description" content="第十章 关联容器关联容器和顺序容器的本质差别在于：关联容器通过键（key）存储和读取元素，而顺序容器则通过元素在容器中的位置顺序存储和访问元素。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-06T14:50:19.140Z">
+<meta property="og:updated_time" content="2018-11-06T16:09:21.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson16">
-<meta name="twitter:description" content="第十章 关联容器">
+<meta name="twitter:description" content="第十章 关联容器关联容器和顺序容器的本质差别在于：关联容器通过键（key）存储和读取元素，而顺序容器则通过元素在容器中的位置顺序存储和访问元素。">
   
   
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -80,7 +80,52 @@
   
   <div class="entry">
     
-      <h1 id="第十章-关联容器"><a href="#第十章-关联容器" class="headerlink" title="第十章 关联容器"></a>第十章 关联容器</h1>
+      <h1 id="第十章-关联容器"><a href="#第十章-关联容器" class="headerlink" title="第十章 关联容器"></a>第十章 关联容器</h1><p><strong>关联容器</strong>和顺序容器的本质差别在于：关联容器通过键（key）存储和读取元素，而顺序容器则通过元素在容器中的位置顺序存储和访问元素。 </p>
+<a id="more"></a>
+<p>关联容器（Associative containers）支持通过键来高效地查找和读取元素。两个基本的关联容器类型是 map、set。map 的元素以键－值（key-value）对的形式组织：键用作元素在 map 中的索引，而值则表示所存储和读取的数据。set 仅包含一个键，并有效地支持关于某个键是否存在的查询。 </p>
+<p>set 和 map 类型的对象所包含的元素都具有不同的键，不允许为同一个键添加第二个元素。如果一个键必须对应多个实例，则需使用 multimap 或 multiset，这两种类型允许多个元素拥有相同的键。 </p>
+<h2 id="10-1-引言：pair类型"><a href="#10-1-引言：pair类型" class="headerlink" title="10.1 引言：pair类型"></a>10.1 引言：pair类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;T1, T2&gt; p1;         创建一个空的 pair 对象，它的两个元素分别是 T1 和 T2 类型，采用值初始化</span><br><span class="line">pair&lt;T1, T2&gt; p1(v1, v2); 创建一个 pair 对象，它的两个元素分别是 T1 和 T2 ，其中 first 成员初始化为 v1，而 second 成员初始化为 v2 </span><br><span class="line">make_pair(v1, v2)        以 v1 和 v2 值创建一个新 pair 对象，其元素类型分别是 v1 和 v2 的类型 </span><br><span class="line">p1 &lt; p2    两个 pair 对象之间的小于运算，其定义遵循字典次序：如果 p1.first &lt; p2.first 或者 !(p2.first &lt; p1.first) &amp;&amp; p1.second &lt; p2.second，则返回 true </span><br><span class="line">p1 == p2   如果两个 pair 对象的 first 和 second 成员依次相等，则这两个对象相等。该运算使用其元素的 == 操作符 </span><br><span class="line">p.first    返回 p 中名为 first 的（公有）数据成员 </span><br><span class="line">p.second   返回 p 的名为 second 的（公有）数据成员</span><br></pre></td></tr></table></figure>
+<p>与其他标准库类型不同，对于 pair 类，可以直接访问其数据成员：其成员都是仅有的，分别命名为 first 和 second。只需使用普通的点操作符——成员访问标志即可访问其成员： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;int, string&gt; b = make_pair(4, &quot;afsd&quot;);  </span><br><span class="line">cout &lt;&lt; b.first &lt;&lt; b.second &lt;&lt; endl;   //4afsd</span><br><span class="line">b = pair&lt;int, string&gt;(6, &quot;ggg&quot;);</span><br><span class="line">cout &lt;&lt; b.first &lt;&lt; b.second &lt;&lt; endl;   //6ggg</span><br></pre></td></tr></table></figure>
+<h2 id="10-2-关联容器"><a href="#10-2-关联容器" class="headerlink" title="10.2 关联容器"></a>10.2 关联容器</h2><p>关联容器共享大部分但并非全部的顺序容器操作。关联容器不提供 front、 push_front、 pop_front、back、push_back 以及 pop_back 操作。 </p>
+<ol>
+<li><p>三种构造函数：C<t> c; C<t> c1(c2);  C<t> c(b, e); 关联容器不能通过容器大小来定义，因为这样的话就无法知道键所对应的值是什么。 </t></t></t></p>
+</li>
+<li><p>关系运算。</p>
+</li>
+<li><p>begin、end、rbegin 和 rend 操作。 </p>
+</li>
+<li><p>swap 和赋值操作。但关联容器不提供 assign 函数。</p>
+</li>
+<li><p>clear 和 erase 操作，但关联容器的 erase 运算返回 void 类型。 </p>
+</li>
+<li><p>关于容器大小的操作。但 resize 函数不能用于关联容器。</p>
+</li>
+</ol>
+<h2 id="10-3-map类型"><a href="#10-3-map类型" class="headerlink" title="10.3 map类型"></a>10.3 map类型</h2><p>map 是键－值对的集合。map 类型通常可理解为关联数组（associative array）：可使用键作为下标来获取一个值，正如内置数组类型一样。而关联的本质在于元素的值与某个特定的键相关联，而并非通过元素在数组中的位置来获取。 </p>
+<h3 id="10-3-1-map对象的定义"><a href="#10-3-1-map对象的定义" class="headerlink" title="10.3.1 map对象的定义"></a>10.3.1 map对象的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map&lt;k, v&gt; m;         创建一个名为 m 的空 map 对象，其键和值的类型分别为 k 和 v</span><br><span class="line">map&lt;k, v&gt; m(m2);     创建 m2 的副本 m，m 与 m2 必须有相同的键类型和值类型 </span><br><span class="line">map&lt;k, v&gt; m(b, e);   创建 map 类型的对象 m，存储迭代器 b 和 e 标记的范围内所有元素的副本。元素的类型必须能转换为 pair&lt;const k, v&gt;</span><br></pre></td></tr></table></figure>
+<p>在使用关联容器时，它的键不但有一个类型，而且还有一个相关的比较函数。默认情况下，标准库使用键类型定义的 &lt; 操作符来实现键（key type）的比较。</p>
+<p>所用的比较函数必须在键类型上定义严格弱排序（strict weak ordering）。所谓的严格弱排序可理解为键类型数据上的“小于”关系，虽然实际上可以选择将比较函数设计得更复杂。但无论这样的比较函数如何定义，当用于一个键与自身的比较时，肯定会导致 false 结果。此外，在比较两个键时，不能出现相互“小于”的情况，而且，如果 k1“小于”k2，k2“小于”k3，则 k1 必然“小于”k3。对于两个键，如果它们相互之间都不存在“小于”关系，则容器将之视为相同的键。用做 map 对象的键时，可使用任意一个键值来访问相应的元素。 </p>
+<h3 id="10-3-2-map定义的类型"><a href="#10-3-2-map定义的类型" class="headerlink" title="10.3.2 map定义的类型"></a>10.3.2 map定义的类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map&lt;K, V&gt;::key_type    在 map 容器中，用做索引的键的类型 </span><br><span class="line">map&lt;K, V&gt;::mapped_type 在 map 容器中，键所关联的值的类型 </span><br><span class="line">map&lt;K, V&gt;::value_type  一个 pair 类型，它的 first 元素具有 const map&lt;K, V&gt;::key_type 类型，而 second 元素则为 map&lt;K, V&gt;::mapped_type 类型</span><br></pre></td></tr></table></figure>
+<p>value_type 是 pair 类型，它的值成员可以修改，但键成员不能修改。 </p>
+<p>对迭代器进行解引用时，将获得一个引用，指向容器中一个 value_type 类型的值。对于 map 容器，其 value_type 是 pair 类型。</p>
+<h3 id="10-3-3-给map添加元素"><a href="#10-3-3-给map添加元素" class="headerlink" title="10.3.3 给map添加元素"></a>10.3.3 给map添加元素</h3><p>可使用 insert 成员实现；或者，先用下标操作符获取元素，然后给获取的元素赋值。</p>
+<h3 id="10-3-4-使用下标访问map对象"><a href="#10-3-4-使用下标访问map对象" class="headerlink" title="10.3.4 使用下标访问map对象"></a>10.3.4 使用下标访问map对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">map&lt;string, int&gt; m;</span><br><span class="line">m[&quot;abc&quot;] = 5;</span><br><span class="line">m[&quot;Abc&quot;] = 3;</span><br><span class="line">map&lt;string, int&gt;::iterator iter = m.begin();</span><br><span class="line">cout &lt;&lt; (*iter).first &lt;&lt; (*iter).second &lt;&lt; endl;     //Abc3</span><br><span class="line">cout &lt;&lt; m.size() &lt;&lt; endl;                            //2</span><br></pre></td></tr></table></figure>
+<p>map 的下标也使用索引（键）来获取该键所关联的值。如果该键已在容器中，则 map 的下标运算与 vector 的下标运算行为相同：返回该键所关联的值。只有在所查找的键不存在时，map 容器才为该键创建一个新的元素，并将它插入到此 map 对象中。</p>
+<h3 id="10-3-5-map-insert-的使用"><a href="#10-3-5-map-insert-的使用" class="headerlink" title="10.3.5 map::insert 的使用"></a>10.3.5 map::insert 的使用</h3><ol>
+<li><p>m.insert(e)        e 是一个用在 m 上的 value_type 类型的值。如果键（e.first）不在 m 中，则插入一个值为 e.second 的新元素；如果该键在 m 中已存在，则保持 m 不变。该函数返回一个 pair 类型对象，包含指向键为 e.first 的元素的 map 迭代器，以及一个 bool 类型的对象，表示是否插入了该元素 </p>
+</li>
+<li><p>m.insert(beg, end) beg 和 end 是标记元素范围的迭代器，其中的元素必须为 m.value_type 类型的键－值对。对于该范围内的所有元素，如果它的键在 m 中不存在，则将该键及其关联的值插入到 m。返回 void 类型 </p>
+</li>
+<li><p>m.insert(iter, e)  e 是一个用在 m 上的 value_type 类型的值。如果键（e.first）不在 m 中，则创建新元素，并以迭代器 iter 为起点搜索新元素存储的位置。返回一个迭代器，指向 m 中具有给定键的元素 </p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef map&lt;string, int&gt;::value_type valType;</span><br><span class="line">map&lt;string, int&gt; m;</span><br><span class="line">m.insert(map&lt;string, int&gt;::value_type(&quot;afd&quot;, 7));</span><br><span class="line">m.insert(make_pair(&quot;4df&quot;, 1));</span><br><span class="line">m.insert(valType(&quot;123&quot;, 9));</span><br></pre></td></tr></table></figure>
+<h3 id="10-3-6-查找并读取map中的元素"><a href="#10-3-6-查找并读取map中的元素" class="headerlink" title="10.3.6 查找并读取map中的元素"></a>10.3.6 查找并读取map中的元素</h3><p>下标操作符给出了读取一个值的最简单方法，但是，使用下标存在一个很危险的副作用：如果该键不在 map 容器中，那么下标操作会插入一个具有该键的新元素。 </p>
+<p>map 容器提供了两个操作：count 和 find，用于检查某个键是否存在而不会插入该键。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m.count(k)  返回m中k的出现次数 </span><br><span class="line">m.find(k)   如果m容器中存在按k索引的元素，则返回指向该元素的迭代器。如果不存在，则返回超出末端迭代</span><br></pre></td></tr></table></figure>
+<p>对于 map 对象，count 成员的返回值只能是 0 或 1。map 容器只允许一个键对应一个实例，所以 count 可有效地表明一个键是否存在。</p>
+<h3 id="10-3-7-从-map-对象中删除元素"><a href="#10-3-7-从-map-对象中删除元素" class="headerlink" title="10.3.7 从 map 对象中删除元素"></a>10.3.7 从 map 对象中删除元素</h3>
     
   </div>
   <footer>
