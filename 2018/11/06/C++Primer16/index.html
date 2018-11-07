@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第十章 关联容器关联容器和顺序容器的本质差别在于：关联容器通过键（key）存储和读取元素，而顺序容器则通过元素在容器中的位置顺序存储和访问元素。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-06T16:09:21.059Z">
+<meta property="og:updated_time" content="2018-11-07T09:19:53.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson16">
 <meta name="twitter:description" content="第十章 关联容器关联容器和顺序容器的本质差别在于：关联容器通过键（key）存储和读取元素，而顺序容器则通过元素在容器中的位置顺序存储和访问元素。">
@@ -125,7 +125,20 @@
 <p>map 容器提供了两个操作：count 和 find，用于检查某个键是否存在而不会插入该键。 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m.count(k)  返回m中k的出现次数 </span><br><span class="line">m.find(k)   如果m容器中存在按k索引的元素，则返回指向该元素的迭代器。如果不存在，则返回超出末端迭代</span><br></pre></td></tr></table></figure>
 <p>对于 map 对象，count 成员的返回值只能是 0 或 1。map 容器只允许一个键对应一个实例，所以 count 可有效地表明一个键是否存在。</p>
-<h3 id="10-3-7-从-map-对象中删除元素"><a href="#10-3-7-从-map-对象中删除元素" class="headerlink" title="10.3.7 从 map 对象中删除元素"></a>10.3.7 从 map 对象中删除元素</h3>
+<h3 id="10-3-7-从-map-对象中删除元素"><a href="#10-3-7-从-map-对象中删除元素" class="headerlink" title="10.3.7 从 map 对象中删除元素"></a>10.3.7 从 map 对象中删除元素</h3><p>map 容器的 erase 操作返回 void。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m.erase(k)     删除 m 中键为 k 的元素。返回被删除元素的个数。对于 map 容器，该值必然是 0 或 1。如果返回 0，则表示欲删除的元素在 map 不存在。 </span><br><span class="line">m.erase(p)     从 m 中删除迭代器 p 所指向的元素。p 必须指向 m 中确实存在的元素，而且不能等于 m.end()。返回 void </span><br><span class="line">m.erase(b, e)  从 m 中删除一段范围内的元素，该范围由迭代器对 b 和 e 标记。b 和 e 必须标记 m 中的一段有效范围：即 b 和 e 都必须指向 m 中的元素或最后一个元素的下一个位置。而且，b 和 e 要么相等（此时删除的范围为空），要么 b 所指向的元素必须出现在 e 所指向的元素之前。返回 void 类型</span><br></pre></td></tr></table></figure>
+<h2 id="10-4-set"><a href="#10-4-set" class="headerlink" title="10.4 set"></a>10.4 set</h2><p>set 容器只是单纯的键的集合。</p>
+<p>set 容器支持大部分的 map 操作，set 不支持下标操作符，而且没有定义 mapped_type 类型。在 set 容器中，value_type 不是 pair 类型，而是与 key_type 相同的类型。它们指的都是 set 中存储的元素类型。</p>
+<p><strong>从set中获取元素</strong></p>
+<p>set 容器不提供下标操作符。为了通过键从 set 中获取元素，可使用 find 运算。如果只需简单地判断某个元素是否存在，同样可以使用 count 运算，返回 set 中该键对应的元素个数。当然，对于 set 容器，count 的返回值只能是 1（该元素存在）或 0（该元素不存在）。</p>
+<p>set 中的键也为 const。在获得指向 set 中某元素的迭代器后，只能对其做读操作，而不能做写操作。</p>
+<h2 id="10-5-multimap和multiset类型"><a href="#10-5-multimap和multiset类型" class="headerlink" title="10.5. multimap和multiset类型"></a>10.5. multimap和multiset类型</h2><p>multiset和multimap类型允许一个键对应多个实例。multimap 和 multiset 所支持的操作分别与 map 和 set 的操作相同，只有一个例外：multimap 不支持下标运算。不能对 multimap 对象使用下标操作，因为在这类容器中，某个键可能对应多个值。</p>
+<h3 id="10-5-1-元素的添加和删除"><a href="#10-5-1-元素的添加和删除" class="headerlink" title="10.5.1 元素的添加和删除"></a>10.5.1 元素的添加和删除</h3><p>由于键不要求是唯一的，因此每次调用 insert 总会添加一个元素。</p>
+<p>带有一个键参数的 erase 版本将删除拥有该键的所有元素，并返回删除元素的个数。而带有一个或一对迭代器参数的版本只删除指定的元素，并返回 void 类型。</p>
+<h3 id="10-5-2-在multimap和multiset中查找元素"><a href="#10-5-2-在multimap和multiset中查找元素" class="headerlink" title="10.5.2 在multimap和multiset中查找元素"></a>10.5.2 在multimap和multiset中查找元素</h3><p>count 函数求出某键出现的次数，而 find 操作则返回一个迭代器，指向第一个拥有正在查找的键的实例。</p>
+<p><strong>lower_bound 和 upper_bound</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m.lower_bound(k)  返回一个迭代器，指向键不小于 k 的第一个元素 </span><br><span class="line">m.upper_bound(k)  返回一个迭代器，指向键大于 k 的第一个元素 </span><br><span class="line">m.equal_range(k)  返回一个迭代器的 pair 对象，它的 first 成员等价于 m.lower_bound(k)。而 second 成员则等价于 m.upper_bound(k)</span><br></pre></td></tr></table></figure>
+
     
   </div>
   <footer>
