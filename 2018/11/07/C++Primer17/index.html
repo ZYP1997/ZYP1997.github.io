@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第十一章 泛型算法标准库并没有为每种容器类型都定义实现这些操作的成员函数，而是定义了一组泛型算法：因为它们实现共同的操作，所以称之为“算法”；而“泛型”指的是它们可以操作在多种容器类型上——不但可作用于vector或list这些标准库类型，还可用在内置数组类型、甚至其他类型的序列上。自定义的容器类型只要与标准库兼容，同样可以使用这些泛型算法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-07T16:00:27.707Z">
+<meta property="og:updated_time" content="2018-11-09T16:02:51.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson17">
 <meta name="twitter:description" content="第十一章 泛型算法标准库并没有为每种容器类型都定义实现这些操作的成员函数，而是定义了一组泛型算法：因为它们实现共同的操作，所以称之为“算法”；而“泛型”指的是它们可以操作在多种容器类型上——不但可作用于vector或list这些标准库类型，还可用在内置数组类型、甚至其他类型的序列上。自定义的容器类型只要与标准库兼容，同样可以使用这些泛型算法。">
@@ -107,7 +107,39 @@
 <p>unique 实际上并没有删除任何元素，而是将无重复的元素复制到序列的前端，从而覆盖相邻的重复元素。unique 返回的迭代器指向超出无重复的元素范围末端的下一位置。 </p>
 <p><strong>stable_sort 和 count_if</strong>。使用这些算法，还需要一个配套的实用函数，称为<strong>谓词</strong>。谓词是做某些检测的函数，返回用于条件判断的类型，指出条件是否成立。 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">bool smaller(const int &amp;v1,const int &amp;v2) &#123;</span><br><span class="line">	return v1 &lt; v2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool more5(const int &amp;v) &#123;</span><br><span class="line">	return v &gt; 5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int a[8] = &#123; 1,3,6,5,4,8,5,9 &#125;;</span><br><span class="line">vector&lt;int&gt; ivec(a, a + 8);</span><br><span class="line">cout &lt;&lt; count_if(ivec.begin(), ivec.end(), more5) &lt;&lt; endl;   //3</span><br><span class="line">sort(ivec.begin(), ivec.end(), smaller);</span><br><span class="line">vector&lt;int&gt;::iterator iter = ivec.begin();</span><br><span class="line">while (iter != ivec.end()) &#123;</span><br><span class="line">	cout &lt;&lt; *iter++;       //13455689</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="11-3-再谈迭代器"><a href="#11-3-再谈迭代器" class="headerlink" title="11.3 再谈迭代器"></a>11.3 再谈迭代器</h2>
+<h2 id="11-3-再谈迭代器"><a href="#11-3-再谈迭代器" class="headerlink" title="11.3 再谈迭代器"></a>11.3 再谈迭代器</h2><p>标准库所定义的迭代器不依赖于特定的容器。事实上，C++语言还提供了另外三种迭代器： </p>
+<ol>
+<li><p>插入迭代器：这类迭代器与容器绑定在一起，实现在容器中插入元素的功能。 </p>
+</li>
+<li><p>iostream 迭代器：这类迭代器可与输入或输出流绑定在一起，用于迭代遍历所关联的 IO 流。 </p>
+</li>
+<li><p>反向迭代器：这类迭代器实现向后遍历，而不是向前遍历。所有容器类型都定义了自己的 reverse_iterator 类型，由 rbegin 和 rend 成员函数返回。 </p>
+</li>
+</ol>
+<h3 id="11-3-1-插入迭代器"><a href="#11-3-1-插入迭代器" class="headerlink" title="11.3.1 插入迭代器"></a>11.3.1 插入迭代器</h3><p>back_inserter，创建使用 push_back 实现插入的迭代器。 </p>
+<p>front_inserter，使用 push_front 实现插入。 </p>
+<p>inserter，使用 insert 实现插入操作。除了所关联的容器外，inserter还带有第二实参：指向插入起始位置的迭代器。 </p>
+<h3 id="11-3-2-iostream-迭代器"><a href="#11-3-2-iostream-迭代器" class="headerlink" title="11.3.2 iostream 迭代器"></a>11.3.2 iostream 迭代器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">istream_iterator&lt;T&gt; in(strm);      //创建从输入流 strm 中读取 T 类型对象的 istream_iterator 对象 </span><br><span class="line">istream_iterator&lt;T&gt; in;            //istream_iterator 对象的超出末端迭代器 </span><br><span class="line">ostream_iterator&lt;T&gt; in(strm);      //创建将 T 类型的对象写到输出流 strm 的 ostream_iterator 对象 </span><br><span class="line">ostream_iterator&lt;T&gt; in(strm, delim);     //创建将 T 类型的对象写到输出流 strm 的 ostream_iterator 对象，在写入过程中使用 delim 作为元素的分隔符。delim 是以空字符结束的字符数组</span><br></pre></td></tr></table></figure>
+<p>这个程序读 cin，并将每个读入的值依次写到 cout 中不同的行中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ostream_iterator&lt;string&gt; out_iter(cout, &quot;\n&quot;);</span><br><span class="line">istream_iterator&lt;string&gt; in_iter(cin), eof;</span><br><span class="line">while (in_iter != eof) &#123;</span><br><span class="line">	*out_iter++ = *in_iter++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不可能从 ostream_iterator 对象读入，也不可能写到 istream_iterator 对象中。 </p>
+<p>一旦给 ostream_iterator 对象赋了一个值，写入就提交了。赋值后，没有办法再改变这个值。此外，ostream_iterator 对象中每个不同的值都只能正好输出一次。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">istream_iterator&lt;int&gt; cin_it(cin), end_of_stream;</span><br><span class="line">vector&lt;int&gt; vec(cin_it, end_of_stream);       //输入：3 109 45 89 6 34 12 90 34 23 56 23 8 89 23</span><br><span class="line">sort(vec.begin(), vec.end());</span><br><span class="line">ostream_iterator&lt;int&gt; output(cout, &quot; &quot;);</span><br><span class="line">unique_copy(vec.begin(), vec.end(), output);      //6 8 12 23 34 45 56 89 90 109</span><br></pre></td></tr></table></figure>
+<h3 id="11-3-3-反向迭代器"><a href="#11-3-3-反向迭代器" class="headerlink" title="11.3.3 反向迭代器"></a>11.3.3 反向迭代器</h3><p>反向迭代器是一种反向遍历容器的迭代器。也就是，从最后一个元素到第一个元素遍历容器。反向迭代器将自增（和自减）的含义反过来了：对于反向迭代器，++ 运算将访问前一个元素，而 – 运算则访问下一个元素。 </p>
+<p>流迭代器不能创建反向迭代器。</p>
+<h3 id="11-3-4-const-迭代器"><a href="#11-3-4-const-迭代器" class="headerlink" title="11.3.4 const 迭代器"></a>11.3.4 const 迭代器</h3><p>不希望使用这个迭代器来修改容器中的元素。 </p>
+<h3 id="11-3-5-五种迭代器"><a href="#11-3-5-五种迭代器" class="headerlink" title="11.3.5 五种迭代器"></a>11.3.5 五种迭代器</h3><p>输入迭代器：读，不能写；只支持自增运算<br>输出迭代器：写，不能读；只支持自增运算<br>前向迭代器：读和写；只支持自增运算<br>双向迭代器：读和写；支持自增和自减运算<br>随机访问迭代器：读和写；支持完整的迭代器算术运算 </p>
+<h2 id="11-4-泛型算法的结构"><a href="#11-4-泛型算法的结构" class="headerlink" title="11.4 泛型算法的结构"></a>11.4 泛型算法的结构</h2><p>大多数算法采用下面四种形式之一： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alg (beg, end, other parms); </span><br><span class="line">alg (beg, end, dest, other parms); </span><br><span class="line">alg (beg, end, beg2, other parms); </span><br><span class="line">alg (beg, end, beg2, end2, other parms)</span><br></pre></td></tr></table></figure>
+<p>其中，alg 是算法的名字，beg 和 end 指定算法操作的元素范围。其他形参：dest、beg2 和 end2，它们都是迭代器。有些算法还带有其他的非迭代器形参。</p>
+<h2 id="11-5-容器特有的算法"><a href="#11-5-容器特有的算法" class="headerlink" title="11.5 容器特有的算法"></a>11.5 容器特有的算法</h2><p>list 容器上的迭代器是双向的，而不是随机访问类型。由于 list 容器不支持随机访问，因此，在此容器上不能使用需要随机访问迭代器的算法。这些算法包括 sort 及其相关的算法。还有一些其他的泛型算法，如 merge、remove、reverse 和 unique，虽然可以用在 list 上，但却付出了性能上的代价。</p>
+<p><strong>list 容器特有的操作</strong></p>
+<p>对于 list 对象，应该优先使用 list 容器特有的成员版本，而不是泛型算法。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lst.merge(lst2) </span><br><span class="line">lst.merge(lst2, comp)</span><br></pre></td></tr></table></figure>
+<p>将 lst2 的元素合并到 lst 中。这两个 list 容器对象都必须排序。lst2 中的元素将被删除。合并后，lst2 为空。返回 void 类型。第一个版本使用 &lt; 操作符，而第二个版本则使用 comp 指定的比较运算 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lst.remove(val) </span><br><span class="line">lst.remove_if(unaryPred)</span><br></pre></td></tr></table></figure>
+<p>调用 lst.erase 删除所有等于指定值或使指定的谓词函数返回非零值的元素。返回 void 类型 </p>
+
     
   </div>
   <footer>
