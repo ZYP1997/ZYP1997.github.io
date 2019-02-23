@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第十二章 类在 C++ 中，用类来定义自己的抽象数据类型（abstract data types）。通过定义类型来对应所要解决的问题中的各种概念，可以使我们更容易编写、调试和修改程序。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-23T15:33:05.590Z">
+<meta property="og:updated_time" content="2019-02-23T16:04:02.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson18">
 <meta name="twitter:description" content="第十二章 类在 C++ 中，用类来定义自己的抽象数据类型（abstract data types）。通过定义类型来对应所要解决的问题中的各种概念，可以使我们更容易编写、调试和修改程序。">
@@ -119,7 +119,17 @@
 <h3 id="12-4-5-类成员的显式初始化"><a href="#12-4-5-类成员的显式初始化" class="headerlink" title="12.4.5 类成员的显式初始化"></a>12.4.5 类成员的显式初始化</h3><p>对于没有定义构造函数并且其全体数据成员均为 public 的类，可以采用与初始化数组元素相同的方式初始化其成员。根据数据成员的声明次序来使用初始化式。</p>
 <h2 id="12-5-友元"><a href="#12-5-友元" class="headerlink" title="12.5 友元"></a>12.5 友元</h2><p>友元机制允许一个类将对其非公有成员的访问权授予指定的函数或类。友元的声明以关键字 friend 开始。它只能出现在类定义的内部。友元声明可以出现在类中的任何地方：友元不是授予友元关系的那个类的成员，所以它们不受声明出现部分的访问控制影响。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class A1;</span><br><span class="line">class A2;</span><br><span class="line"></span><br><span class="line">class A1 &#123;</span><br><span class="line">public:</span><br><span class="line">	A1() :a(1) &#123;&#125;;</span><br><span class="line">private:</span><br><span class="line">	int a;</span><br><span class="line">	friend int addA12(A1 a1, A2 a2);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class A2 &#123;</span><br><span class="line">public:</span><br><span class="line">	A2() :a(2) &#123;&#125;;</span><br><span class="line">private:</span><br><span class="line">	int a;</span><br><span class="line">	friend int addA12(A1 a1, A2 a2);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int addA12(A1 a1, A2 a2) &#123;</span><br><span class="line">	return a1.a + a2.a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	A1 aa;</span><br><span class="line">	A2 ab;</span><br><span class="line">	cout &lt;&lt; addA12(aa, ab) &lt;&lt; endl;       //3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="12-6-static类成员"><a href="#12-6-static类成员" class="headerlink" title="12.6 static类成员"></a>12.6 static类成员</h2>
+<h2 id="12-6-static类成员"><a href="#12-6-static类成员" class="headerlink" title="12.6 static类成员"></a>12.6 static类成员</h2><p>通常，非 static 数据成员存在于类类型的每个对象中。static 数据成员独立于该类的任意对象而存在；每个 static 数据成员是与类关联的对象，并不与该类的对象相关联。</p>
+<p>static 成员函数没有 this 形参，它可以直接访问所属类的 static 成员，但不能直接使用非 static 成员。</p>
+<p>当我们在类的外部定义 static 成员时，无须重复指定 static 保留字，该保留字只出现在类定义体内部的声明处。</p>
+<p>static 数据成员必须在类定义体的外部定义（正好一次）。不像普通数据成员，static 成员不是通过类构造函数进行初始化，而是应该在定义时进行初始化。</p>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ol>
+<li><p><strong>抽象数据类型：</strong>使用封装来隐藏其实现的数据结构，允许使用类型的程序员抽象地考虑该类型做什么，而不是具体地考虑类型如何表示。</p>
+</li>
+<li><p><strong>封装：</strong>实现与接口的分离。封闭隐藏了类型的实现细节。在 C++ 中，实施封装可以阻止普通用户访问类的 private 部分。</p>
+</li>
+</ol>
+
     
   </div>
   <footer>
