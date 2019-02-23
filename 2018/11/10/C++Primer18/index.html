@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第十二章 类在 C++ 中，用类来定义自己的抽象数据类型（abstract data types）。通过定义类型来对应所要解决的问题中的各种概念，可以使我们更容易编写、调试和修改程序。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-10T17:36:43.545Z">
+<meta property="og:updated_time" content="2019-02-23T15:33:05.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Lesson18">
 <meta name="twitter:description" content="第十二章 类在 C++ 中，用类来定义自己的抽象数据类型（abstract data types）。通过定义类型来对应所要解决的问题中的各种概念，可以使我们更容易编写、调试和修改程序。">
@@ -111,7 +111,15 @@
 <p>初始化类类型的成员时，要指定实参并传递给成员类型的一个构造函数。可以使用该类型的任意构造函数。</p>
 <h3 id="12-4-2-默认实参与构造函数"><a href="#12-4-2-默认实参与构造函数" class="headerlink" title="12.4.2 默认实参与构造函数"></a>12.4.2 默认实参与构造函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Sales_item(const std::string &amp;book = &quot;&quot;):</span><br><span class="line">          isbn(book), units_sold(0), revenue(0.0) &#123; &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="12-4-3-默认构造函数"><a href="#12-4-3-默认构造函数" class="headerlink" title="12.4.3 默认构造函数"></a>12.4.3 默认构造函数</h3><p>只有当一个类没有定义构造函数时，编译器才会自动生成一个默认构造函数。 </p>
-
+<h3 id="12-4-4-隐式类类型转换"><a href="#12-4-4-隐式类类型转换" class="headerlink" title="12.4.4 隐式类类型转换"></a>12.4.4 隐式类类型转换</h3><p>可以用单个实参来调用的构造函数定义了从形参类型到该类类型的一个隐式转换。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">item.same_isbn(cin);</span><br></pre></td></tr></table></figure>
+<p><strong>抑制由构造函数定义的隐式转换</strong>：可以通过将构造函数声明为 explicit，来防止在需要隐式转换的上下文中使用构造函数。explicit 关键字只能用于类内部的构造函数声明上。在类的定义体外部所做的定义上不再重复它。</p>
+<p><strong>为转换而显式地使用构造函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string null_book = &quot;9-999-99999-9&quot;; </span><br><span class="line">item.same_isbn(Sales_item(null_book))</span><br></pre></td></tr></table></figure>
+<h3 id="12-4-5-类成员的显式初始化"><a href="#12-4-5-类成员的显式初始化" class="headerlink" title="12.4.5 类成员的显式初始化"></a>12.4.5 类成员的显式初始化</h3><p>对于没有定义构造函数并且其全体数据成员均为 public 的类，可以采用与初始化数组元素相同的方式初始化其成员。根据数据成员的声明次序来使用初始化式。</p>
+<h2 id="12-5-友元"><a href="#12-5-友元" class="headerlink" title="12.5 友元"></a>12.5 友元</h2><p>友元机制允许一个类将对其非公有成员的访问权授予指定的函数或类。友元的声明以关键字 friend 开始。它只能出现在类定义的内部。友元声明可以出现在类中的任何地方：友元不是授予友元关系的那个类的成员，所以它们不受声明出现部分的访问控制影响。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class A1;</span><br><span class="line">class A2;</span><br><span class="line"></span><br><span class="line">class A1 &#123;</span><br><span class="line">public:</span><br><span class="line">	A1() :a(1) &#123;&#125;;</span><br><span class="line">private:</span><br><span class="line">	int a;</span><br><span class="line">	friend int addA12(A1 a1, A2 a2);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class A2 &#123;</span><br><span class="line">public:</span><br><span class="line">	A2() :a(2) &#123;&#125;;</span><br><span class="line">private:</span><br><span class="line">	int a;</span><br><span class="line">	friend int addA12(A1 a1, A2 a2);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int addA12(A1 a1, A2 a2) &#123;</span><br><span class="line">	return a1.a + a2.a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	A1 aa;</span><br><span class="line">	A2 ab;</span><br><span class="line">	cout &lt;&lt; addA12(aa, ab) &lt;&lt; endl;       //3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="12-6-static类成员"><a href="#12-6-static类成员" class="headerlink" title="12.6 static类成员"></a>12.6 static类成员</h2>
     
   </div>
   <footer>
@@ -131,7 +139,7 @@
   </div>
   <footer id="footer"><div class="copyright">
   
-  &copy; 2018 <a href="/">ZYP</a>
+  &copy; 2019 <a href="/">ZYP</a>
   
 </div>
 <div class="theme-copyright">
