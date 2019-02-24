@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson20 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第十四章 重载操作符与转换C++ 允许我们重定义操作符用于类类型对象时的含义。如果需要，可以像内置转换那样使用类类型转换，将一个类型的对象隐式转换到另一类型。">
+  
+  <meta name="description" content="第十四章 重载操作符与转换C++ 允许我们重定义操作符用于类类型对象时的含义。如果需要，可以像内置转换那样使用类类型转换，将一个类型的对象隐式转换到另一类型。">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson20">
+<meta property="og:url" content="https://zypsola.com/2019/02/24/C++Primer20/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第十四章 重载操作符与转换C++ 允许我们重定义操作符用于类类型对象时的含义。如果需要，可以像内置转换那样使用类类型转换，将一个类型的对象隐式转换到另一类型。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-24T13:08:47.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson20">
+<meta name="twitter:description" content="第十四章 重载操作符与转换C++ 允许我们重定义操作符用于类类型对象时的含义。如果需要，可以像内置转换那样使用类类型转换，将一个类型的对象隐式转换到另一类型。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2019/02/24/C++Primer20/">
+  <time datetime="2019-02-24T08:09:00.000Z">
+    2019-02-24
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson20</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第十四章-重载操作符与转换"><a href="#第十四章-重载操作符与转换" class="headerlink" title="第十四章 重载操作符与转换"></a>第十四章 重载操作符与转换</h1><p>C++ 允许我们重定义操作符用于类类型对象时的含义。如果需要，可以像内置转换那样使用类类型转换，将一个类型的对象隐式转换到另一类型。</p>
+<a id="more"></a>
+<h2 id="14-1-重载操作符的定义"><a href="#14-1-重载操作符的定义" class="headerlink" title="14.1 重载操作符的定义"></a>14.1 重载操作符的定义</h2><p>重载操作符是具有特殊名称的函数：保留字 operator 后接需定义的操作符号。像任意其他函数一样，重载操作符具有返回类型和形参表。</p>
+<p>用于内置类型的操作符，其含义不能改变。重载操作符必须具有至少一个类类型或枚举类型的操作数。这条规则强制重载操作符不能重新定义用于内置类型对象的操作符的含义。</p>
+<p>操作符的优先级、结合性或操作数目不能改变。不管操作数的类型和操作符的功能定义如何。</p>
+<p>大多数重载操作符可以定义为普通非成员函数或类的成员函数。作为类成员的重载函数，其形参看起来比操作数数目少 1。作为成员函数的操作符有一个隐含的 this 形参，限定为第一个操作数。 </p>
+<p>操作符定义为非成员函数时，通常必须将它们设置为所操作类的友元。</p>
+<h2 id="14-2-输入和输出操作符"><a href="#14-2-输入和输出操作符" class="headerlink" title="14.2 输入和输出操作符"></a>14.2 输入和输出操作符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Myclass &#123;</span><br><span class="line">public:</span><br><span class="line">	void outstr() &#123;cout &lt;&lt; str1 &lt;&lt; endl;&#125;</span><br><span class="line">	friend istream&amp; operator&gt;&gt;(istream&amp;, Myclass&amp;);</span><br><span class="line">	friend ostream&amp; operator&lt;&lt;(ostream&amp;, const Myclass&amp;);</span><br><span class="line">	friend Myclass&amp; operator+(const Myclass&amp;, const Myclass&amp;);</span><br><span class="line">	Myclass&amp; operator+=(Myclass&amp;);</span><br><span class="line">private:</span><br><span class="line">	string str1;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">inline istream&amp; operator&gt;&gt;(istream&amp; in, Myclass&amp; m) &#123;</span><br><span class="line">	in &gt;&gt; m.str1;</span><br><span class="line">	return in;</span><br><span class="line">&#125;</span><br><span class="line">inline ostream&amp; operator&lt;&lt;(ostream&amp; out, const Myclass&amp; m) &#123;</span><br><span class="line">	out &lt;&lt; m.str1;</span><br><span class="line">	return out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Myclass a;</span><br><span class="line">	cin &gt;&gt; a;</span><br><span class="line">	cout &lt;&lt; a;</span><br><span class="line"></span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="14-3-算术操作符和关系操作符"><a href="#14-3-算术操作符和关系操作符" class="headerlink" title="14.3 算术操作符和关系操作符"></a>14.3 算术操作符和关系操作符</h2><p>一般而言，将算术和关系操作符定义为非成员函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">inline Myclass&amp; Myclass::operator+=(Myclass&amp; r) &#123;</span><br><span class="line">	this-&gt;str1 = this-&gt;str1 + r.str1;</span><br><span class="line">	return *this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline Myclass&amp; operator+(const Myclass&amp; l, const Myclass&amp; r) &#123;</span><br><span class="line">	Myclass tem;</span><br><span class="line">	tem.str1 = l.str1 + r.str1;</span><br><span class="line">	return tem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="14-5-下标操作符"><a href="#14-5-下标操作符" class="headerlink" title="14.5 下标操作符"></a>14.5 下标操作符</h2><p>下标操作符必须定义为类成员函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Myclass &#123;</span><br><span class="line">public:</span><br><span class="line">	Myclass() &#123; num = &#123; 1,2,3,4 &#125;; &#125;;</span><br><span class="line">	int&amp; operator[](int);</span><br><span class="line">private:</span><br><span class="line">	vector&lt;int&gt; num;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int&amp; Myclass::operator[](int i) &#123;</span><br><span class="line">	return num[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="14-8-调用操作符和函数对象"><a href="#14-8-调用操作符和函数对象" class="headerlink" title="14.8 调用操作符和函数对象"></a>14.8 调用操作符和函数对象</h2><p>函数调用操作符必须声明为成员函数。定义了调用操作符的类，其对象常称为函数对象，即它们是行为类似函数的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Myclass &#123;</span><br><span class="line">public:</span><br><span class="line">	int operator() (int val)&#123;</span><br><span class="line">		return val*val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	Myclass a;</span><br><span class="line">	cout &lt;&lt; a(5);</span><br><span class="line"></span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2019 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

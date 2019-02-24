@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson21 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第十五章 面向对象编程面向对象编程基于三个基本概念：数据抽象、继承和动态绑定。在C++中，用类进行数据抽象，用类派生从一个类继承另一个：派生类继承基类的成员。动态绑定使编译器能够在运行时决定是使用基类中定义的函数还是派生类中定义的函数。">
+  
+  <meta name="description" content="第十五章 面向对象编程面向对象编程基于三个基本概念：数据抽象、继承和动态绑定。在C++中，用类进行数据抽象，用类派生从一个类继承另一个：派生类继承基类的成员。动态绑定使编译器能够在运行时决定是使用基类中定义的函数还是派生类中定义的函数。">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson21">
+<meta property="og:url" content="https://zypsola.com/2019/02/24/C++Primer21/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第十五章 面向对象编程面向对象编程基于三个基本概念：数据抽象、继承和动态绑定。在C++中，用类进行数据抽象，用类派生从一个类继承另一个：派生类继承基类的成员。动态绑定使编译器能够在运行时决定是使用基类中定义的函数还是派生类中定义的函数。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-24T13:19:13.571Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson21">
+<meta name="twitter:description" content="第十五章 面向对象编程面向对象编程基于三个基本概念：数据抽象、继承和动态绑定。在C++中，用类进行数据抽象，用类派生从一个类继承另一个：派生类继承基类的成员。动态绑定使编译器能够在运行时决定是使用基类中定义的函数还是派生类中定义的函数。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2019/02/24/C++Primer21/">
+  <time datetime="2019-02-24T13:09:00.000Z">
+    2019-02-24
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson21</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第十五章-面向对象编程"><a href="#第十五章-面向对象编程" class="headerlink" title="第十五章 面向对象编程"></a>第十五章 面向对象编程</h1><p>面向对象编程基于三个基本概念：数据抽象、继承和动态绑定。在C++中，用类进行数据抽象，用类派生从一个类继承另一个：派生类继承基类的成员。动态绑定使编译器能够在运行时决定是使用基类中定义的函数还是派生类中定义的函数。</p>
+<a id="more"></a>
+<h2 id="15-1-面向对象编程：概述"><a href="#15-1-面向对象编程：概述" class="headerlink" title="15.1 面向对象编程：概述"></a>15.1 面向对象编程：概述</h2><p><strong>继承</strong>：派生类（derived class）能够继承基类（base class）定义的成员，派生类可以无须改变而使用那些与派生类型具体特性不相关的操作，派生类可以重定义那些与派生类型相关的成员函数，将函数特化，考虑派生类型的特性。最后，除了从基类继承的成员之外，派生类还可以定义更多的成员。</p>
+<p><strong>动态绑定</strong>：我们能够编写程序使用继承层次中任意类型的对象，无须关心对象的具体类型。使用这些类的程序无须区分函数是在基类还是在派生类中定义的。</p>
+<h2 id="15-2-定义基类和派生类"><a href="#15-2-定义基类和派生类" class="headerlink" title="15.2 定义基类和派生类"></a>15.2 定义基类和派生类</h2><h3 id="15-2-1-定义基类"><a href="#15-2-1-定义基类" class="headerlink" title="15.2.1 定义基类"></a>15.2.1 定义基类</h3>
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2019 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
