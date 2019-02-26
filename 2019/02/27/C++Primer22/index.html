@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>C++ Lesson22 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第十六章 模板和泛型编程所谓泛型编程就是以独立于任何特定类型的方式编写代码。使用泛型程序时，我们需要提供具体程序实例所操作的类型或值。第二部分中描述的标准库的容器、迭代器和算法都是泛型编程的例子。每种容器(如 vector)都有单一的定义，但可以定义许多不同种类的 vector，它们的区别在于所包含的元素类型。">
+  
+  <meta name="description" content="第十六章 模板和泛型编程所谓泛型编程就是以独立于任何特定类型的方式编写代码。使用泛型程序时，我们需要提供具体程序实例所操作的类型或值。第二部分中描述的标准库的容器、迭代器和算法都是泛型编程的例子。每种容器(如 vector)都有单一的定义，但可以定义许多不同种类的 vector，它们的区别在于所包含的元素类型。">
+<meta name="keywords" content="C++ Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Lesson22">
+<meta property="og:url" content="https://zypsola.com/2019/02/27/C++Primer22/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第十六章 模板和泛型编程所谓泛型编程就是以独立于任何特定类型的方式编写代码。使用泛型程序时，我们需要提供具体程序实例所操作的类型或值。第二部分中描述的标准库的容器、迭代器和算法都是泛型编程的例子。每种容器(如 vector)都有单一的定义，但可以定义许多不同种类的 vector，它们的区别在于所包含的元素类型。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-26T16:56:27.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Lesson22">
+<meta name="twitter:description" content="第十六章 模板和泛型编程所谓泛型编程就是以独立于任何特定类型的方式编写代码。使用泛型程序时，我们需要提供具体程序实例所操作的类型或值。第二部分中描述的标准库的容器、迭代器和算法都是泛型编程的例子。每种容器(如 vector)都有单一的定义，但可以定义许多不同种类的 vector，它们的区别在于所包含的元素类型。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/Z720">Z720</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2019/02/27/C++Primer22/">
+  <time datetime="2019-02-26T16:54:35.000Z">
+    2019-02-27
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">C++ Lesson22</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第十六章-模板和泛型编程"><a href="#第十六章-模板和泛型编程" class="headerlink" title="第十六章 模板和泛型编程"></a>第十六章 模板和泛型编程</h1><p>所谓泛型编程就是以独立于任何特定类型的方式编写代码。使用泛型程序时，我们需要提供具体程序实例所操作的类型或值。第二部分中描述的标准库的容器、迭代器和算法都是泛型编程的例子。每种容器(如 vector)都有单一的定义，但可以定义许多不同种类的 vector，它们的区别在于所包含的元素类型。</p>
+<a id="more"></a>
+<h2 id="16-1-模板定义"><a href="#16-1-模板定义" class="headerlink" title="16.1 模板定义"></a>16.1 模板定义</h2>
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/C-Primer/">C++ Primer</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2019 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
