@@ -21,16 +21,10 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="从用WPF做界面开始，到现在用Unity做游戏，使用C#已经有好一段时间了，但一直没有系统地学习C#。是时候学习一下了，这里我使用的是《C#图解教程》。 第一章 C#和.NET框架C#是为在微软的.NET Framework上开发程序设计的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p87c5zr6b.bkt.clouddn.com/pic1-1.png">
-<meta property="og:image" content="http://p87c5zr6b.bkt.clouddn.com/pic1-2.png">
-<meta property="og:image" content="http://p87c5zr6b.bkt.clouddn.com/pic1-3.png">
-<meta property="og:image" content="http://p87c5zr6b.bkt.clouddn.com/pic1-4.png">
-<meta property="og:image" content="http://p87c5zr6b.bkt.clouddn.com/pic1-5.png">
-<meta property="og:updated_time" content="2018-10-19T16:51:38.739Z">
+<meta property="og:updated_time" content="2019-02-26T17:17:27.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C# Lesson1">
 <meta name="twitter:description" content="从用WPF做界面开始，到现在用Unity做游戏，使用C#已经有好一段时间了，但一直没有系统地学习C#。是时候学习一下了，这里我使用的是《C#图解教程》。 第一章 C#和.NET框架C#是为在微软的.NET Framework上开发程序设计的。">
-<meta name="twitter:image" content="http://p87c5zr6b.bkt.clouddn.com/pic1-1.png">
   
   
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -92,7 +86,7 @@
 <a id="more"></a>
 <h2 id="1-NET框架由三部分组成"><a href="#1-NET框架由三部分组成" class="headerlink" title="1 .NET框架由三部分组成"></a>1 .NET框架由三部分组成</h2><ol>
 <li><p>执行环境称为<strong>CLR</strong>(Common Language Runtime, 公共语言运行库)<br>CLR在运行时管理程序的执行，包括：<br>内存管理和垃圾收集<br>代码安全验证<br>代码执行、线程管理及异常处理</p>
-<p><img src="http://p87c5zr6b.bkt.clouddn.com/pic1-1.png" alt=""></p>
+<p><img src="" alt=""></p>
 </li>
 <li><p><strong>编程工具</strong>涵盖了编码和调试需要的一切，包括：<br>Visual Studio集成开发环境(IDE)<br>.NET兼容的编译器<br>调试器<br>网站开发服务器端技术，如ASP.NET或WCF</p>
 </li>
@@ -115,9 +109,9 @@
 <li><p>基础库</p>
 </li>
 </ol>
-<h2 id="3-编译成CIL"><a href="#3-编译成CIL" class="headerlink" title="3 编译成CIL"></a>3 编译成CIL</h2><p><img src="http://p87c5zr6b.bkt.clouddn.com/pic1-2.png" alt=""></p>
+<h2 id="3-编译成CIL"><a href="#3-编译成CIL" class="headerlink" title="3 编译成CIL"></a>3 编译成CIL</h2><p><img src="" alt=""></p>
 <p>.NET语言的编译器接受源代码文件，并生成名为<strong>程序集</strong>的输出文件<br>程序集要么是可执行的，要么是DLL<br>程序集里的代码不是本机代码而是<strong>CIL</strong>(Common International Language，公共中间语言)</p>
-<h2 id="4-编译成本机代码并执行"><a href="#4-编译成本机代码并执行" class="headerlink" title="4 编译成本机代码并执行"></a>4 编译成本机代码并执行</h2><p><img src="http://p87c5zr6b.bkt.clouddn.com/pic1-3.png" alt=""></p>
+<h2 id="4-编译成本机代码并执行"><a href="#4-编译成本机代码并执行" class="headerlink" title="4 编译成本机代码并执行"></a>4 编译成本机代码并执行</h2><p><img src="" alt=""></p>
 <p>程序的CIL直到它被调用运行时才会被编译成本机代码。运行时，CLR执行以下步骤：</p>
 <ol>
 <li><p>检查程序集的安全特性</p>
@@ -129,10 +123,10 @@
 </ol>
 <p>不被调用的代码不会被编译成本机代码，而且被调用到的代码只被编译一次<br>一旦CIL被编译成本机代码，CLR就在它运行时管理它<br><strong>托管代码</strong> 为.NET框架编写的代码，需要CLR<br><strong>非托管代码</strong> 不在CLR控制之下运行的代码</p>
 <h2 id="5-编译和执行"><a href="#5-编译和执行" class="headerlink" title="5 编译和执行"></a>5 编译和执行</h2><p>无论原始源文件的语言是什么，都遵循相同的编译和执行过程</p>
-<p><img src="http://p87c5zr6b.bkt.clouddn.com/pic1-4.png" alt=""></p>
+<p><img src="" alt=""></p>
 <h2 id="6-CLR与CLI"><a href="#6-CLR与CLI" class="headerlink" title="6 CLR与CLI"></a>6 CLR与CLI</h2><p>.NET框架的核心组件是CLR，它在操作系统的顶层，负责管理程序的执行</p>
 <p>CLI(Common Language Infrastructure，公共语言基础结构)，它把所有.NET框架的组件连结成一个内聚的、一致的系统。它展示了系统的概念和架构，并详细说明了所有软件都必须坚持的规则和约定。</p>
-<p><img src="http://p87c5zr6b.bkt.clouddn.com/pic1-5.png" alt=""></p>
+<p><img src="" alt=""></p>
 <p>CLI的重要组成部分</p>
 <ol>
 <li>公共类型系统<strong>CTS</strong>(Common Type System)</li>
