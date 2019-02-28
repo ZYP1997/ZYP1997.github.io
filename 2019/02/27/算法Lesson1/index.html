@@ -10,20 +10,20 @@
     <meta name="author" content="ZYP">
   
   
-    <meta name="description" content="第一章 算法在计算中的作用">
+    <meta name="description" content="第二章 算法基础非形式的说，算法(algorithm)就是任何良定义的计算过程，该过程取某个值或值的集合作为输入并产生某个值或值的集合作为输出。这样算法就是把输入转换成输出的计算步骤的一个序列。">
   
-  <meta name="description" content="第一章 算法在计算中的作用">
+  <meta name="description" content="第二章 算法基础非形式的说，算法(algorithm)就是任何良定义的计算过程，该过程取某个值或值的集合作为输入并产生某个值或值的集合作为输出。这样算法就是把输入转换成输出的计算步骤的一个序列。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法 Lesson1">
 <meta property="og:url" content="https://zypsola.com/2019/02/27/算法Lesson1/index.html">
 <meta property="og:site_name" content="空之境界">
-<meta property="og:description" content="第一章 算法在计算中的作用">
+<meta property="og:description" content="第二章 算法基础非形式的说，算法(algorithm)就是任何良定义的计算过程，该过程取某个值或值的集合作为输入并产生某个值或值的集合作为输出。这样算法就是把输入转换成输出的计算步骤的一个序列。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-27T07:30:11.335Z">
+<meta property="og:updated_time" content="2019-02-28T08:31:36.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法 Lesson1">
-<meta name="twitter:description" content="第一章 算法在计算中的作用">
+<meta name="twitter:description" content="第二章 算法基础非形式的说，算法(algorithm)就是任何良定义的计算过程，该过程取某个值或值的集合作为输入并产生某个值或值的集合作为输出。这样算法就是把输入转换成输出的计算步骤的一个序列。">
   
   
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -80,7 +80,20 @@
   
   <div class="entry">
     
-      <h1 id="第一章-算法在计算中的作用"><a href="#第一章-算法在计算中的作用" class="headerlink" title="第一章 算法在计算中的作用"></a>第一章 算法在计算中的作用</h1><a id="more"></a>
+      <h1 id="第二章-算法基础"><a href="#第二章-算法基础" class="headerlink" title="第二章 算法基础"></a>第二章 算法基础</h1><p>非形式的说，<strong>算法(algorithm)</strong>就是任何良定义的计算过程，该过程取某个值或值的集合作为<strong>输入</strong>并产生某个值或值的集合作为<strong>输出</strong>。这样算法就是把输入转换成输出的计算步骤的一个序列。</p>
+<a id="more"></a>
+<h2 id="2-1-插入排序"><a href="#2-1-插入排序" class="headerlink" title="2.1 插入排序"></a>2.1 插入排序</h2><p>Θ(n²)</p>
+<h2 id="2-2-分析算法"><a href="#2-2-分析算法" class="headerlink" title="2.2 分析算法"></a>2.2 分析算法</h2><p>我们往往集中于最坏情况运行时间。</p>
+<h2 id="2-3-设计算法"><a href="#2-3-设计算法" class="headerlink" title="2.3 设计算法"></a>2.3 设计算法</h2><h3 id="2-3-1-分治法"><a href="#2-3-1-分治法" class="headerlink" title="2.3.1 分治法"></a>2.3.1 分治法</h3><p>将原问题分解为几个规模较小但类似于原问题的子问题，递归地求解，然后合并子问题的解来建立原问题的解。</p>
+<p><strong>归并排序</strong>:分解待排序的n个元素的序列成各具n/2个元素的两个子序列;使用归并排序递归地排序两个子序列;合并两个已排序的子序列。</p>
+<p>Θ(nlgn)</p>
+<h1 id="第三章-函数的增长"><a href="#第三章-函数的增长" class="headerlink" title="第三章 函数的增长"></a>第三章 函数的增长</h1><h2 id="3-1-渐进记号"><a href="#3-1-渐进记号" class="headerlink" title="3.1 渐进记号"></a>3.1 渐进记号</h2><p>我们主要使用渐进记号来描述算法的运行时间。然而，渐进记号实际上应用于函数。</p>
+<p><strong>Θ记号</strong></p>
+<p>Θ(g(n))={f(n):存在正常量c1,c2,n0,使得对所有n&gt;=n0,有0&lt;=c1g(n)&lt;=f(n)&lt;=c2g(n)}</p>
+<p><strong>O记号</strong></p>
+<p>Θ记号渐进地给出一个函数的上界和下界。当只有一个渐进上界时，使用O记号。</p>
+<p>O(g(n))={f(n):存在正常量c,n0,使得对所有n&gt;=n0,有0&lt;=f(n)&lt;=cg(n)}</p>
+<p><strong>Ω记号</strong></p>
 
     
   </div>
