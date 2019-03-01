@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zypsola.com/"/>
-  <updated>2019-02-28T08:34:45.693Z</updated>
+  <updated>2019-03-01T09:15:41.570Z</updated>
   <id>https://zypsola.com/</id>
   
   <author>
@@ -17,13 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>算法 Lesson2</title>
+    <link href="https://zypsola.com/2019/02/28/%E7%AE%97%E6%B3%95Lesson2/"/>
+    <id>https://zypsola.com/2019/02/28/算法Lesson2/</id>
+    <published>2019-02-28T08:58:22.000Z</published>
+    <updated>2019-03-01T09:15:41.570Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第四章-分治策略"><a href="#第四章-分治策略" class="headerlink" title="第四章 分治策略"></a>第四章 分治策略</h1><p>分解,解决,合并。</p><a id="more"></a><h2 id="4-1-最大子数组问题"><a href="#4-1-最大子数组问题" class="headerlink" title="4.1 最大子数组问题"></a>4.1 最大子数组问题</h2><p>只有当数组中包含负数时，最大子数组问题才有意义。</p><p>暴力求解时间Θ(n²)。</p><p><strong>使用分治策略的求解方法</strong></p><p>设数组A[low…mid…high],mid为中间位置。A的任何连续子数组A[i…j]必然是：low&lt;=i&lt;=j&lt;=mid;mid&lt;i&lt;=j&lt;=high;low&lt;=i&lt;=mid&lt;j&lt;=high。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第四章-分治策略&quot;&gt;&lt;a href=&quot;#第四章-分治策略&quot; class=&quot;headerlink&quot; title=&quot;第四章 分治策略&quot;&gt;&lt;/a&gt;第四章 分治策略&lt;/h1&gt;&lt;p&gt;分解,解决,合并。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://zypsola.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>算法 Lesson1</title>
     <link href="https://zypsola.com/2019/02/27/%E7%AE%97%E6%B3%95Lesson1/"/>
     <id>https://zypsola.com/2019/02/27/算法Lesson1/</id>
     <published>2019-02-27T07:28:42.000Z</published>
-    <updated>2019-02-28T08:34:45.693Z</updated>
+    <updated>2019-02-28T08:42:33.363Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第二章-算法基础"><a href="#第二章-算法基础" class="headerlink" title="第二章 算法基础"></a>第二章 算法基础</h1><p>非形式的说，<strong>算法(algorithm)</strong>就是任何良定义的计算过程，该过程取某个值或值的集合作为<strong>输入</strong>并产生某个值或值的集合作为<strong>输出</strong>。这样算法就是把输入转换成输出的计算步骤的一个序列。</p><a id="more"></a><h2 id="2-1-插入排序"><a href="#2-1-插入排序" class="headerlink" title="2.1 插入排序"></a>2.1 插入排序</h2><p>Θ(n²)</p><h2 id="2-2-分析算法"><a href="#2-2-分析算法" class="headerlink" title="2.2 分析算法"></a>2.2 分析算法</h2><p>我们往往集中于最坏情况运行时间。</p><h2 id="2-3-设计算法"><a href="#2-3-设计算法" class="headerlink" title="2.3 设计算法"></a>2.3 设计算法</h2><h3 id="2-3-1-分治法"><a href="#2-3-1-分治法" class="headerlink" title="2.3.1 分治法"></a>2.3.1 分治法</h3><p>将原问题分解为几个规模较小但类似于原问题的子问题，递归地求解，然后合并子问题的解来建立原问题的解。</p><p><strong>归并排序</strong>:分解待排序的n个元素的序列成各具n/2个元素的两个子序列;使用归并排序递归地排序两个子序列;合并两个已排序的子序列。</p><p>Θ(nlgn)</p><h1 id="第三章-函数的增长"><a href="#第三章-函数的增长" class="headerlink" title="第三章 函数的增长"></a>第三章 函数的增长</h1><h2 id="3-1-渐进记号"><a href="#3-1-渐进记号" class="headerlink" title="3.1 渐进记号"></a>3.1 渐进记号</h2><p>我们主要使用渐进记号来描述算法的运行时间。然而，渐进记号实际上应用于函数。</p><p><strong>Θ记号</strong></p><p>Θ(g(n))={f(n):存在正常量c1,c2,n0,使得对所有n&gt;=n0,有0&lt;=c1g(n)&lt;=f(n)&lt;=c2g(n)}</p><p><strong>O记号</strong></p><p>Θ记号渐进地给出一个函数的上界和下界。当只有一个渐进上界时，使用O记号。</p><p>O(g(n))={f(n):存在正常量c,n0,使得对所有n&gt;=n0,有0&lt;=f(n)&lt;=cg(n)}</p><p><strong>Ω记号</strong></p><p>Ω记号提供了渐进下界</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="第二章-算法基础"><a href="#第二章-算法基础" class="headerlink" title="第二章 算法基础"></a>第二章 算法基础</h1><p>非形式的说，<strong>算法(algorithm)</strong>就是任何良定义的计算过程，该过程取某个值或值的集合作为<strong>输入</strong>并产生某个值或值的集合作为<strong>输出</strong>。这样算法就是把输入转换成输出的计算步骤的一个序列。</p><a id="more"></a><h2 id="2-1-插入排序"><a href="#2-1-插入排序" class="headerlink" title="2.1 插入排序"></a>2.1 插入排序</h2><p>Θ(n²)</p><h2 id="2-2-分析算法"><a href="#2-2-分析算法" class="headerlink" title="2.2 分析算法"></a>2.2 分析算法</h2><p>我们往往集中于最坏情况运行时间。</p><h2 id="2-3-设计算法"><a href="#2-3-设计算法" class="headerlink" title="2.3 设计算法"></a>2.3 设计算法</h2><h3 id="2-3-1-分治法"><a href="#2-3-1-分治法" class="headerlink" title="2.3.1 分治法"></a>2.3.1 分治法</h3><p>将原问题分解为几个规模较小但类似于原问题的子问题，递归地求解，然后合并子问题的解来建立原问题的解。</p><p><strong>归并排序</strong>:分解待排序的n个元素的序列成各具n/2个元素的两个子序列;使用归并排序递归地排序两个子序列;合并两个已排序的子序列。</p><p>Θ(nlgn)</p><h1 id="第三章-函数的增长"><a href="#第三章-函数的增长" class="headerlink" title="第三章 函数的增长"></a>第三章 函数的增长</h1><h2 id="3-1-渐进记号"><a href="#3-1-渐进记号" class="headerlink" title="3.1 渐进记号"></a>3.1 渐进记号</h2><p>我们主要使用渐进记号来描述算法的运行时间。然而，渐进记号实际上应用于函数。</p><p><strong>Θ记号</strong></p><p>Θ(g(n))={f(n):存在正常量c1,c2,n0,使得对所有n&gt;=n0,有0&lt;=c1g(n)&lt;=f(n)&lt;=c2g(n)}</p><p><strong>O记号</strong></p><p>Θ记号渐进地给出一个函数的上界和下界。当只有一个渐进上界时，使用O记号。</p><p>O(g(n))={f(n):存在正常量c,n0,使得对所有n&gt;=n0,有0&lt;=f(n)&lt;=cg(n)}</p><p><strong>Ω记号</strong></p><p>Ω记号提供了渐进下界。</p><p>Ω(g(n))={f(n):存在正常量c,n0,使得对所有n&gt;=n0,有0&lt;=cg(n)&lt;=f(n)}</p>]]></content>
     
     <summary type="html">
     
@@ -394,27 +414,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;第三章-标准库类型&quot;&gt;&lt;a href=&quot;#第三章-标准库类型&quot; class=&quot;headerlink&quot; title=&quot;第三章 标准库类型&quot;&gt;&lt;/a&gt;第三章 标准库类型&lt;/h1&gt;&lt;p&gt;除第二章介绍的基本数据类型外，C++ 还定义了一个内容丰富的抽象数据类型标准库。其中最重要的标准库类型是 &lt;strong&gt;string&lt;/strong&gt; 和 &lt;strong&gt;vector&lt;/strong&gt;，它们分别定义了大小可变的字符串和集合。string 和 vector 往往将迭代器用作配套类型（companion type），用于访问 string 中的字符，或者 vector 中的元素。这些标准库类型是语言组成部分中更基本的那些数据类型（如数组和指针）的抽象。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="C++ Primer" scheme="https://zypsola.com/tags/C-Primer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ Lesson4</title>
-    <link href="https://zypsola.com/2018/10/21/C++Primer4/"/>
-    <id>https://zypsola.com/2018/10/21/C++Primer4/</id>
-    <published>2018-10-21T13:18:45.000Z</published>
-    <updated>2018-10-22T07:36:48.283Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第二章-变量和基本类型"><a href="#第二章-变量和基本类型" class="headerlink" title="第二章 变量和基本类型"></a>第二章 变量和基本类型</h1><h2 id="2-8-类类型"><a href="#2-8-类类型" class="headerlink" title="2.8 类类型"></a>2.8 类类型</h2><p>C++ 中，通过定义类来自定义数据类型。类定义了该类型的对象包含的数据和该类型的对象可以执行的操作。</p><p>每个类都定义了一个<strong>接口</strong>和一个<strong>实现</strong>。接口由使用该类的代码需要执行的操作组成。实现一般包括该类所需要的数据。实现还包括定义该类需要的但又不供一般性使用的函数。 </p><a id="more"></a><p>类体可以为空。类体定义了组成该类型的数据和操作。这些操作和数据是类的一部分，也称为类的成员。操作称为成员函数，而数据则称为<strong>数据成员</strong>。 </p><p>定义变量和定义数据成员存在非常重要的区别：一般不能把类成员的初始化作为其定义的一部分。当定义数据成员时，只能指定该数据成员的名字和类型。类不是在类定义里定义数据成员时初始化数据成员，而是通过称为构造函数的特殊成员函数控制初始化。</p><p><strong>使用struct关键字</strong></p><p>C++ 支持另一个关键字 struct，它也可以定义类类型。struct 关键字是从 C 语言中继承过来的。 </p><p>如果使用 class 关键字来定义类，那么定义在第一个访问标号前的任何成员都隐式指定为 private；如果使用 struct 关键字，那么这些成员都是 public。使用 class 还是 struct 关键字来定义类，仅仅影响默认的初始访问级别。 </p><h2 id="2-9-编写自己的头文件"><a href="#2-9-编写自己的头文件" class="headerlink" title="2.9 编写自己的头文件"></a>2.9 编写自己的头文件</h2><p>一般类定义都会放入<strong>头文件</strong>。</p><p>头文件一般包含类的定义、extern 变量的声明和函数的声明。</p><p>因为头文件包含在多个源文件中，所以不应该含有变量或函数的定义。 </p><p>对于头文件不应该含有定义这一规则，有三个例外。头文件可以定义类、值在编译时就已知道的 const 对象和 inline 函数。这些实体可在多个源文件中定义，只要每个源文件中的定义是相同的。 </p><p>在头文件中定义这些实体，是因为编译器需要它们的定义（不只是声明）来产生代码。例如：为了产生能定义或使用类的对象的代码，编译器需要知道组成该类型的数据成员。同样还需要知道能够在这些对象上执行的操作。类定义提供所需要的信息。在头文件中定义 const 对象则需要更多的解释。 </p><p>当我们在头文件中定义了 const 变量后，每个包含该头文件的源文件都有了自己的 const 变量，其名称和值都一样。 </p><p>当该 const 变量是用常量表达式初始化时，可以保证所有的变量都有相同的值。</p><p>如果 const 变量不是用常量表达式初始化，那么它就不应该在头文件中定义。相反，和其他的变量一样，该 const 变量应该在一个源文件中定义并初始化。应在头文件中为它添加 extern 声明，以使其能被多个文件共享。 </p><h3 id="预处理器的简单介绍"><a href="#预处理器的简单介绍" class="headerlink" title="预处理器的简单介绍"></a>预处理器的简单介绍</h3><p>#include 设施是 C++ 预处理器的一部分。预处理器处理程序的源代码，在编译器之前运行。C++ 继承了 C 的非常精细的预处理器。现在的 C++ 程序以高度受限的方式使用预处理器。 </p><p>#include 指示只接受一个参数：头文件名。预处理器用指定的头文件的内容替代每个 #include。</p><p>我们必须保证多次包含同一头文件不会引起该头文件定义的类和对象被多次定义。使得头文件安全的通用做法，是使用预处理器定义<strong>头文件保护符</strong>。</p><p><strong>预处理器变量</strong> 的名字在程序中必须是唯一的。为了避免名字冲突，预处理器变量经常用全大写字母表示。 </p><p>预处理器变量有两种状态：已定义或未定义。定义预处理器变量和检测其状态所用的预处理器指示不同。#define 指示接受一个名字并定义该名字为预处理器变量。#ifndef 指示检测指定的预处理器变量是否未定义。如果预处理器变量未定义，那么跟在其后的所有指示都被处理，直到出现 #endif。 </p><p>可以使用这些设施来预防多次包含同一头文件： </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#ifndef SALESITEM_H </span><br><span class="line">#define SALESITEM_H </span><br><span class="line">// Definition of Sales_itemclass and related functions goes here </span><br><span class="line">#endif</span><br></pre></td></tr></table></figure><p>条件指示</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#ifndef SALESITEM_H</span><br></pre></td></tr></table></figure><p>测试 SALESITEM_H 预处理器变量是否未定义。如果 SALESITEM_H 未定义，那么 #ifndef 测试成功，跟在 #ifndef 后面的所有行都被执行，直到发现 #endif。相反，如果 SALESITEM_H 已定义，那么 #ifndef 指示测试为假，该指示和 #endif 指示间的代码都被忽略。 </p><h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a><strong>术语</strong></h2><ol><li><p><strong>access labels（访问标号）：</strong>类的成员可以定义为 private，这能够防止使用该类型的代码访问该成员。成员还可以定义为 public，这将使该整个程序中都可访问成员。 </p></li><li><p><strong>implementation（实现）：</strong>定义数据和操作的类成员（通常为 private），这些数据和操作并非为使用该类型的代码所用。例如，istream 和 ostream 类管理的 IO 缓冲区是它们的实现的一部分，但并不允许这些类的使用者直接访问。 </p></li><li><p><strong>interface（接口）：</strong>由某种类型支持的操作。设计良好的类分离了接口和实现，在类的 public 部分定义接口，private 部分定义实现。数据成员一般是实现的一部分。当函数成员是期望该类型的使用者使用的操作时，函数成员就是接口的一部分（因此为 public）；当函数成员执行类所需要的、非一般性使用的操作时，函数成员就是实现的一部分。 </p></li><li><p><strong>link（链接）：</strong>一个编译步骤，此时多个目标文件放置在一起以形成可执行程序。链接步骤解决了文件间的依赖，如将一个文件中的函数调用链接到另一个文件中的函数定义。 </p></li><li><p><strong>type-checking（类型检查）：</strong>编译器验证给定类型的对象的使用方式是否与该类型的定义一致，描述这一过程的术语。 </p></li><li><p><strong>word（字）：</strong>机器上的自然的整型计算单元。通常一个字足以容纳一个地址。一般在 32 位的机器上，机器字长为 4 个字节。 </p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第二章-变量和基本类型&quot;&gt;&lt;a href=&quot;#第二章-变量和基本类型&quot; class=&quot;headerlink&quot; title=&quot;第二章 变量和基本类型&quot;&gt;&lt;/a&gt;第二章 变量和基本类型&lt;/h1&gt;&lt;h2 id=&quot;2-8-类类型&quot;&gt;&lt;a href=&quot;#2-8-类类型&quot; class=&quot;headerlink&quot; title=&quot;2.8 类类型&quot;&gt;&lt;/a&gt;2.8 类类型&lt;/h2&gt;&lt;p&gt;C++ 中，通过定义类来自定义数据类型。类定义了该类型的对象包含的数据和该类型的对象可以执行的操作。&lt;/p&gt;
-&lt;p&gt;每个类都定义了一个&lt;strong&gt;接口&lt;/strong&gt;和一个&lt;strong&gt;实现&lt;/strong&gt;。接口由使用该类的代码需要执行的操作组成。实现一般包括该类所需要的数据。实现还包括定义该类需要的但又不供一般性使用的函数。 &lt;/p&gt;
     
     </summary>
     
