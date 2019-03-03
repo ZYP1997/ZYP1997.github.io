@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>算法 Lesson3 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第六章 堆排序堆排序的时间复杂度O(nlgn)。而与插入排序相同，但不同于归并排序的是，堆排序具有空间原址性：任何时候都只需要常数个额外的元素空间储存临时数据。">
+  
+  <meta name="description" content="第六章 堆排序堆排序的时间复杂度O(nlgn)。而与插入排序相同，但不同于归并排序的是，堆排序具有空间原址性：任何时候都只需要常数个额外的元素空间储存临时数据。">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法 Lesson3">
+<meta property="og:url" content="https://zypsola.com/2019/03/02/算法Lesson3/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第六章 堆排序堆排序的时间复杂度O(nlgn)。而与插入排序相同，但不同于归并排序的是，堆排序具有空间原址性：任何时候都只需要常数个额外的元素空间储存临时数据。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-03T08:23:15.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法 Lesson3">
+<meta name="twitter:description" content="第六章 堆排序堆排序的时间复杂度O(nlgn)。而与插入排序相同，但不同于归并排序的是，堆排序具有空间原址性：任何时候都只需要常数个额外的元素空间储存临时数据。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/算法">算法</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2019/03/02/算法Lesson3/">
+  <time datetime="2019-03-02T06:34:42.000Z">
+    2019-03-02
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">算法 Lesson3</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第六章-堆排序"><a href="#第六章-堆排序" class="headerlink" title="第六章 堆排序"></a>第六章 堆排序</h1><p>堆排序的时间复杂度O(nlgn)。而与插入排序相同，但不同于归并排序的是，堆排序具有空间原址性：任何时候都只需要常数个额外的元素空间储存临时数据。</p>
+<a id="more"></a>
+<h2 id="6-1-堆"><a href="#6-1-堆" class="headerlink" title="6.1 堆"></a>6.1 堆</h2><p><strong>堆</strong>是一个数组，可以被看成一个完全二叉树。树的根节点是A[1]，对给定的一个结点下标i，可以计算出它的父结点、左孩子和右孩子的下标：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PARENT(i)</span><br><span class="line">    return ⌊i/2⌋</span><br><span class="line">LEFT(i)</span><br><span class="line">	return 2i</span><br><span class="line">RIGHT(i)</span><br><span class="line">	return 2i+1</span><br></pre></td></tr></table></figure>
+<p>二叉堆可以分为最大堆和最小堆。</p>
+<p><strong>最大堆</strong>：A[PARENT(i)]&gt;=A[i],即某个结点的值至多与其父结点一样大。</p>
+<p><strong>最小堆</strong>：A[PARENT(i)]&lt;=A[i]。</p>
+<h2 id="6-2-维护堆的性质"><a href="#6-2-维护堆的性质" class="headerlink" title="6.2 维护堆的性质"></a>6.2 维护堆的性质</h2><p>MAX-HEAPIFY用于维护最大堆性质，输入为数组A与下标i，在调用时假定以LEFT(i)与RIGHT(i)的二叉树都是最大堆，但A[i]可能小于孩子，通过让A[i]在最大堆中逐级下降来维护。需要递归调用MAX-HEAPIFY。</p>
+<p>O(lgn)</p>
+<h2 id="6-3-建堆"><a href="#6-3-建堆" class="headerlink" title="6.3 建堆"></a>6.3 建堆</h2><p>我们可以用自底向上的方法利用MAX-HEAPIFY把一个数组A[1..n]转换为最大堆。A[⌊n/2⌋+1..n]中的元素都是树的叶结点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i = ⌊n/2⌋ to 1</span><br><span class="line">	MAX-HEAPIFY(A,i)</span><br></pre></td></tr></table></figure>
+<p>O(n)</p>
+<h2 id="6-4-堆排序"><a href="#6-4-堆排序" class="headerlink" title="6.4 堆排序"></a>6.4 堆排序</h2><p>初始先建立最大堆，因为数组最大元素始终在A[1],将A[1]与A[heapsize]互换，heapsize-1，再调用MAX-HEAPIFY(A,1),不断重复。</p>
+<p>O(nlgn)</p>
+<h2 id="6-5-优先队列"><a href="#6-5-优先队列" class="headerlink" title="6.5 优先队列"></a>6.5 优先队列</h2><p><strong>优先队列</strong>是一种用来维护由一组元素构成的集合S的数据结构，其中的每一个元素都有一个关键字key值。一个最大优先队列支持以下操作：</p>
+<ol>
+<li>INSERT(S,x):把元素x插入S中</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HEAP-INSERT(A,k)</span><br><span class="line">	heapsize++</span><br><span class="line">	A[heapsize] = k - 1</span><br><span class="line">	HEAP-INCREASE-KEY(A,heapsize,k)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>MAXIMUM(S):返回最大key值元素</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HEAP-MAXIMUM(A)</span><br><span class="line">	return A[1]</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>EXTRACT-MAX(S):返回并去掉最大Key值元素</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HEAP-EXTRACT-MAX(S)</span><br><span class="line">	max = A[1]</span><br><span class="line">	A[1] = A[heapsize]</span><br><span class="line">	heapsize--</span><br><span class="line">	MAX-HEAPIFY(A,1)</span><br><span class="line">	return max</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>INCREASE-KEY(S,x,k):将元素x的key值增加到k,k大于原值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HEAP-INCREASE-KEY(A,i,k)</span><br><span class="line">	A[i] = k</span><br><span class="line">	while i&gt;1 and A[PARENT(i)] &lt; A[i]</span><br><span class="line">		exchange A[i] with A[PARENT[i]]</span><br><span class="line">		i = PARENT[i]</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/算法/">算法</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2019 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
