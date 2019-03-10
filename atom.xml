@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zypsola.com/"/>
-  <updated>2019-03-10T08:21:46.948Z</updated>
+  <updated>2019-03-10T08:24:12.991Z</updated>
   <id>https://zypsola.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://zypsola.com/2019/03/09/%E7%AE%97%E6%B3%95Lesson8/"/>
     <id>https://zypsola.com/2019/03/09/算法Lesson8/</id>
     <published>2019-03-09T15:06:37.000Z</published>
-    <updated>2019-03-10T08:21:46.948Z</updated>
+    <updated>2019-03-10T08:24:12.991Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第十五章-动态规划"><a href="#第十五章-动态规划" class="headerlink" title="第十五章 动态规划"></a>第十五章 动态规划</h1><p>分治法将问题划分为互不相交的子问题，动态规划应用于子问题重叠的情况。</p><a id="more"></a><p>我们通常按以下4个步骤来设计一个动态规划算法：</p><ol><li>刻画一个最优解的结构特征</li><li>递归地定义最优解的值</li><li>计算最优解的值，通常采用自底向上的方法</li><li>利用计算出的信息构造一个最优解。</li></ol><h2 id="15-1-钢条切割"><a href="#15-1-钢条切割" class="headerlink" title="15.1 钢条切割"></a>15.1 钢条切割</h2><p><strong>钢条切割问题</strong>:给定一段长度为n英寸的钢条和一个价格表p<sub>i</sub>(i=1,2,…,n),求切割方案使收益r<sub>n</sub>最大。</p><p>r<sub>n</sub> = max(p<sub>n</sub>,r<sub>1</sub>+r<sub>n-1</sub>,…,r<sub>n-1</sub>+r<sub>1</sub>)</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="第十五章-动态规划"><a href="#第十五章-动态规划" class="headerlink" title="第十五章 动态规划"></a>第十五章 动态规划</h1><p>分治法将问题划分为互不相交的子问题，动态规划应用于子问题重叠的情况。</p><a id="more"></a><p>我们通常按以下4个步骤来设计一个动态规划算法：</p><ol><li>刻画一个最优解的结构特征</li><li>递归地定义最优解的值</li><li>计算最优解的值，通常采用自底向上的方法</li><li>利用计算出的信息构造一个最优解。</li></ol><h2 id="15-1-钢条切割"><a href="#15-1-钢条切割" class="headerlink" title="15.1 钢条切割"></a>15.1 钢条切割</h2><p><strong>钢条切割问题</strong>:给定一段长度为n英寸的钢条和一个价格表<strong>p<sub>i</sub>(i=1,2,…,n)</strong>,求切割方案使收益<strong>r<sub>n</sub></strong>最大。</p><p><strong>r<sub>n</sub> = max(p<sub>n</sub>, r<sub>1</sub>+r<sub>n-1</sub> ,…, r<sub>n-1</sub>+r<sub>1</sub> )</strong></p>]]></content>
     
     <summary type="html">
     
