@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第十五章 动态规划分治法将问题划分为互不相交的子问题，动态规划应用于子问题重叠的情况。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-10T08:24:12.991Z">
+<meta property="og:updated_time" content="2019-03-10T13:33:35.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法 Lesson8">
 <meta name="twitter:description" content="第十五章 动态规划分治法将问题划分为互不相交的子问题，动态规划应用于子问题重叠的情况。">
@@ -90,8 +90,19 @@
 <li>利用计算出的信息构造一个最优解。</li>
 </ol>
 <h2 id="15-1-钢条切割"><a href="#15-1-钢条切割" class="headerlink" title="15.1 钢条切割"></a>15.1 钢条切割</h2><p><strong>钢条切割问题</strong>:给定一段长度为n英寸的钢条和一个价格表<strong>p<sub>i</sub>(i=1,2,…,n)</strong>,求切割方案使收益<strong>r<sub>n</sub></strong>最大。</p>
-<p><strong>r<sub>n</sub> = max(p<sub>n</sub>, r<sub>1</sub>+r<sub>n-1</sub> ,…, r<sub>n-1</sub>+r<sub>1</sub> )</strong></p>
-
+<p><strong>r<sub>n</sub> = max(p<sub>n</sub>, r<sub>1</sub>+r<sub>n-1</sub>,…,r<sub>n-1</sub>+r<sub>1</sub>)</strong></p>
+<p>我们称钢条切割问题满足<strong>最优子结构</strong>性质：问题的最优解由相关子问题的最优解组合而成，而这些子问题可以独立求解。</p>
+<p>钢条切割问题还存在另一种方法：</p>
+<p><strong>r<sub>n</sub> = max(p<sub>1</sub>+r<sub>n-1</sub>,…,p<sub>n-1</sub>+r<sub>1, p<sub>n</sub>)</sub></strong></p>
+<h2 id="15-2-矩阵链乘法"><a href="#15-2-矩阵链乘法" class="headerlink" title="15.2 矩阵链乘法"></a>15.2 矩阵链乘法</h2><p>我们称有如下性质的矩阵乘积链为<strong>完全括号化的</strong>：它是单一矩阵，或者是两个完全括号化的矩阵乘积链的积，且已外加括号。</p>
+<h2 id="15-4-最长公共子序列"><a href="#15-4-最长公共子序列" class="headerlink" title="15.4 最长公共子序列"></a>15.4 最长公共子序列</h2><p><strong>最长公共子序列问题</strong>：给定两个序列X={x1,x2,…,x<sub>m</sub>}h和Y={y1,y2,…,y<sub>n</sub>},求X和Y的最长公共子序列LCS。</p>
+<p>我们定义c[i,j]表示X<sub>i</sub>和Y<sub>j</sub>的LCS长度。</p>
+<ol>
+<li>若i=0 或 j=0, c[i,j]=0;</li>
+<li>若i,j&gt;0 且 x<sub>i</sub> = y<sub>j</sub>, c[i,j]=c[i-1,j-1]+1;</li>
+<li>若i,j&gt;0 且 x<sub>i</sub> ！= y<sub>j</sub>, max(c[i,j-1],c[i-1,j]);</li>
+</ol>
+<h2 id="15-5-最优二叉搜索树"><a href="#15-5-最优二叉搜索树" class="headerlink" title="15.5 最优二叉搜索树"></a>15.5 最优二叉搜索树</h2>
     
   </div>
   <footer>
