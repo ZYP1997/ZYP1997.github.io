@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>算法 Lesson10 | 空之境界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="ZYP">
+  
+  
+    <meta name="description" content="第十八章 B树B树是为磁盘或其他直接存取的辅助储存设备而设计的一种平衡搜索树。">
+  
+  <meta name="description" content="第十八章 B树B树是为磁盘或其他直接存取的辅助储存设备而设计的一种平衡搜索树。">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法 Lesson10">
+<meta property="og:url" content="https://zypsola.com/2019/03/11/算法Lesson10/index.html">
+<meta property="og:site_name" content="空之境界">
+<meta property="og:description" content="第十八章 B树B树是为磁盘或其他直接存取的辅助储存设备而设计的一种平衡搜索树。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-11T14:21:25.575Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法 Lesson10">
+<meta name="twitter:description" content="第十八章 B树B树是为磁盘或其他直接存取的辅助储存设备而设计的一种平衡搜索树。">
+  
+  
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">空之境界</a></h1>
+    <p><a href="/">ZYP&#39;s Blog</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/tags/C#">C#</a></li>
+      
+        <li><a href="/tags/C-Primer">C++</a></li>
+      
+        <li><a href="/tags/Unity">Unity</a></li>
+      
+        <li><a href="/tags/算法">算法</a></li>
+      
+        <li><a href="/tags/Others">Others</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2019/03/11/算法Lesson10/">
+  <time datetime="2019-03-11T12:32:21.000Z">
+    2019-03-11
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">算法 Lesson10</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="第十八章-B树"><a href="#第十八章-B树" class="headerlink" title="第十八章 B树"></a>第十八章 B树</h1><p>B树是为磁盘或其他直接存取的辅助储存设备而设计的一种平衡搜索树。</p>
+<a id="more"></a>
+<h2 id="18-1-B树的定义"><a href="#18-1-B树的定义" class="headerlink" title="18.1 B树的定义"></a>18.1 B树的定义</h2><p>一棵m阶的B树，或为空，或为满足下列特征的m叉树：</p>
+<ol>
+<li>树中每个结点至多有m棵子树</li>
+<li>若根结点不是叶结点，则至少有两棵子树</li>
+<li>除根结点以外的所有非叶结点至少有⌈m/2⌉棵子树</li>
+<li>非叶根结点有n(n &lt; m)个关键字k，k<sub>i</sub> &lt; k<sub>i+1</sub></li>
+<li>所有叶子结点在同一层且不带信息</li>
+</ol>
+<h2 id="18-2-插入关键字"><a href="#18-2-插入关键字" class="headerlink" title="18.2 插入关键字"></a>18.2 插入关键字</h2><ol>
+<li>插入后，该结点关键字个数n &lt; m，直接插入；</li>
+<li>插入后，该结点关键字个数n = m，须结点分裂：令⌈m/2⌉插入父节点，右部分生成新结点，若父结点插入后也满，则继续结点分裂，若无父结点，则建立新的根结点；</li>
+</ol>
+<h2 id="18-3-删除关键字"><a href="#18-3-删除关键字" class="headerlink" title="18.3 删除关键字"></a>18.3 删除关键字</h2><ol>
+<li>被删除关键字所在结点，关键字个数n&gt;=⌈m/2⌉，直接删去；</li>
+<li>被删除关键字所在结点，关键字个数n=⌈m/2⌉-1，若相邻的左兄弟(右兄弟)的关键字个数n&gt;=⌈m/2⌉，将父结点中刚小于(大于)删除关键字的关键字下移到被删除关键字所在结点，将左兄弟(右兄弟)最大(最小)关键字上移到父结点；</li>
+<li>被删除关键字所在结点和相邻的兄弟结点中的关键字个数均为n=⌈m/2⌉-1，删除后与兄弟结点合并；</li>
+</ol>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/算法/">算法</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2019 <a href="/">ZYP</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
