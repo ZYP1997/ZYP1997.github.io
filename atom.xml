@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zypsola.com/"/>
-  <updated>2019-03-18T09:09:28.951Z</updated>
+  <updated>2019-03-18T15:50:15.707Z</updated>
   <id>https://zypsola.com/</id>
   
   <author>
@@ -17,17 +17,17 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>计算机网络 Chapter1</title>
-    <link href="https://zypsola.com/2019/03/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1/"/>
-    <id>https://zypsola.com/2019/03/18/计算机网络1/</id>
-    <published>2019-03-18T08:07:11.000Z</published>
-    <updated>2019-03-18T09:09:28.951Z</updated>
+    <title>计算机网络 Chapter3</title>
+    <link href="https://zypsola.com/2019/03/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/"/>
+    <id>https://zypsola.com/2019/03/18/计算机网络3/</id>
+    <published>2019-03-18T15:06:12.000Z</published>
+    <updated>2019-03-18T15:50:15.707Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第一章-计算机网络体系结构"><a href="#第一章-计算机网络体系结构" class="headerlink" title="第一章 计算机网络体系结构"></a>第一章 计算机网络体系结构</h1><a id="more"></a><h2 id="1-1-计算机网络的定义"><a href="#1-1-计算机网络的定义" class="headerlink" title="1.1 计算机网络的定义"></a>1.1 计算机网络的定义</h2><ol><li><p>定义1:计算机网络就是通过交换机、路由器等网络设备和通信线路将分散在不同地理位置的多个计算机系统（服务器或工作站）连接起来，在网络协议和应用软件的控制下实现各种网络服务的系统。</p></li><li><p>计算机网络常常简称网络。</p></li><li><p>计算机网络最基本的功能是数据通信。资源共享是构建网络的最终目的，数据通信是实现资源共享的前提。</p></li><li><p>定义2:以能够相互共享资源的方式互联起来的自治计算机系统的集合。</p></li></ol><h3 id="什么是协议"><a href="#什么是协议" class="headerlink" title="什么是协议?"></a>什么是协议?</h3><p>协议定义了通信实体之间交换的报文格式(语法)和次序(时序)，以及在传输和接收报文时所采取的动作(语义)。</p><h2 id="1-2-网络的结构"><a href="#1-2-网络的结构" class="headerlink" title="1.2 网络的结构"></a>1.2 网络的结构</h2><h3 id="早期计算机网络的结构"><a href="#早期计算机网络的结构" class="headerlink" title="早期计算机网络的结构"></a>早期计算机网络的结构</h3><p>资源子网：直接面向用户；由主机系统、终端、各种网络软件与数据资源组成。</p><p>通信子网：负责通信；由路由器、通信线路组成。</p><h3 id="因特网"><a href="#因特网" class="headerlink" title="因特网"></a>因特网</h3><p>网络边缘：end systems, access networks, links；</p><p>网络核心：因特网的核心由ISP(Internet Service Providers因特网服务提供商)相互连接而成。</p><h2 id="1-3-网络分类"><a href="#1-3-网络分类" class="headerlink" title="1.3 网络分类"></a>1.3 网络分类</h2><h3 id="传输技术"><a href="#传输技术" class="headerlink" title="传输技术"></a>传输技术</h3><p>广播链路；点到点链路</p><h3 id="距离尺度"><a href="#距离尺度" class="headerlink" title="距离尺度"></a>距离尺度</h3><p>局域网；城域网；广域网</p><h3 id="拓扑结构"><a href="#拓扑结构" class="headerlink" title="拓扑结构"></a>拓扑结构</h3><p>星形；环形；总线形；树形；网状形</p><h3 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h3><h2 id="1-4-网络协议分层"><a href="#1-4-网络协议分层" class="headerlink" title="1.4 网络协议分层"></a>1.4 网络协议分层</h2><h3 id="参考模型"><a href="#参考模型" class="headerlink" title="参考模型"></a>参考模型</h3><p>ISO/OSI；TCP/IP</p><h3 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h3><p>Application应用层：支持网络应用<br>Presentation表示层：允许应用程序解释数据的意义，如：加密、压缩<br>Session会话层：数据交换的同步，检查和恢复<br>Transport传输层：进程到进程的数据传输<br>Network网络层：为数据报选择从源主机到目的主机的路径<br>DataLink数据链路层：在邻近网元之间传输数据<br>Physical物理层：在介质上传输原始比特</p><h3 id="TCP-IP协议栈"><a href="#TCP-IP协议栈" class="headerlink" title="TCP/IP协议栈"></a>TCP/IP协议栈</h3><p>应用层：FTP；HTTP；SMTP；DNS；…<br>传输层：TCP；UDP<br>网际层：IP；ICMP；ARP；…<br>网络接口层：Internet；LANs</p><h3 id="混合模型"><a href="#混合模型" class="headerlink" title="混合模型"></a>混合模型</h3><p>应用层；传输层；网络层；数据链路层；物理层</p><h2 id="1-5-性能"><a href="#1-5-性能" class="headerlink" title="1.5 性能"></a>1.5 性能</h2><p>带宽：在单位时间内从网络中的某一点到另一点所能通过的位数。<br>1Kbps = 1000 bps (bits per second)</p><p>时延/延迟: 一个数据块（帧、分组、报文段）从网络的一端传送到另一端所需要的时间。</p><p>时延=处理时延+排队时延+传输时延+传播时延</p><p>传播时延=传输距离/光速</p><p>传输时延=数据量/带宽</p><p><strong>时延带宽积</strong></p><p>时延带宽积＝传播时延×带宽</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="第三章-传输层"><a href="#第三章-传输层" class="headerlink" title="第三章 传输层"></a>第三章 传输层</h1><a id="more"></a><h2 id="3-1-传输层提供的服务"><a href="#3-1-传输层提供的服务" class="headerlink" title="3.1 传输层提供的服务"></a>3.1 传输层提供的服务</h2><p>为运行在不同主机上的应用进程之间提供逻辑通信。</p><p>无连接服务：在发送方和接收方之间无握手；<br>面向连接服务：在进行数据交换前，通过握手(交换控制报文)来初始化发送方与接收方的状态；</p><h2 id="3-2-UDP用户数据报协议"><a href="#3-2-UDP用户数据报协议" class="headerlink" title="3.2 UDP用户数据报协议"></a>3.2 UDP用户数据报协议</h2><p>可能丢失失序；无连接(每个UDP报文的处理独立于其他的UDP报文)</p><h2 id="3-3-可靠数据传输的原理"><a href="#3-3-可靠数据传输的原理" class="headerlink" title="3.3 可靠数据传输的原理"></a>3.3 可靠数据传输的原理</h2><p>可靠数据传输协议要在非可靠信道上提供可靠的数据通信。</p><ol><li><p>接收方检测到错误分组后，要求发送方重传该分组；接收方检测到丢失分组后，要求发送方重传该分组；Automatic Repeat reQuest(ARQ自动重传请求) Protocol</p></li><li><p>Checksum 校验和</p></li><li><p>Acknowledgement (ACK) 确认；Timeout 超时</p></li><li><p>Retransmit 重传</p></li></ol><h3 id="3-3-1-停止-等待协议"><a href="#3-3-1-停止-等待协议" class="headerlink" title="3.3.1 停止-等待协议"></a>3.3.1 停止-等待协议</h3><p>发送方发送一个分组后，必须停下来等待接收方的确认后才可以发送下一个分组；</p><p>处理错误分组：在接收方接收到错误分组时，接收方发送一个否定的确认NAK (Negative AcKnowlegement) ，要求发送方重发该分组；</p><p>处理分组丢失：为了防止发送的数据丢失，发送方内部设置一个定时器，当超过定时时间，而发送方仍未收到确认ACK时，发送方重发该分组；</p><p>Handling duplicates处理重复分组: 为防止确认(ACK/NAK)丢失而造成发送方重发同一分组，发送方给每一个分组带上一个序列号。</p><h3 id="3-3-2-流水线协议-连续ARQ协议"><a href="#3-3-2-流水线协议-连续ARQ协议" class="headerlink" title="3.3.2 流水线协议/连续ARQ协议"></a>3.3.2 流水线协议/连续ARQ协议</h3><p>允许发送方发送多个“传输中的”还没有被确认的分组。</p><p><strong>Go-Back-N 回退N</strong>：</p><p>发送方连续发送多个分组，如果发送方接收到接收方发回的确认，则继续发送分组；<br>发送方在每发完一个分组后，就启动内部计时器，在设置的超时时间内未收到该分组的确认ACK(或在超时前收到否定确认NAK)，则重发该分组及其后已发送的N个分组；<br>累积确认：接收方只对按序到达的最后一个分组发送确认，如果分组前有间隔，则不确认该分组。<br>缺点：在重传时必须把原来已正确传送过的数据分组进行重传，使传输速率降低。</p><p><strong>选择重传</strong></p><p>当接收方发现某个分组出错（丢失或受损）后，其后继续送来的正确分组收下来，存放在一个缓冲区中，同时要求发送方重新传送出错的那一个分组。一旦收到重新传来的分组后，就可以与原来已存于缓冲区中的其余分组一并按正确的顺序递交给高层。<br>选择重传协议避免不必要的重传。</p>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第一章-计算机网络体系结构&quot;&gt;&lt;a href=&quot;#第一章-计算机网络体系结构&quot; class=&quot;headerlink&quot; title=&quot;第一章 计算机网络体系结构&quot;&gt;&lt;/a&gt;第一章 计算机网络体系结构&lt;/h1&gt;
+      &lt;h1 id=&quot;第三章-传输层&quot;&gt;&lt;a href=&quot;#第三章-传输层&quot; class=&quot;headerlink&quot; title=&quot;第三章 传输层&quot;&gt;&lt;/a&gt;第三章 传输层&lt;/h1&gt;
     
     </summary>
     
@@ -40,8 +40,8 @@
     <title>计算机网络 Chapter2</title>
     <link href="https://zypsola.com/2019/03/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C2/"/>
     <id>https://zypsola.com/2019/03/18/计算机网络2/</id>
-    <published>2019-03-18T07:11:32.000Z</published>
-    <updated>2019-03-18T13:44:33.687Z</updated>
+    <published>2019-03-18T08:07:11.000Z</published>
+    <updated>2019-03-18T15:06:08.080Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第二章-应用层"><a href="#第二章-应用层" class="headerlink" title="第二章 应用层"></a>第二章 应用层</h1><a id="more"></a><h2 id="2-1-应用程序的体系结构"><a href="#2-1-应用程序的体系结构" class="headerlink" title="2.1 应用程序的体系结构"></a>2.1 应用程序的体系结构</h2><h3 id="Client-Server-architecture"><a href="#Client-Server-architecture" class="headerlink" title="Client-Server architecture"></a><strong>Client-Server architecture</strong></h3><p>server:总是在线；永久IP address；用服务器集群增强可扩展性<br>clients:动态IP地址；客户机之间不直接通信</p><h3 id="P2P-architecture"><a href="#P2P-architecture" class="headerlink" title="P2P architecture"></a><strong>P2P architecture</strong></h3><p>任意端系统之间直接通信；对等方间歇性连接，可以改变IP地址</p><h2 id="2-2-应用层协议"><a href="#2-2-应用层协议" class="headerlink" title="2.2 应用层协议"></a>2.2 应用层协议</h2><p>应用层协议是网络应用的主要组成部分，规定了应用程序进程之间通信所遵循的通信规则。</p><p>HTTP: hypertext transfer protocol超文本传输协议<br>FTP: File Transfer Protocol文件传输协议<br>SMTP: Simple Mail Transfer Protocol简单邮件传输协议<br>POP: Post Office Protocol邮局协议<br>IMAP: Internet Message Access Protocol因特网报文读取协议<br>DNS: Domain Name System域名系统</p>]]></content>
     
@@ -57,17 +57,17 @@
   </entry>
   
   <entry>
-    <title>计算机网络 Chapter3</title>
-    <link href="https://zypsola.com/2019/03/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/"/>
-    <id>https://zypsola.com/2019/03/18/计算机网络3/</id>
+    <title>计算机网络 Chapter1</title>
+    <link href="https://zypsola.com/2019/03/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1/"/>
+    <id>https://zypsola.com/2019/03/18/计算机网络1/</id>
     <published>2019-03-18T07:11:32.000Z</published>
-    <updated>2019-03-18T14:19:07.105Z</updated>
+    <updated>2019-03-18T15:10:40.044Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第三章-传输层"><a href="#第三章-传输层" class="headerlink" title="第三章 传输层"></a>第三章 传输层</h1><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h1 id="第一章-计算机网络体系结构"><a href="#第一章-计算机网络体系结构" class="headerlink" title="第一章 计算机网络体系结构"></a>第一章 计算机网络体系结构</h1><a id="more"></a><h2 id="1-1-计算机网络的定义"><a href="#1-1-计算机网络的定义" class="headerlink" title="1.1 计算机网络的定义"></a>1.1 计算机网络的定义</h2><ol><li><p>定义1:计算机网络就是通过交换机、路由器等网络设备和通信线路将分散在不同地理位置的多个计算机系统（服务器或工作站）连接起来，在网络协议和应用软件的控制下实现各种网络服务的系统。</p></li><li><p>计算机网络常常简称网络。</p></li><li><p>计算机网络最基本的功能是数据通信。资源共享是构建网络的最终目的，数据通信是实现资源共享的前提。</p></li><li><p>定义2:以能够相互共享资源的方式互联起来的自治计算机系统的集合。</p></li></ol><h3 id="什么是协议"><a href="#什么是协议" class="headerlink" title="什么是协议?"></a>什么是协议?</h3><p>协议定义了通信实体之间交换的报文格式(语法)和次序(时序)，以及在传输和接收报文时所采取的动作(语义)。</p><h2 id="1-2-网络的结构"><a href="#1-2-网络的结构" class="headerlink" title="1.2 网络的结构"></a>1.2 网络的结构</h2><h3 id="早期计算机网络的结构"><a href="#早期计算机网络的结构" class="headerlink" title="早期计算机网络的结构"></a>早期计算机网络的结构</h3><p>资源子网：直接面向用户；由主机系统、终端、各种网络软件与数据资源组成。</p><p>通信子网：负责通信；由路由器、通信线路组成。</p><h3 id="因特网"><a href="#因特网" class="headerlink" title="因特网"></a>因特网</h3><p>网络边缘：end systems, access networks, links；</p><p>网络核心：因特网的核心由ISP(Internet Service Providers因特网服务提供商)相互连接而成。</p><h2 id="1-3-网络分类"><a href="#1-3-网络分类" class="headerlink" title="1.3 网络分类"></a>1.3 网络分类</h2><h3 id="传输技术"><a href="#传输技术" class="headerlink" title="传输技术"></a>传输技术</h3><p>广播链路；点到点链路</p><h3 id="距离尺度"><a href="#距离尺度" class="headerlink" title="距离尺度"></a>距离尺度</h3><p>局域网；城域网；广域网</p><h3 id="拓扑结构"><a href="#拓扑结构" class="headerlink" title="拓扑结构"></a>拓扑结构</h3><p>星形；环形；总线形；树形；网状形</p><h3 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h3><h2 id="1-4-网络协议分层"><a href="#1-4-网络协议分层" class="headerlink" title="1.4 网络协议分层"></a>1.4 网络协议分层</h2><h3 id="参考模型"><a href="#参考模型" class="headerlink" title="参考模型"></a>参考模型</h3><p>ISO/OSI；TCP/IP</p><h3 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h3><p>Application应用层：支持网络应用<br>Presentation表示层：允许应用程序解释数据的意义，如：加密、压缩<br>Session会话层：数据交换的同步，检查和恢复<br>Transport传输层：进程到进程的数据传输<br>Network网络层：为数据报选择从源主机到目的主机的路径<br>DataLink数据链路层：在邻近网元之间传输数据<br>Physical物理层：在介质上传输原始比特</p><h3 id="TCP-IP协议栈"><a href="#TCP-IP协议栈" class="headerlink" title="TCP/IP协议栈"></a>TCP/IP协议栈</h3><p>应用层：FTP；HTTP；SMTP；DNS；…<br>传输层：TCP；UDP<br>网际层：IP；ICMP；ARP；…<br>网络接口层：Internet；LANs</p><h3 id="混合模型"><a href="#混合模型" class="headerlink" title="混合模型"></a>混合模型</h3><p>应用层；传输层；网络层；数据链路层；物理层</p><h2 id="1-5-性能"><a href="#1-5-性能" class="headerlink" title="1.5 性能"></a>1.5 性能</h2><p>带宽：在单位时间内从网络中的某一点到另一点所能通过的位数。<br>1Kbps = 1000 bps (bits per second)</p><p>时延/延迟: 一个数据块（帧、分组、报文段）从网络的一端传送到另一端所需要的时间。</p><p>时延=处理时延+排队时延+传输时延+传播时延</p><p>传播时延=传输距离/光速</p><p>传输时延=数据量/带宽</p><p><strong>时延带宽积</strong></p><p>时延带宽积＝传播时延×带宽</p>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第三章-传输层&quot;&gt;&lt;a href=&quot;#第三章-传输层&quot; class=&quot;headerlink&quot; title=&quot;第三章 传输层&quot;&gt;&lt;/a&gt;第三章 传输层&lt;/h1&gt;
+      &lt;h1 id=&quot;第一章-计算机网络体系结构&quot;&gt;&lt;a href=&quot;#第一章-计算机网络体系结构&quot; class=&quot;headerlink&quot; title=&quot;第一章 计算机网络体系结构&quot;&gt;&lt;/a&gt;第一章 计算机网络体系结构&lt;/h1&gt;
     
     </summary>
     

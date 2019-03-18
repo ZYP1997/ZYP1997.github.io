@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第三章 传输层">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T14:19:07.105Z">
+<meta property="og:updated_time" content="2019-03-18T15:50:15.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络 Chapter3">
 <meta name="twitter:description" content="第三章 传输层">
@@ -66,7 +66,7 @@
     
       <div class="icon"></div>
       <a href="/2019/03/18/计算机网络3/">
-  <time datetime="2019-03-18T07:11:32.000Z">
+  <time datetime="2019-03-18T15:06:12.000Z">
     2019-03-18
   </time>
 </a>
@@ -81,6 +81,29 @@
   <div class="entry">
     
       <h1 id="第三章-传输层"><a href="#第三章-传输层" class="headerlink" title="第三章 传输层"></a>第三章 传输层</h1><a id="more"></a>
+<h2 id="3-1-传输层提供的服务"><a href="#3-1-传输层提供的服务" class="headerlink" title="3.1 传输层提供的服务"></a>3.1 传输层提供的服务</h2><p>为运行在不同主机上的应用进程之间提供逻辑通信。</p>
+<p>无连接服务：在发送方和接收方之间无握手；<br>面向连接服务：在进行数据交换前，通过握手(交换控制报文)来初始化发送方与接收方的状态；</p>
+<h2 id="3-2-UDP用户数据报协议"><a href="#3-2-UDP用户数据报协议" class="headerlink" title="3.2 UDP用户数据报协议"></a>3.2 UDP用户数据报协议</h2><p>可能丢失失序；无连接(每个UDP报文的处理独立于其他的UDP报文)</p>
+<h2 id="3-3-可靠数据传输的原理"><a href="#3-3-可靠数据传输的原理" class="headerlink" title="3.3 可靠数据传输的原理"></a>3.3 可靠数据传输的原理</h2><p>可靠数据传输协议要在非可靠信道上提供可靠的数据通信。</p>
+<ol>
+<li><p>接收方检测到错误分组后，要求发送方重传该分组；接收方检测到丢失分组后，要求发送方重传该分组；Automatic Repeat reQuest(ARQ自动重传请求) Protocol</p>
+</li>
+<li><p>Checksum 校验和</p>
+</li>
+<li><p>Acknowledgement (ACK) 确认；Timeout 超时</p>
+</li>
+<li><p>Retransmit 重传</p>
+</li>
+</ol>
+<h3 id="3-3-1-停止-等待协议"><a href="#3-3-1-停止-等待协议" class="headerlink" title="3.3.1 停止-等待协议"></a>3.3.1 停止-等待协议</h3><p>发送方发送一个分组后，必须停下来等待接收方的确认后才可以发送下一个分组；</p>
+<p>处理错误分组：在接收方接收到错误分组时，接收方发送一个否定的确认NAK (Negative AcKnowlegement) ，要求发送方重发该分组；</p>
+<p>处理分组丢失：为了防止发送的数据丢失，发送方内部设置一个定时器，当超过定时时间，而发送方仍未收到确认ACK时，发送方重发该分组；</p>
+<p>Handling duplicates处理重复分组: 为防止确认(ACK/NAK)丢失而造成发送方重发同一分组，发送方给每一个分组带上一个序列号。</p>
+<h3 id="3-3-2-流水线协议-连续ARQ协议"><a href="#3-3-2-流水线协议-连续ARQ协议" class="headerlink" title="3.3.2 流水线协议/连续ARQ协议"></a>3.3.2 流水线协议/连续ARQ协议</h3><p>允许发送方发送多个“传输中的”还没有被确认的分组。</p>
+<p><strong>Go-Back-N 回退N</strong>：</p>
+<p>发送方连续发送多个分组，如果发送方接收到接收方发回的确认，则继续发送分组；<br>发送方在每发完一个分组后，就启动内部计时器，在设置的超时时间内未收到该分组的确认ACK(或在超时前收到否定确认NAK)，则重发该分组及其后已发送的N个分组；<br>累积确认：接收方只对按序到达的最后一个分组发送确认，如果分组前有间隔，则不确认该分组。<br>缺点：在重传时必须把原来已正确传送过的数据分组进行重传，使传输速率降低。</p>
+<p><strong>选择重传</strong></p>
+<p>当接收方发现某个分组出错（丢失或受损）后，其后继续送来的正确分组收下来，存放在一个缓冲区中，同时要求发送方重新传送出错的那一个分组。一旦收到重新传来的分组后，就可以与原来已存于缓冲区中的其余分组一并按正确的顺序递交给高层。<br>选择重传协议避免不必要的重传。</p>
 
     
   </div>
