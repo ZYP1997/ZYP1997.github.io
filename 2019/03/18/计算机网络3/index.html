@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="空之境界">
 <meta property="og:description" content="第三章 传输层">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T15:50:15.707Z">
+<meta property="og:updated_time" content="2019-03-23T08:11:04.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络 Chapter3">
 <meta name="twitter:description" content="第三章 传输层">
@@ -104,6 +104,10 @@
 <p>发送方连续发送多个分组，如果发送方接收到接收方发回的确认，则继续发送分组；<br>发送方在每发完一个分组后，就启动内部计时器，在设置的超时时间内未收到该分组的确认ACK(或在超时前收到否定确认NAK)，则重发该分组及其后已发送的N个分组；<br>累积确认：接收方只对按序到达的最后一个分组发送确认，如果分组前有间隔，则不确认该分组。<br>缺点：在重传时必须把原来已正确传送过的数据分组进行重传，使传输速率降低。</p>
 <p><strong>选择重传</strong></p>
 <p>当接收方发现某个分组出错（丢失或受损）后，其后继续送来的正确分组收下来，存放在一个缓冲区中，同时要求发送方重新传送出错的那一个分组。一旦收到重新传来的分组后，就可以与原来已存于缓冲区中的其余分组一并按正确的顺序递交给高层。<br>选择重传协议避免不必要的重传。</p>
+<h2 id="3-4-TCP"><a href="#3-4-TCP" class="headerlink" title="3.4 TCP"></a>3.4 TCP</h2><p>点到点；可靠有序；全双工；面向连接；流量控制；拥塞控制；</p>
+<p><strong>TCP可靠传输的具体体现</strong></p>
+<p>TCP连接的每一端都必须设有两个窗口：一个发送窗口一个接收窗口；<br>TCP的可靠传输机制用字节的序号进行控制；<br>TCP两端的四个窗口处于动态变化之中：TCP是全双工协议，双方可以同时发送和接收；</p>
+<p><strong>TCP的连接建立</strong>：三次握手<br><strong>TCP连接释放</strong>：四次挥手</p>
 
     
   </div>
